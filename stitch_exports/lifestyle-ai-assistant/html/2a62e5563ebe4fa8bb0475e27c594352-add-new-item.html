@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Upload Clothing - LifeStyle AI</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#5f5e5e",
+                        "surface-dim": "#111415",
+                        "surface-variant": "#333537",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-container": "#7c7795",
+                        "outline": "#8e9192",
+                        "primary": "#c9c6c5",
+                        "secondary": "#cac6bf",
+                        "background": "#111415",
+                        "surface-container": "#1e2021",
+                        "surface-bright": "#37393b",
+                        "on-secondary": "#31302c",
+                        "primary-container": "#0d0d0d",
+                        "on-primary-container": "#7c7a7a",
+                        "inverse-surface": "#e2e2e4",
+                        "surface-container-high": "#282a2c",
+                        "surface": "#111415",
+                        "surface-container-highest": "#333537",
+                        "tertiary-fixed": "#e5deff",
+                        "tertiary-fixed-dim": "#c9c2e4",
+                        "secondary-fixed-dim": "#cac6bf",
+                        "on-tertiary": "#312d47",
+                        "inverse-on-surface": "#2f3132",
+                        "secondary-container": "#484742",
+                        "on-tertiary-fixed-variant": "#47435f",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#484742",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface-container-low": "#1a1c1d",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#1c1c17",
+                        "on-primary": "#313030",
+                        "outline-variant": "#444748",
+                        "on-surface": "#e2e2e4",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-tint": "#c9c6c5",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0c0e10",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-background": "#e2e2e4",
+                        "tertiary": "#c9c2e4",
+                        "tertiary-container": "#0d0922",
+                        "on-tertiary-fixed": "#1c1831",
+                        "on-secondary-container": "#b8b5ae",
+                        "secondary-fixed": "#e6e2db"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "sm": "12px",
+                        "xl": "64px",
+                        "base": "8px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "lg": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Animations for Scanning Effect */
+        @keyframes scanline {
+            0% { transform: translateY(-100%); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(300px); opacity: 0; }
+        }
+        .animate-scanline {
+            animation: scanline 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px 0px rgba(201, 194, 228, 0.1); }
+            50% { box-shadow: 0 0 30px 5px rgba(201, 194, 228, 0.2); }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* Hide scrollbars for clean UI */
+        ::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface h-screen w-full overflow-hidden flex flex-col relative font-body-md select-none">
+<!-- Camera Viewport Canvas -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-surface-container-lowest bg-cover bg-center object-cover" data-alt="A top-down, high-resolution camera view of a stylish mustard yellow cardigan sweater laid perfectly flat on a neutral, seamless light grey surface. The lighting is crisp, even, and professional, mimicking a high-end e-commerce photography studio setup. The garment is the clear focal point, capturing fine knit textures and button details. The overall composition is minimalist, balanced, and ready for digital processing within a modern wardrobe management app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBF2-GPCPyq31tAmZ-Eq4qZXCQczUwvORIZ3CFi1pwAl7CsgiEurQhXVm9oy56OQ-jmyhswccsj2-Hu6QWLQ9brETgxqSuFZREEuF_oUMtrOlPyiB6FO6iFk2Vu1ExO9fn1Yr3YXQHMHYOEK4d1v0CMyyS2hEkLdMvSGsRJlUzWOs6WW5f0UnWWCrcAd1qoxO-rmt2TbybAu1qQNf64cdGqwzS4IAZr-mqsJ6KDLDL-NTjJf8aTMeHy0ZQ6iUz3feva_80YNud-8NA');">
+</div>
+<!-- Dark overlay to simulate camera exposure adjustment -->
+<div class="absolute inset-0 bg-background/20 mix-blend-multiply"></div>
+</div>
+<!-- Top Action Bar (Task Focused - No standard nav) -->
+<header class="relative z-20 flex justify-between items-center p-md pt-lg w-full">
+<button class="w-12 h-12 rounded-full bg-surface-container/60 backdrop-blur-xl border border-outline-variant/20 flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<div class="px-sm py-xs rounded-full bg-surface-container/60 backdrop-blur-xl border border-outline-variant/20 flex items-center gap-base">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface tracking-widest uppercase">Auto</span>
+</div>
+<button class="w-12 h-12 rounded-full bg-surface-container/60 backdrop-blur-xl border border-outline-variant/20 flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">flash_off</span>
+</button>
+</header>
+<!-- Scanning Reticle & Animation -->
+<main class="relative z-10 flex-1 flex items-center justify-center pointer-events-none">
+<div class="w-72 h-80 relative">
+<!-- Corner Markers -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/50 rounded-tl-lg"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/50 rounded-tr-lg"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/50 rounded-bl-lg"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/50 rounded-br-lg"></div>
+<!-- Animated Scanline -->
+<div class="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-tertiary to-transparent animate-scanline shadow-[0_0_15px_rgba(201,194,228,0.8)]"></div>
+<!-- Center Focus Indicator -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-sm opacity-50">
+<span class="material-symbols-outlined text-primary/80" style="font-variation-settings: 'FILL' 0;">center_focus_weak</span>
+</div>
+</div>
+</main>
+<!-- Bottom Sheet: AI Processing & Preview -->
+<div class="relative z-20 w-full mt-auto">
+<!-- Ambient Glow behind the panel -->
+<div class="absolute inset-x-0 bottom-0 h-40 bg-tertiary/5 blur-3xl rounded-t-[40px] pointer-events-none"></div>
+<div class="bg-surface/70 backdrop-blur-2xl border-t border-outline-variant/20 rounded-t-[32px] p-md pt-lg pb-xl shadow-[0_-8px_32px_rgba(0,0,0,0.3)] animate-pulse-glow">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-outline-variant/40 rounded-full mx-auto mb-lg"></div>
+<div class="flex flex-col gap-lg">
+<!-- Status & Thumbnail Row -->
+<div class="flex items-center gap-md">
+<!-- AI Isolated Thumbnail Preview -->
+<div class="w-20 h-20 rounded-2xl bg-surface-container-lowest/50 border border-outline-variant/30 flex items-center justify-center overflow-hidden relative shadow-inner">
+<!-- Checkerboard pattern for transparency simulation -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 8px 8px;"></div>
+<div class="relative z-10 w-full h-full bg-contain bg-no-repeat bg-center mix-blend-screen scale-90" data-alt="A small, perfectly isolated thumbnail image of a mustard yellow cardigan sweater resting on a fully transparent background. The image is scaled down to fit within a rounded square icon container. The lighting is identical to the main camera feed, but the environment is entirely removed, showcasing the success of an AI background removal process." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqqi0OeSs0e_JVbxy8h7syI9ko0duIMkLaWm2GCNx3s-hCcVOHVH-CAQV4Ih4kiNvrYq88Hb0nr0y6BarvYK2Z1mneaR_BJaZClhfKrP3sw6p_us6E-UzNESUuamVi5XcckvbHSVq94RsB6ooRsRnP1Wy5E_tIFFRVSiyR5KoY3LXMKJaZD_XQNMTq_11kA7hHHJGkO17sDm_Gr10VggyXuA0zHMYem8f5pe210JQQDAcjbxNjcQIyvKQktYr1UKfB2JKaT_BWQ0c');">
+</div>
+</div>
+<!-- Processing Text -->
+<div class="flex flex-col gap-xs flex-1">
+<div class="flex items-center gap-xs text-tertiary">
+<span class="material-symbols-outlined text-[18px] animate-spin" style="font-variation-settings: 'FILL' 0;">progress_activity</span>
+<h3 class="font-headline-md text-[18px] leading-[24px] font-medium tracking-tight">Analyzing garment...</h3>
+</div>
+<p class="font-body-md text-label-md text-on-surface-variant line-clamp-1">Removing background &amp; identifying details</p>
+</div>
+</div>
+<!-- Suggested Categories (Populating) -->
+<div class="flex flex-col gap-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant/80 uppercase tracking-widest">Suggested Metadata</p>
+<div class="flex flex-wrap gap-base">
+<!-- Chips -->
+<span class="px-sm py-xs rounded-lg bg-surface-container-high border border-outline-variant/20 font-label-md text-label-md text-on-surface flex items-center gap-xs opacity-80 transition-opacity duration-500">
+<span class="material-symbols-outlined text-[16px]">apparel</span> Knitwear
+                        </span>
+<span class="px-sm py-xs rounded-lg bg-surface-container-high border border-outline-variant/20 font-label-md text-label-md text-on-surface flex items-center gap-xs opacity-60 transition-opacity duration-700">
+                            Yellow
+                        </span>
+<span class="px-sm py-xs rounded-lg bg-surface-container-high border border-outline-variant/20 font-label-md text-label-md text-on-surface flex items-center gap-xs opacity-40 transition-opacity duration-1000">
+<span class="material-symbols-outlined text-[16px]">device_thermostat</span> Fall
+                        </span>
+<!-- Skeleton Chip for loading effect -->
+<span class="px-md py-xs rounded-lg bg-surface-variant/30 border border-outline-variant/10 w-20 h-7 animate-pulse"></span>
+</div>
+</div>
+<!-- Primary Action (Disabled state while scanning) -->
+<button class="mt-xs w-full bg-primary/20 text-on-surface/50 border border-outline-variant/20 font-label-md text-label-md py-md rounded-xl flex items-center justify-center gap-sm transition-all duration-300 pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">check</span>
+                    Save to Wardrobe
+                </button>
+</div>
+</div>
+</div>
+</body></html>

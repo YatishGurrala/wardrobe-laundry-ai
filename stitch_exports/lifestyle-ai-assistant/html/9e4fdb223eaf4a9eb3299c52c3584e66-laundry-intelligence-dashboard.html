@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #111415;
+      color: #e2e2e4;
+      -webkit-font-smoothing: antialiased;
+    }
+    .glass-card {
+      background: rgba(30, 32, 33, 0.4);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .lavender-glow {
+      background: radial-gradient(circle at top right, rgba(183, 177, 210, 0.08), transparent 60%);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "outline": "#8e9192",
+                  "tertiary-fixed-dim": "#c9c2e4",
+                  "secondary-container": "#484742",
+                  "primary-fixed": "#e5e2e1",
+                  "on-surface": "#e2e2e4",
+                  "on-secondary-fixed": "#1c1c17",
+                  "inverse-surface": "#e2e2e4",
+                  "tertiary-fixed": "#e5deff",
+                  "surface-bright": "#37393b",
+                  "inverse-primary": "#5f5e5e",
+                  "surface-container-lowest": "#0c0e10",
+                  "surface": "#111415",
+                  "surface-dim": "#111415",
+                  "surface-container": "#1e2021",
+                  "on-tertiary-fixed": "#1c1831",
+                  "secondary": "#cac6bf",
+                  "surface-tint": "#c9c6c5",
+                  "surface-container-low": "#1a1c1d",
+                  "on-primary": "#313030",
+                  "tertiary-container": "#0d0922",
+                  "on-tertiary": "#312d47",
+                  "tertiary": "#c9c2e4",
+                  "surface-container-high": "#282a2c",
+                  "inverse-on-surface": "#2f3132",
+                  "primary-container": "#0d0d0d",
+                  "primary-fixed-dim": "#c9c6c5",
+                  "on-secondary-container": "#b8b5ae",
+                  "surface-variant": "#333537",
+                  "surface-container-highest": "#333537",
+                  "on-primary-fixed-variant": "#474646",
+                  "on-primary-fixed": "#1c1b1b",
+                  "background": "#111415",
+                  "on-secondary": "#31302c",
+                  "on-error-container": "#ffdad6",
+                  "secondary-fixed-dim": "#cac6bf",
+                  "on-tertiary-fixed-variant": "#47435f",
+                  "on-tertiary-container": "#7c7795",
+                  "on-background": "#e2e2e4",
+                  "on-secondary-fixed-variant": "#484742",
+                  "on-error": "#690005",
+                  "error-container": "#93000a",
+                  "error": "#ffb4ab",
+                  "secondary-fixed": "#e6e2db",
+                  "on-surface-variant": "#c4c7c7",
+                  "primary": "#c9c6c5",
+                  "outline-variant": "#444748",
+                  "on-primary-container": "#7c7a7a"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "gutter": "24px",
+                  "base": "8px",
+                  "md": "24px",
+                  "xs": "4px",
+                  "sm": "12px",
+                  "xl": "64px",
+                  "lg": "40px",
+                  "container-max": "1200px"
+          },
+          "fontFamily": {
+                  "headline-lg-mobile": ["Inter"],
+                  "headline-lg": ["Inter"],
+                  "label-sm": ["Inter"],
+                  "body-lg": ["Inter"],
+                  "headline-md": ["Inter"],
+                  "label-md": ["Inter"],
+                  "body-md": ["Inter"],
+                  "display-lg": ["Inter"]
+          },
+          "fontSize": {
+                  "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen pb-32">
+<!-- Top Navigation Shell -->
+<header class="w-full top-0 sticky backdrop-blur-xl bg-surface/10 border-b border-white/10 z-40">
+<div class="flex items-center justify-between px-md py-sm w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+<img alt="User" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a young man with a neutral expression, set against a minimalist dark studio background. The lighting is soft and cinematic, highlighting facial features with a premium aesthetic. He wears a high-quality black cashmere sweater, aligning with the quiet luxury and minimalist visual identity of the brand. The overall mood is sophisticated, clean, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKwEF4veJ8kKCvF9m3QZTql7PeDVdVUcmbcFsAeVS11dev3L4ztEGBH0zxF9jM8OUGzpPmFLKWi6fjwg76SFh8woRgNNOofAU2ffQRi3IhCom-vUCg08RfIaC9ML-pj7xlMSM7ovrSqV_GXcprwbYYKBwIyXIc3ckMGkYHpqvqPf4CndbPAzIBWh_28oU4ygkMN51wg1zqZuHTnqo9MpFg0unGZlRmgGxyM_vZJf75BgIklIN419vAXirZGKzrosKakwiKjzheg-Y"/>
+</div>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface">Laundry Intelligence</h1>
+</div>
+<button class="text-on-surface hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-md pt-lg space-y-xl">
+<!-- Status Overview: Horizontal Summary Cards -->
+<section>
+<div class="flex overflow-x-auto gap-md custom-scrollbar pb-sm -mx-4 px-4 md:mx-0 md:px-0">
+<div class="glass-card lavender-glow min-w-[160px] flex-1 p-lg rounded-xl flex flex-col justify-between aspect-[4/5] md:aspect-auto">
+<span class="font-label-md text-on-surface-variant">Clean</span>
+<div class="mt-auto">
+<span class="font-display-lg text-on-surface">42</span>
+<p class="font-label-sm text-on-surface-variant">Items</p>
+</div>
+</div>
+<div class="glass-card min-w-[160px] flex-1 p-lg rounded-xl flex flex-col justify-between aspect-[4/5] md:aspect-auto">
+<span class="font-label-md text-on-surface-variant">Worn</span>
+<div class="mt-auto">
+<span class="font-display-lg text-on-surface">12</span>
+<p class="font-label-sm text-on-surface-variant">Items</p>
+</div>
+</div>
+<div class="glass-card min-w-[160px] flex-1 p-lg rounded-xl flex flex-col justify-between aspect-[4/5] md:aspect-auto relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5"></div>
+<span class="font-label-md text-primary">In Wash</span>
+<div class="mt-auto">
+<span class="font-display-lg text-on-surface">06</span>
+<p class="font-label-sm text-on-surface-variant">Est. 45m</p>
+</div>
+</div>
+<div class="glass-card min-w-[160px] flex-1 p-lg rounded-xl flex flex-col justify-between aspect-[4/5] md:aspect-auto">
+<span class="font-label-md text-on-surface-variant">Drying</span>
+<div class="mt-auto">
+<span class="font-display-lg text-on-surface">03</span>
+<p class="font-label-sm text-on-surface-variant">Ready in 2h</p>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Recommendation Card -->
+<section>
+<div class="glass-card p-sm md:p-md rounded-full flex items-center gap-sm border-primary/20 bg-primary/5">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<p class="font-body-md text-on-surface flex-grow">
+<span class="font-semibold">AI Perspective:</span> Your Merino wool collection is 80% worn. Schedule a delicate wash today.
+        </p>
+<button class="hidden md:flex font-label-md text-primary px-sm hover:underline">Review Items</button>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="sticky top-[72px] bg-background z-30 py-sm">
+<div class="flex items-center gap-sm overflow-x-auto custom-scrollbar">
+<button class="flex items-center gap-xs px-sm py-xs bg-on-surface text-surface rounded-full font-label-md">
+<span>All Items</span>
+</button>
+<button class="flex items-center gap-xs px-sm py-xs glass-card text-on-surface-variant rounded-full font-label-md hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">texture</span>
+<span>Fabric Type</span>
+</button>
+<button class="flex items-center gap-xs px-sm py-xs glass-card text-on-surface-variant rounded-full font-label-md hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">palette</span>
+<span>Color</span>
+</button>
+<button class="flex items-center gap-xs px-sm py-xs glass-card text-on-surface-variant rounded-full font-label-md hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">spa</span>
+<span>Care Level</span>
+</button>
+</div>
+</section>
+<!-- Garment Groups -->
+<div class="space-y-xl">
+<!-- In Wash Section -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-on-surface">Currently in Cycle</h2>
+<span class="material-symbols-outlined text-primary">local_laundry_service</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Item Card 1 -->
+<div class="glass-card p-sm rounded-xl flex gap-md group cursor-pointer hover:border-primary/40 transition-all">
+<div class="w-24 h-24 rounded-lg overflow-hidden bg-surface flex-shrink-0">
+<img alt="White Hoodie" class="w-full h-full object-cover" data-alt="A high-end, premium white cotton hoodie displayed on a minimalist background. The photography is clean and sharp, using soft diffused lighting that emphasizes the heavy fabric texture and quality stitching. The style is that of a luxury fashion e-commerce catalog, maintaining a monochrome and sophisticated aesthetic. The product is perfectly centered and looks pristine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwH153K1GruFWrwkQaLWzPPcQ9RAkf40jUwTDr_IhQps3acjY5X28NNECj2wQm7Ek5z9m2o9-EI6NvfWXTNRODvZ1MWM79e6HwaMtUg_auGx485QuRPxQkDtbv0AXxnklrrAtusK38B4PV3NpVCVCq7O0iadwhBLtwxc5exW27gJ0JuUoXceois0bXSFoI6DnLzy1UldVWZjjcKE6ZxVUIH8HqXZTUpwItksehGG0uNCvA66Rtzim1OtSEdIna3nyis-FzEHdY0pM"/>
+</div>
+<div class="flex-grow flex flex-col justify-between py-xs">
+<div>
+<h3 class="font-label-md text-on-surface">Oversized Cotton Hoodie</h3>
+<p class="font-label-sm text-on-surface-variant">Heavy Cotton • Delicates</p>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>Washing</span>
+<span>75%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[75%]" id="progress-1"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="glass-card p-sm rounded-xl flex gap-md group cursor-pointer hover:border-primary/40 transition-all">
+<div class="w-24 h-24 rounded-lg overflow-hidden bg-surface flex-shrink-0">
+<img alt="Jeans" class="w-full h-full object-cover" data-alt="A pair of dark indigo raw denim jeans folded neatly in a high-fashion, minimalist style. The lighting is moody and directional, casting subtle shadows that highlight the textile's deep blue hues and rugged texture. The image follows a quiet luxury aesthetic with extreme focus on detail, such as the metallic button and selvedge edge, set against a dark, matte surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUJNALobD1d3YA2fVUK4YbCSnJwg_K7nWAoVLWjllcM0gzT72Qomu0iJqHrx76nWp0nqNLC7L5hXxW96LZxsYMwRrLiDeDynkI3uyOlmFJPb1q6nSRlGvuBJeTxVxtEN_6nkpfC3_7LyLbZECx_w1YJA64nxizwBLzu44SS0J5xjl-NpxCEZ_TPbHrY1Y7xavx4zgFLqsmaGyglWHEyq9DHZHsIge4oGsiH7Sfzqv3ClAl8bO-2GBrTWTQF4PDuSUH_ne_6gpH9Xc"/>
+</div>
+<div class="flex-grow flex flex-col justify-between py-xs">
+<div>
+<h3 class="font-label-md text-on-surface">Japanese Raw Denim</h3>
+<p class="font-label-sm text-on-surface-variant">Denim • Standard</p>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>Rinsing</span>
+<span>40%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[40%]" id="progress-2"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dirty / Worn Section -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-on-surface">To Be Cleaned</h2>
+<span class="material-symbols-outlined text-on-surface-variant">checkroom</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md">
+<!-- Item Card Grid -->
+<div class="glass-card rounded-xl overflow-hidden group cursor-pointer border-transparent hover:border-white/20 transition-all">
+<div class="aspect-[3/4] bg-surface relative">
+<img alt="T-shirt" class="w-full h-full object-cover" data-alt="A premium black basic t-shirt draped elegantly on a sculptural mannequin. The photography style is minimalist and high-end, featuring a soft lavender and matte black color palette. Dramatic but soft lighting reveals the high-quality weave of the fabric. The image evokes a sense of quiet luxury and high-tech fashion management." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt7QNuEZshZEvVP0f8hRQ-YHbLbvDTfGzD90VzbM4ZyGUpF_7zCtCXf20g1i-MCcRBfCtkaU7TyvocyBqWp5e96h6dgLj45VPLx80MX4j2X1IBf9Ui7N556GeQc_j_qNLeIc9UU3RS2xaYQxI05hX0wvs648aeL6axTwHyL7GPFGqk0J6BAvkdAIwCilNg-LBMQLGTKhEBfJI7io0VLEMZzWYJ3bZD8jv-4fQPcGx_cA4nMoOT51YYf8XI_Xw772MHOUvHXj18W10"/>
+<div class="absolute top-sm left-sm px-sm py-1 rounded-full glass-card bg-surface/60 backdrop-blur-md">
+<span class="font-label-sm text-on-surface">4th Wear</span>
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-md">
+<button class="w-10 h-10 rounded-full bg-on-surface text-surface flex items-center justify-center">
+<span class="material-symbols-outlined">local_laundry_service</span>
+</button>
+<button class="w-10 h-10 rounded-full glass-card text-white flex items-center justify-center border-white/20">
+<span class="material-symbols-outlined">history</span>
+</button>
+</div>
+</div>
+<div class="p-sm">
+<p class="font-label-md text-on-surface">Essential Black Tee</p>
+<p class="font-label-sm text-on-surface-variant">Supima Cotton</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group cursor-pointer border-transparent hover:border-white/20 transition-all">
+<div class="aspect-[3/4] bg-surface relative">
+<img alt="Shirt" class="w-full h-full object-cover" data-alt="A light blue linen button-down shirt, meticulously pressed and displayed against a dark charcoal background. The visual style is crisp and modern, focusing on the organic texture of the linen. The lighting is cool-toned, with subtle lavender reflections that give the image a high-tech, digital vault feel. The composition is clean and centered." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh51U1ViO9lOxtI18S5yL8_P-QqWPEKCBxprMx10ubA9bMsVewvkOOVj7jPSkewwTsiX87_KA2rNVQglZfIUra48aopWU-DZZjLWDhCtG_cshOGrkT44qYooYveO8VEOwXkPuV6uNdi7nZmv3UDtu1l-rLIvbHeCBFUZ5y3waLKkhThl6JcG1HcUgp4d5tc5Yaehfl2kcitDs-4mp0Ayk87rdJ48_Pes7NksGZLwU2yD2c50bDz8Tu9UnaZrFYjLg_tUWmFQJ0sc4"/>
+<div class="absolute top-sm left-sm px-sm py-1 rounded-full glass-card bg-surface/60 backdrop-blur-md">
+<span class="font-label-sm text-on-surface text-error">Critical Wash</span>
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-md">
+<button class="w-10 h-10 rounded-full bg-on-surface text-surface flex items-center justify-center">
+<span class="material-symbols-outlined">local_laundry_service</span>
+</button>
+</div>
+</div>
+<div class="p-sm">
+<p class="font-label-md text-on-surface">Linen Dress Shirt</p>
+<p class="font-label-sm text-on-surface-variant">Linen • Stained</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group cursor-pointer border-transparent hover:border-white/20 transition-all">
+<div class="aspect-[3/4] bg-surface relative">
+<img alt="Sweater" class="w-full h-full object-cover" data-alt="A neutral-toned beige cashmere sweater, showcasing its soft and luxurious texture under warm, focused lighting. The garment is neatly folded on a dark, reflective glass surface that subtly mirrors the fabric. The image exudes comfort and quiet luxury, using a minimal color palette that emphasizes the high quality of the material. The lighting creates a serene, premium atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANuh1GCn6L3Vi2N-oNaeQh6z8P4_ztoG08pzN2PRPgFNWT07YNgOsXj2EMj8yHwpqzSGw4HNUqOIdaLsTmOXLJU7AdHhxkqC1sOfpJf7cdU_2pNo1HdVwYju3O2MI7QSM_F8rUs4aTwjTKt9LRadsN-AjsweAJuo4bi85Sj3FhHdwLC7dNzyx628ntimJUIU7lyNMVUquic2xohwCJnIG_a7L_4vOcn3hLu8T4TqtENbOTm4V5ZLz0LB34A5jENGnXvYv7b0LIxYM"/>
+<div class="absolute top-sm left-sm px-sm py-1 rounded-full glass-card bg-surface/60 backdrop-blur-md">
+<span class="font-label-sm text-on-surface">2nd Wear</span>
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-md">
+<button class="w-10 h-10 rounded-full bg-on-surface text-surface flex items-center justify-center">
+<span class="material-symbols-outlined">local_laundry_service</span>
+</button>
+</div>
+</div>
+<div class="p-sm">
+<p class="font-label-md text-on-surface">Cashmere Crewneck</p>
+<p class="font-label-sm text-on-surface-variant">Cashmere • Delicate</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group cursor-pointer border-transparent hover:border-white/20 transition-all">
+<div class="aspect-[3/4] bg-surface relative">
+<img alt="Trousers" class="w-full h-full object-cover" data-alt="A pair of dark grey tailored wool trousers, hung on a minimalist metal hanger against a dark matte wall. The lighting is elegant and sharp, highlighting the crisp center creases and the fine wool weave. The image is sophisticated and professional, following a quiet luxury aesthetic that prioritizes form and material quality. The overall mood is orderly and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-V6OnMVvY7juxzL97gsFSIB0wdN_h7vswmazpPEMQ5JOocMBU6l-3YrCXuraa00g1jfvltHB0o_GckdR3sbAd4WWzNvuaYFbx0F98sq1sfaQqy4m2eosIRhC8MvkyP_0To1GalXpsfGIzpSngG_zjrbrOgaYPB48oIHPMPuSZciH6EBP3CwmCJRl4CYkNHvgZrU7ieXD0cppZHnwMzpCqQ4o8nJ3Ijwc3F6u2COHiHncWFp19nS2k0nGRRuVPde-moiJncfTMpbA"/>
+<div class="absolute top-sm left-sm px-sm py-1 rounded-full glass-card bg-surface/60 backdrop-blur-md">
+<span class="font-label-sm text-on-surface">3rd Wear</span>
+</div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-md">
+<button class="w-10 h-10 rounded-full bg-on-surface text-surface flex items-center justify-center">
+<span class="material-symbols-outlined">local_laundry_service</span>
+</button>
+</div>
+</div>
+<div class="p-sm">
+<p class="font-label-md text-on-surface">Wool Tailored Trousers</p>
+<p class="font-label-sm text-on-surface-variant">Virgin Wool</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Navigation Shell (BottomNavBar) -->
+<div class="fixed bottom-0 w-full flex justify-center pb-lg z-50 pointer-events-none">
+<nav class="fixed bottom-base left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-md rounded-full mb-md backdrop-blur-2xl bg-surface-container/40 border border-white/10 shadow-xl flex items-center justify-between px-sm py-2 pointer-events-auto">
+<button class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined">checkroom</span>
+</button>
+<button class="flex items-center justify-center bg-primary text-on-primary rounded-full w-12 h-12 hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_laundry_service</span>
+</button>
+<button class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+<button class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined">person</span>
+</button>
+</nav>
+</div>
+<script>
+    // Micro-interaction: Smooth progress simulation
+    document.addEventListener('DOMContentLoaded', () => {
+      const progress1 = document.getElementById('progress-1');
+      const progress2 = document.getElementById('progress-2');
+      
+      setInterval(() => {
+        if (progress1) {
+          let current = parseFloat(progress1.style.width) || 75;
+          if (current < 100) progress1.style.width = (current + 0.05) + '%';
+        }
+        if (progress2) {
+          let current = parseFloat(progress2.style.width) || 40;
+          if (current < 100) progress2.style.width = (current + 0.03) + '%';
+        }
+      }, 1000);
+
+      // Atmospheric effect: Subtle light leak tracking
+      document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        document.body.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(183, 177, 210, 0.03) 0%, #111415 50%)`;
+      });
+    });
+  </script>
+</body></html>

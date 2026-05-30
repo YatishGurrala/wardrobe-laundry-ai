@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Garment Detail | LifeStyle AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#cac6bf",
+                        "outline-variant": "#444748",
+                        "on-background": "#e2e2e4",
+                        "tertiary-fixed": "#e5deff",
+                        "on-secondary-fixed-variant": "#484742",
+                        "on-primary": "#313030",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cac6bf",
+                        "inverse-primary": "#5f5e5e",
+                        "surface-variant": "#333537",
+                        "inverse-on-surface": "#2f3132",
+                        "surface-container": "#1e2021",
+                        "primary-container": "#0d0d0d",
+                        "on-secondary-container": "#b8b5ae",
+                        "on-surface": "#e2e2e4",
+                        "on-tertiary-fixed": "#1c1831",
+                        "on-tertiary-container": "#7c7795",
+                        "surface-container-low": "#1a1c1d",
+                        "surface-container-lowest": "#0c0e10",
+                        "surface-tint": "#c9c6c5",
+                        "surface-bright": "#37393b",
+                        "surface": "#111415",
+                        "on-tertiary-fixed-variant": "#47435f",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-secondary": "#31302c",
+                        "on-error": "#690005",
+                        "surface-dim": "#111415",
+                        "inverse-surface": "#e2e2e4",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-highest": "#333537",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#e5e2e1",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-primary-container": "#7c7a7a",
+                        "tertiary-container": "#0d0922",
+                        "secondary-fixed": "#e6e2db",
+                        "primary": "#c9c6c5",
+                        "on-tertiary": "#312d47",
+                        "outline": "#8e9192",
+                        "error-container": "#93000a",
+                        "tertiary": "#c9c2e4",
+                        "surface-container-high": "#282a2c",
+                        "tertiary-fixed-dim": "#c9c2e4",
+                        "background": "#111415",
+                        "on-primary-fixed-variant": "#474646",
+                        "secondary-container": "#484742",
+                        "on-secondary-fixed": "#1c1c17"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "xl": "64px",
+                        "lg": "40px",
+                        "container-max": "1200px",
+                        "md": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ai-glow {
+            box-shadow: 0 0 40px rgba(183, 177, 210, 0.05);
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-primary-container text-on-surface font-body-md selection:bg-tertiary selection:text-on-tertiary">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full backdrop-blur-xl bg-surface/10 z-50 flex justify-between items-center px-gutter py-sm w-full transition-all">
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined text-headline-md">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile font-semibold text-on-surface tracking-tight">Garment Detail</h1>
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined text-headline-md">more_vert</span>
+</button>
+</header>
+<main class="pt-20 pb-32 max-w-container-max mx-auto px-gutter">
+<!-- Hero Section -->
+<section class="mb-lg">
+<div class="relative w-full aspect-[4/5] md:aspect-[16/9] rounded-xl overflow-hidden group">
+<img alt="Overcoat No. 04" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic, high-fidelity close-up of a premium charcoal wool overcoat with intricate fabric texture detail. The garment is displayed in a minimalist, dimly lit studio with soft ambient lavender light-leaks highlighting the sharp tailoring. The background is a deep matte black, emphasizing a luxury fashion editorial aesthetic with high contrast and pristine clarity. Professional studio lighting creates subtle shadows that define the silhouette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8DZ0p9RUkshULPYqeEB3kdBvqc5AyGKUhDzFOcZFQrLmnIzT68cQA6ldP4GEsH-mocOBtSMC33LdnS1d326zxkCALjsncSI-bU6omkWCOhCIv6d5xJCogOJMFaqWGZacs3_utxvTWliPUku_srfHbyMe0YAmsxHlYEcKxKo412KbkFZJ016UYNufEskBAwjV_5V9wDNin35kKwe_8LnbN7zyYEHmmv6HrxWZmEPUXa72KRJNN0o0n34U8y4kt71nauxrd9A909F8"/>
+<div class="absolute bottom-0 left-0 w-full p-lg bg-gradient-to-t from-primary-container to-transparent">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary opacity-60">Handmade Edition</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-display-lg text-on-surface mt-xs">Overcoat No. 04</h2>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Column Left: Status & Analytics -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Garment Status -->
+<div class="glass-panel p-lg rounded-xl ai-glow">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-label-sm text-label-sm text-primary uppercase">Garment Status</h3>
+<span class="flex h-2 w-2 rounded-full bg-[#4ade80] shadow-[0_0_8px_#4ade80]"></span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-end">
+<p class="font-body-md text-on-surface-variant">Laundry Status</p>
+<p class="font-headline-md text-headline-md text-on-surface">Ready</p>
+</div>
+<div class="h-px bg-white/5"></div>
+<div class="flex justify-between items-end">
+<p class="font-body-md text-on-surface-variant">Last Worn</p>
+<p class="font-body-lg text-body-lg text-on-surface">3 days ago</p>
+</div>
+<div class="flex justify-between items-end">
+<p class="font-body-md text-on-surface-variant">Total Wears</p>
+<p class="font-body-lg text-body-lg text-on-surface">12</p>
+</div>
+</div>
+</div>
+<!-- Usage Analytics -->
+<div class="glass-panel p-lg rounded-xl">
+<h3 class="font-label-sm text-label-sm text-primary uppercase mb-lg">Usage Analytics</h3>
+<div class="flex items-center gap-lg">
+<div class="relative w-24 h-24">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle class="text-white/5" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="283" stroke-dashoffset="14" stroke-width="2"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<p class="font-label-md text-label-md">95%</p>
+</div>
+</div>
+<div class="flex-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Wardrobe Utilization</p>
+<p class="font-headline-md text-headline-md text-on-surface">Top 5%</p>
+<p class="font-label-sm text-label-sm text-primary mt-xs">Highly Efficient</p>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-white/5">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Cost per Wear</p>
+<p class="font-display-lg text-headline-lg text-on-surface">$38.50</p>
+</div>
+</div>
+</div>
+<!-- Column Right: History & AI -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Wear History -->
+<div class="glass-panel p-lg rounded-xl">
+<h3 class="font-label-sm text-label-sm text-primary uppercase mb-lg">Wear History</h3>
+<div class="space-y-md">
+<div class="flex items-start gap-md group">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">event</span>
+</div>
+<div class="flex-1 border-b border-white/5 pb-md">
+<div class="flex justify-between items-center">
+<h4 class="font-body-lg text-on-surface">Gala Dinner</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Oct 24</span>
+</div>
+<div class="flex gap-xs mt-xs">
+<span class="px-sm py-1 bg-white/5 rounded-full text-[10px] uppercase tracking-wider">Formal</span>
+<span class="px-sm py-1 bg-white/5 rounded-full text-[10px] uppercase tracking-wider">Evening</span>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-md group">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">work</span>
+</div>
+<div class="flex-1 pb-sm">
+<div class="flex justify-between items-center">
+<h4 class="font-body-lg text-on-surface">Business Meeting</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Oct 21</span>
+</div>
+<div class="flex gap-xs mt-xs">
+<span class="px-sm py-1 bg-white/5 rounded-full text-[10px] uppercase tracking-wider">Corporate</span>
+<span class="px-sm py-1 bg-white/5 rounded-full text-[10px] uppercase tracking-wider">Day</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Outfit Pairings -->
+<div class="glass-panel p-lg rounded-xl">
+<h3 class="font-label-sm text-label-sm text-tertiary uppercase mb-lg">Style with...</h3>
+<div class="flex gap-lg overflow-x-auto pb-sm snap-x">
+<div class="flex-none w-24 space-y-sm snap-center group">
+<div class="w-24 h-24 rounded-full overflow-hidden border border-white/10 group-hover:border-tertiary transition-colors">
+<img alt="Turtleneck" class="w-full h-full object-cover" data-alt="A luxurious cream cashmere turtleneck sweater captured in soft studio lighting against a dark minimalist backdrop. The fabric is thick and soft, reflecting a high-end luxury lifestyle. The lighting is warm and diffused, emphasizing the premium quality of the material and the serene, elegant atmosphere of the LifeStyle AI app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKSTAQydIazKWwdzyTsQ1qBLNMLQIXCOlToluwtUZR4XHytBmu40Pf8EmbaYrzT1A6j0J_mJOVtK4yO_gffAkwiQAD_JSMwiWgv5OmdFeNDG1sVKbAkk-8e9EuHrX1UVjo06_oUMrc9Xzvjr5jkUimKHLg2YpjOE9VxlaAmOLPKiuNyR-ip80P6PwC2Y4vYzmB3O88T2Itu1Mwx0uC7_Io2EozfYl1LBNSiSoQ_Ct-8DAifSnlezTS6OHWtjf1MXgeX5l8N2tulNQ"/>
+</div>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant">Cashmere</p>
+</div>
+<div class="flex-none w-24 space-y-sm snap-center group">
+<div class="w-24 h-24 rounded-full overflow-hidden border border-white/10 group-hover:border-tertiary transition-colors">
+<img alt="Trousers" class="w-full h-full object-cover" data-alt="Close-up of black tailored wool trousers with a sharp crease, presented in a minimalist fashion studio with cool, cinematic lighting. The setting is modern and professional, utilizing deep blacks and subtle highlights to showcase the garment's structure. The overall mood is sophisticated, fitting the quiet intelligence brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASv9RVHXPnt9pNXie08mzC1WcBOy8LOCgnkmP_0Ikrblu9on8hBTZjVzft5UaIiDO0iX1u1fSTkiC0rhMBbTS05U_8x3q5n0truMEfvR5j0ktEOLlWa0AYygFLlmu80iMvRzNF7SojHvQbJI1diCmGwGdhive4vkX-5O2PDesWUMraFAqhvG9FIdVZHj-QJHZeIwkMKkBpe1ekqv_iK_On8xG8T-4AKmPnespxCv9l02qmB2i3qWgOvQ2ooWU2Z5Sv7C7L-KiEr_M"/>
+</div>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant">Tailored</p>
+</div>
+<div class="flex-none w-24 space-y-sm snap-center group">
+<div class="w-24 h-24 rounded-full overflow-hidden border border-white/10 group-hover:border-tertiary transition-colors">
+<img alt="Boots" class="w-full h-full object-cover" data-alt="Premium black leather Chelsea boots with a polished finish, displayed on a reflective dark surface under a singular spotlight. The lighting creates a high-contrast, dramatic look that feels luxurious and artisanal. The palette is dominated by deep blacks and cool whites, aligning with the premium curation of the lifestyle manager UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTX9ygIzTW5dpkIM9NOjDMv2NTg_KK0sjAaaG46ItcSyFJ-9_I4AT0jtVcqTgcDqpOgpI2CA06F6FPKot5-jU7lbEGE7kssXu756d9VOvk3H3coHs4TSlHalbLiURhieZQyq3rX5hBJ4fQGIqsjnCkN5kfi967_3cqagPB3Jf3uxX7uVdpcXPzArMGLD7mCNdFVDRSpHX8uKJ99EdjJ16xeQVEnppO2W1jgh28Kw5KygtwH6pCqY3GIiVdfg9bR8cLysArLdiTEaU"/>
+</div>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant">Chelsea</p>
+</div>
+<div class="flex-none w-24 space-y-sm snap-center group flex flex-col items-center justify-center">
+<div class="w-24 h-24 rounded-full bg-tertiary/10 border border-tertiary/20 flex items-center justify-center group-hover:bg-tertiary/20 transition-all">
+<span class="material-symbols-outlined text-tertiary">add</span>
+</div>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant">Explore</p>
+</div>
+</div>
+</div>
+<!-- AI Recommendations -->
+<div class="bg-tertiary-container/30 border border-tertiary/20 p-lg rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="flex items-start gap-md relative z-10">
+<div class="w-10 h-10 rounded-full bg-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-tertiary text-body-md" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="space-y-md">
+<h3 class="font-headline-md text-headline-md text-tertiary">AI Perspective</h3>
+<ul class="space-y-sm">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-tertiary text-body-md mt-1">check_circle</span>
+<p class="font-body-md text-on-tertiary-fixed">Pair with silver accessories for a cooler undertone to match your upcoming evening calendar.</p>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-tertiary text-body-md mt-1">info</span>
+<p class="font-body-md text-on-tertiary-fixed">Fabric health is optimal. Next professional wash recommended in 2 wears based on historical usage.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Actions -->
+<div class="fixed bottom-0 left-0 w-full z-50 p-gutter bg-gradient-to-t from-primary-container via-primary-container/90 to-transparent">
+<div class="max-w-container-max mx-auto flex gap-md">
+<button class="flex-1 py-md glass-panel rounded-lg font-label-md text-label-md text-on-surface hover:bg-white/10 transition-all active:scale-95">
+                Edit Details
+            </button>
+<button class="flex-1 py-md bg-white text-primary-container rounded-lg font-label-md text-label-md font-bold hover:opacity-90 transition-all active:scale-95">
+                Add to Lookbook
+            </button>
+</div>
+</div>
+<!-- Bottom Nav Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-md py-sm pb-8 backdrop-blur-md bg-surface-container/30 border-t border-white/10 md:hidden">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined">dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined">person</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for scroll effects on header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-surface/80', 'py-xs');
+                header.classList.remove('bg-surface/10', 'py-sm');
+            } else {
+                header.classList.add('bg-surface/10', 'py-sm');
+                header.classList.remove('bg-surface/80', 'py-xs');
+            }
+        });
+    </script>
+</body></html>

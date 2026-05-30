@@ -1,0 +1,319 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Wardrobe Intelligence - LifeStyle AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#444748",
+                      "on-background": "#e2e2e4",
+                      "inverse-primary": "#5f5e5e",
+                      "on-tertiary-fixed": "#1c1831",
+                      "on-surface": "#e2e2e4",
+                      "tertiary": "#c9c2e4",
+                      "secondary": "#cac6bf",
+                      "on-secondary-container": "#b8b5ae",
+                      "primary": "#c9c6c5",
+                      "on-secondary": "#31302c",
+                      "inverse-on-surface": "#2f3132",
+                      "tertiary-fixed-dim": "#c9c2e4",
+                      "surface-container-highest": "#333537",
+                      "surface-container": "#1e2021",
+                      "on-primary-container": "#7c7a7a",
+                      "surface-container-lowest": "#0c0e10",
+                      "primary-container": "#0d0d0d",
+                      "on-primary-fixed-variant": "#474646",
+                      "secondary-fixed-dim": "#cac6bf",
+                      "tertiary-fixed": "#e5deff",
+                      "secondary-container": "#484742",
+                      "primary-fixed": "#e5e2e1",
+                      "on-tertiary-container": "#7c7795",
+                      "surface-container-high": "#282a2c",
+                      "on-primary-fixed": "#1c1b1b",
+                      "surface": "#111415",
+                      "error": "#ffb4ab",
+                      "surface-variant": "#333537",
+                      "on-secondary-fixed": "#1c1c17",
+                      "on-tertiary": "#312d47",
+                      "on-error": "#690005",
+                      "inverse-surface": "#e2e2e4",
+                      "tertiary-container": "#0d0922",
+                      "surface-bright": "#37393b",
+                      "on-surface-variant": "#c4c7c7",
+                      "on-tertiary-fixed-variant": "#47435f",
+                      "surface-container-low": "#1a1c1d",
+                      "on-primary": "#313030",
+                      "secondary-fixed": "#e6e2db",
+                      "primary-fixed-dim": "#c9c6c5",
+                      "background": "#111415",
+                      "surface-tint": "#c9c6c5",
+                      "on-secondary-fixed-variant": "#484742",
+                      "error-container": "#93000a",
+                      "on-error-container": "#ffdad6",
+                      "outline": "#8e9192",
+                      "surface-dim": "#111415"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "64px",
+                      "base": "8px",
+                      "lg": "40px",
+                      "container-max": "1200px",
+                      "sm": "12px",
+                      "md": "24px",
+                      "gutter": "24px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0D0D0D; /* Base Matte Black */
+        }
+        .glass-panel {
+            background: rgba(30, 32, 33, 0.4); /* surface-container */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-raised {
+            background: rgba(30, 32, 33, 0.6);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(183, 177, 210, 0.05); /* Soft Lavender glow */
+        }
+        
+        /* Custom Scrollbar for horizontal scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen flex flex-col md:flex-row pb-24 md:pb-0">
+<!-- TopAppBar (Mobile & Web) -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl dark:bg-surface/60 border-b border-white/10 shadow-sm md:hidden">
+<div class="flex justify-between items-center px-gutter h-16 w-full">
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile tracking-tighter text-on-surface dark:text-on-surface-variant">LifeStyle AI</h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex h-full w-80 rounded-r-xl border-r border-outline-variant/20 shadow-2xl bg-surface dark:bg-surface-dim flex-col p-md gap-base fixed left-0 top-0 bottom-0 z-40">
+<div class="mb-lg px-sm pt-sm flex items-center gap-sm">
+<img alt="User profile" class="w-12 h-12 rounded-full object-cover" data-alt="A close-up, high-fashion portrait of a young professional in a minimalist setting. Soft, cinematic studio lighting highlights facial features against a dark, moody background. The aesthetic is clean, modern, and perfectly matches a premium dark-mode lifestyle application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATmsF61JUwZzFj0xhQza9mS9Od6bfN4bwDJbpIxD_pULpRZlcl1lAohwFkPXPVJ5c0XWjqWQlaaF_Heau7qoy5g7Js5o4bOMqYwdmnh_f9zdWv7Ebhn1d7RNISuqr2_BA595G3hzw6at6mukggkr6KvOGW1DmKoi9HaRqNEFyL80oWxCGsCKmPiXrLKKcA7y9zGpMXU5N-OadrgjsY7JZXfGZSV7G8QDNVw8mntA7W7ODInqmUad56HvUTzg-fx8Vv0Yyd1OJtufA">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Alex Rivers</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Premium Member</p>
+</div>
+</div>
+<div class="flex flex-col gap-xs mt-md">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-all active:translate-x-1 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="magic_button">magic_button</span>
+<span class="font-body-md text-body-md">Personal Stylist</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-all active:translate-x-1 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-body-md text-body-md">Smart Calendar</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container rounded-lg active:translate-x-1 transition-transform" href="{{DATA:SCREEN:SCREEN_44}}">
+<span class="material-symbols-outlined" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-body-md text-body-md font-medium">Wardrobe Intelligence</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-all active:translate-x-1 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="auto_graph">auto_graph</span>
+<span class="font-body-md text-body-md">Habit Tracker</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-all active:translate-x-1 transition-transform rounded-lg mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-[container-max] mx-auto pt-24 px-gutter md:pl-[360px] md:pr-gutter pb-lg">
+<!-- Header -->
+<header class="mb-lg">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-xs">Wardrobe Intelligence</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your style decoded. A cinematic look at your sartorial choices.</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md auto-rows-[minmax(180px,_auto)]">
+<!-- Hero Metric: Wardrobe Efficiency -->
+<div class="md:col-span-8 glass-panel rounded-xl p-lg flex flex-col md:flex-row items-center gap-lg relative overflow-hidden">
+<!-- Subtle Gradient Background -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/10 rounded-full blur-[80px] -z-10"></div>
+<div class="flex-1 z-10">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Efficiency Score</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Your wardrobe is highly curated. You wear 82% of your owned items regularly, minimizing dead weight.</p>
+<div class="flex items-center gap-sm">
+<span class="px-sm py-xs rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm">Top 15% of users</span>
+</div>
+</div>
+<div class="relative w-48 h-48 flex-shrink-0 z-10 flex items-center justify-center">
+<!-- Circular Progress -->
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="rgba(255,255,255,0.1)" stroke-width="2"></circle>
+<circle class="transition-all duration-1000 ease-out" cx="50" cy="50" fill="none" r="45" stroke="#c9c6c5" stroke-dasharray="283" stroke-dashoffset="50" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-display-lg text-display-lg text-primary">82</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">%</span>
+</div>
+</div>
+</div>
+<!-- Capsule Score -->
+<div class="md:col-span-4 glass-panel rounded-xl p-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute bottom-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[40px] -z-10"></div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs">Capsule Rating</h3>
+<div class="font-headline-lg text-headline-lg text-on-surface mb-sm">A-</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Excellent interconnectivity. Most items pair with at least 4 others.</p>
+</div>
+<!-- Dominant Palette -->
+<div class="md:col-span-4 glass-panel rounded-xl p-md flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Dominant Palette</h3>
+<div class="flex-1 flex flex-col gap-sm">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-[#2D2D2D] border border-white/10 shadow-inner"></div>
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface">Charcoal</div>
+<div class="font-body-md text-body-md text-on-surface-variant">42% of outfits</div>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-[#EAE8E3] border border-white/10 shadow-inner"></div>
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface">Cream</div>
+<div class="font-body-md text-body-md text-on-surface-variant">28% of outfits</div>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-[#555C4A] border border-white/10 shadow-inner"></div>
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface">Olive</div>
+<div class="font-body-md text-body-md text-on-surface-variant">15% of outfits</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Style Evolution Timeline -->
+<div class="md:col-span-8 glass-panel rounded-xl p-md flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Style Evolution</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Your aesthetic shift over the last 12 months.</p>
+<div class="flex-1 flex overflow-x-auto hide-scrollbar gap-md pb-xs">
+<div class="min-w-[200px] flex flex-col gap-sm">
+<img alt="Winter Style" class="w-full h-32 object-cover rounded-lg grayscale opacity-70" data-alt="A high-fashion editorial shot of a minimal winter outfit. A tailored dark wool coat over a simple turtleneck. Cinematic moody lighting, muted colors, dark aesthetic, clean and structured composition perfectly fitting a premium lifestyle app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiMuHW0yV8QIMdmmpbvUP0hLU4J9j7TQf8-l7ePwUCDwDqNU060fg0uE6irdUQ3a1-OsyLiK3YzMgMs9BRChLQfOkLhi3_ycd57eZ6yHtVpRjnWU2Lq-JeR1Ca7bXd1ZPaa8FbiiG2iMfWx4Qz-JYuOu_ROLLp2kS9xjWlBaraNUyYucXliP5l47WAku7WQtga1f82dUAd8WKnj0OvG5EpHP5uQgJUbfyd053rLy57lGeyjOc7aPGVCb_R_DspnMNxUq23Dl827ns">
+<div>
+<div class="font-label-md text-label-md text-on-surface">Q1 - Structured Minimal</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Heavy coats, dark tones</div>
+</div>
+</div>
+<div class="min-w-[200px] flex flex-col gap-sm">
+<img alt="Spring Style" class="w-full h-32 object-cover rounded-lg grayscale opacity-80" data-alt="A modern editorial photograph of an effortlessly chic spring outfit. Soft, draped fabrics in neutral tones. Shot with cinematic, moody lighting against a dark background, emphasizing texture and form for a high-end fashion tech interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPpHAf3MXLcWC653mpo6g7MlyxBuSK4LVAVXEzEOKZ2gJoEQ_B5IBr3Ppfds7JfwHrtlTEshiZV1Jss2ztVG6U9gb-F785EQuC2Liv9CgEtBuVd6zrfw9-tWsWVG_CRGR8WCLA9Pag42-CDzGehBSwPlsPpGG7-jFNVmAu1YI7U6l65qWYF-1gsEE6xlD6HrUS91AVMLWarmbN0e6wNLmRm_zX1neZsO4H1Xrg__-CneW-4ScO1hDroimZCwGuyzFqTkTcV9ER01o">
+<div>
+<div class="font-label-md text-label-md text-on-surface">Q2 - Relaxed Neutral</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Linen, lighter layers</div>
+</div>
+</div>
+<div class="min-w-[200px] flex flex-col gap-sm">
+<img alt="Current Style" class="w-full h-32 object-cover rounded-lg border border-primary/30" data-alt="A striking, contemporary fashion portrait showing a sleek, modern outfit with sharp silhouettes. Deep blacks and subtle olive accents. High contrast, premium studio lighting, conveying a sophisticated and curated personal style for a dark-mode app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD91ZmEroFf4nr7qQIyij4JBtrb0JS1jM6lveKW4CzhLH672lP_0nzjKTg8j_2C9RX8dcCyJ3FbmT4J5PHcyb2Eduvn9Fo9RqhddCNCQ11_ECyL41IMYdU-HUml9jGXyYGqz6U4gathESZwySxU5zv17xBXDl_2aWwMdgyFTKPsiRqEGbS9PqE5YQjlvWXn5oi0rC-G_w-yXl4OMgns2RjfxfkSAMbiU3v6CcFrFrGHDuYFQryY69JZnNxTcKT2xhfE_MndEtTQZp8">
+<div>
+<div class="font-label-md text-label-md text-primary">Current - Utilitarian</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Functional, technical fabrics</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Recommendation -->
+<div class="md:col-span-12 glass-raised rounded-xl p-lg flex flex-col md:flex-row items-center gap-lg">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="magic_button">magic_button</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">AI Stylist Insight</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Based on your recent patterns and upcoming climate, a structured wool overcoat in Navy would complete your winter rotation and bridge the gap between your utilitarian and minimal phases.</p>
+</div>
+<button class="px-md py-sm bg-on-surface text-surface rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity whitespace-nowrap">
+                     Explore Options
+                 </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/40 backdrop-blur-2xl dark:bg-surface-container-low/40 border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.1)] md:hidden">
+<div class="flex justify-around items-center h-20 pb-safe w-full px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="{{DATA:SCREEN:SCREEN_33}}">
+<span class="material-symbols-outlined" data-icon="home_app_fill">home_filled</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="{{DATA:SCREEN:SCREEN_44}}">
+<span class="material-symbols-outlined" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-sm text-label-sm mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="{{DATA:SCREEN:SCREEN_40}}">
+<span class="material-symbols-outlined text-3xl" data-icon="add_circle">add_circle</span>
+<span class="font-label-sm text-label-sm mt-1">Add</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="{{DATA:SCREEN:SCREEN_46}}">
+<span class="material-symbols-outlined" data-icon="checkroom">checkroom</span>
+<span class="font-label-sm text-label-sm mt-1">Wardrobe</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="{{DATA:SCREEN:SCREEN_37}}">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</div>
+</nav>
+
+
+</body></html>

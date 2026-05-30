@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Clothing Item - LifeStyle AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#333537",
+                    "primary": "#c9c6c5",
+                    "error-container": "#93000a",
+                    "primary-container": "#0d0d0d",
+                    "inverse-on-surface": "#2f3132",
+                    "inverse-surface": "#e2e2e4",
+                    "tertiary-fixed-dim": "#c9c2e4",
+                    "secondary-fixed": "#e6e2db",
+                    "surface-bright": "#37393b",
+                    "on-tertiary": "#312d47",
+                    "surface-dim": "#111415",
+                    "surface": "#111415",
+                    "on-tertiary-container": "#7c7795",
+                    "on-tertiary-fixed-variant": "#47435f",
+                    "on-error": "#690005",
+                    "on-secondary": "#31302c",
+                    "error": "#ffb4ab",
+                    "secondary-container": "#484742",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-tertiary-fixed": "#1c1831",
+                    "surface-container-high": "#282a2c",
+                    "on-primary-container": "#7c7a7a",
+                    "on-secondary-fixed-variant": "#484742",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-secondary-container": "#b8b5ae",
+                    "surface-container-low": "#1a1c1d",
+                    "on-secondary-fixed": "#1c1c17",
+                    "inverse-primary": "#5f5e5e",
+                    "background": "#111415",
+                    "primary-fixed": "#e5e2e1",
+                    "tertiary-fixed": "#e5deff",
+                    "outline": "#8e9192",
+                    "secondary-fixed-dim": "#cac6bf",
+                    "outline-variant": "#444748",
+                    "on-surface-variant": "#c4c7c7",
+                    "tertiary": "#c9c2e4",
+                    "on-background": "#e2e2e4",
+                    "tertiary-container": "#0d0922",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "surface-tint": "#c9c6c5",
+                    "surface-container": "#1e2021",
+                    "secondary": "#cac6bf",
+                    "surface-container-lowest": "#0c0e10",
+                    "on-primary": "#313030",
+                    "on-surface": "#e2e2e4",
+                    "surface-variant": "#333537",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "gutter": "24px",
+                    "lg": "40px",
+                    "container-max": "1200px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "xl": "64px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0D0D0D;
+            color: #e2e2e4;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .lavender-glow {
+            box-shadow: 0 0 40px rgba(183, 177, 210, 0.08);
+        }
+        .scan-animation {
+            position: relative;
+            overflow: hidden;
+        }
+        .scan-animation::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(183, 177, 210, 0.15), transparent);
+            animation: scan 3s infinite linear;
+        }
+        @keyframes scan {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col items-center justify-center p-md">
+<!-- Top Navigation Context -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 bg-surface/80 backdrop-blur-xl border-b border-white/5">
+<button aria-label="Close flow" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors active:scale-90">
+<span class="material-symbols-outlined text-on-surface">close</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant opacity-60">Step 1 of 6</span>
+<div class="flex gap-1 mt-1">
+<div class="h-1 w-6 rounded-full bg-tertiary"></div>
+<div class="h-1 w-6 rounded-full bg-white/10"></div>
+<div class="h-1 w-6 rounded-full bg-white/10"></div>
+<div class="h-1 w-6 rounded-full bg-white/10"></div>
+<div class="h-1 w-6 rounded-full bg-white/10"></div>
+<div class="h-1 w-6 rounded-full bg-white/10"></div>
+</div>
+</div>
+<div class="w-10"></div> <!-- Spacer for symmetry -->
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-container-max flex flex-col items-center justify-center mt-16 mb-xl">
+<div class="text-center mb-lg space-y-2">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-semibold">Capture your garment's essence</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto opacity-70">Point your camera at a single item in natural light for the best AI categorization.</p>
+</div>
+<!-- Glassmorphic Upload Zone -->
+<div class="relative group w-full max-w-lg aspect-[4/5] md:aspect-square">
+<!-- Decorative Light Leak Background -->
+<div class="absolute -inset-10 bg-tertiary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<label class="relative cursor-pointer flex flex-col items-center justify-center w-full h-full glass-panel rounded-[2rem] lavender-glow overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:border-white/20 scan-animation" for="file-upload">
+<input accept="image/*" capture="environment" class="hidden" id="file-upload" type="file"/>
+<div class="flex flex-col items-center gap-6 p-lg text-center">
+<!-- Icon Container -->
+<div class="w-24 h-24 rounded-full bg-tertiary/10 flex items-center justify-center border border-tertiary/20 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[48px] text-tertiary" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</div>
+<div class="space-y-1">
+<p class="font-headline-md text-headline-md text-on-surface">Tap to scan</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Live AI analysis enabled</p>
+</div>
+</div>
+<!-- Corner Brackets -->
+<div class="absolute top-8 left-8 w-8 h-8 border-t-2 border-l-2 border-tertiary/30"></div>
+<div class="absolute top-8 right-8 w-8 h-8 border-t-2 border-r-2 border-tertiary/30"></div>
+<div class="absolute bottom-8 left-8 w-8 h-8 border-b-2 border-l-2 border-tertiary/30"></div>
+<div class="absolute bottom-8 right-8 w-8 h-8 border-b-2 border-r-2 border-tertiary/30"></div>
+</label>
+</div>
+<!-- Secondary Actions -->
+<div class="mt-lg flex flex-col gap-4 w-full max-w-xs">
+<button class="w-full py-4 px-8 bg-on-surface text-surface font-label-md text-label-md rounded-full font-semibold hover:opacity-90 active:scale-95 transition-all shadow-xl">
+                Open Camera
+            </button>
+<button class="w-full py-4 px-8 glass-panel text-on-surface font-label-md text-label-md rounded-full font-medium hover:bg-white/10 active:scale-95 transition-all">
+                Choose from Library
+            </button>
+</div>
+</main>
+<!-- Visual Hint / Background element -->
+<div class="fixed bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-background to-transparent pointer-events-none"></div>
+<!-- Hidden Image References for Context (as per instructions) -->
+<div class="hidden">
+<img data-alt="A cinematic, high-end photograph of a minimalist matte black walk-in closet. Soft, ethereal lavender light leaks from the corners, illuminating a single designer silk shirt hanging elegantly. The atmosphere is quiet, intelligent, and premium, reflecting a sophisticated dark-mode lifestyle aesthetic with deep shadows and clean, architectural lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVngqQYkN7bYCwlbCDrggbSlobhWMBu-SxDFkDufWFLhhy2mPRMtqq3QE6f_hxEF9IncQo_9Iq-34W_i_bvPiyLxTz6Oqmgj6-0ZWYTtxGUEqTYL05R2EHP_OdgtFykDwffxHX2aYQMQz7EiZbH6GQJthZEoc3pSHbAF3DjBX7UpXAwmpAZmVrM5EhZhLeFcVglQJqcPQO4bYI74OmrMZGvmuo6L5VBjrKFtvcZhAz-Wimii3z5sevmjkLYSepZt7y1Yn93YKXSDM"/>
+</div>
+<script>
+        // Simple micro-interaction for the upload zone
+        const uploadZone = document.querySelector('label');
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('scale-[1.03]', 'border-tertiary/50');
+        });
+        
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('scale-[1.03]', 'border-tertiary/50');
+        });
+
+        // Animation for the "Capture" text on hover
+        uploadZone.addEventListener('mouseenter', () => {
+            document.querySelector('.material-symbols-outlined').style.fontVariationSettings = "'FILL' 1, 'wght' 500";
+        });
+
+        uploadZone.addEventListener('mouseleave', () => {
+            document.querySelector('.material-symbols-outlined').style.fontVariationSettings = "'FILL' 0, 'wght' 300";
+        });
+    </script>
+</body></html>

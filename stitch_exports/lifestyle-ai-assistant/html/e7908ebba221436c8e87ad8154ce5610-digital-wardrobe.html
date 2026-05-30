@@ -1,0 +1,282 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>LifeStyle AI - Digital Wardrobe</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#5f5e5e",
+                        "surface-dim": "#111415",
+                        "surface-variant": "#333537",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-container": "#7c7795",
+                        "outline": "#8e9192",
+                        "primary": "#c9c6c5",
+                        "secondary": "#cac6bf",
+                        "background": "#111415",
+                        "surface-container": "#1e2021",
+                        "surface-bright": "#37393b",
+                        "on-secondary": "#31302c",
+                        "primary-container": "#0d0d0d",
+                        "on-primary-container": "#7c7a7a",
+                        "inverse-surface": "#e2e2e4",
+                        "surface-container-high": "#282a2c",
+                        "surface": "#111415",
+                        "surface-container-highest": "#333537",
+                        "tertiary-fixed": "#e5deff",
+                        "tertiary-fixed-dim": "#c9c2e4",
+                        "secondary-fixed-dim": "#cac6bf",
+                        "on-tertiary": "#312d47",
+                        "inverse-on-surface": "#2f3132",
+                        "secondary-container": "#484742",
+                        "on-tertiary-fixed-variant": "#47435f",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#484742",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface-container-low": "#1a1c1d",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#1c1c17",
+                        "on-primary": "#313030",
+                        "outline-variant": "#444748",
+                        "on-surface": "#e2e2e4",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-tint": "#c9c6c5",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#0c0e10",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-background": "#e2e2e4",
+                        "tertiary": "#c9c2e4",
+                        "tertiary-container": "#0d0922",
+                        "on-tertiary-fixed": "#1c1831",
+                        "on-secondary-container": "#b8b5ae",
+                        "secondary-fixed": "#e6e2db"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "sm": "12px",
+                        "xl": "64px",
+                        "base": "8px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "lg": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal chip list */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen antialiased selection:bg-tertiary-fixed/30 selection:text-tertiary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 shadow-sm border-b border-white/10 bg-surface/60 backdrop-blur-xl dark:bg-surface/60 flex justify-between items-center px-gutter h-16">
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200 flex items-center justify-center p-2 -ml-2 rounded-full focus:outline-none focus:ring-2 focus:ring-tertiary-fixed/50">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg tracking-tighter text-on-surface dark:text-on-surface-variant font-bold absolute left-1/2 transform -translate-x-1/2 md:static md:transform-none">
+            LifeStyle AI
+        </h1>
+<!-- Desktop Navigation Pivot -->
+<nav class="hidden md:flex gap-lg items-center absolute left-1/2 transform -translate-x-1/2">
+<a class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity font-label-md text-label-md" href="#">Home</a>
+<a class="text-primary dark:text-primary-fixed font-label-md text-label-md font-bold relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-tertiary-fixed after:rounded-full" href="#">Wardrobe</a>
+<a class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity font-label-md text-label-md" href="#">Add</a>
+<a class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity font-label-md text-label-md" href="#">Analytics</a>
+<a class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity font-label-md text-label-md" href="#">Profile</a>
+</nav>
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200 flex items-center justify-center p-2 -mr-2 rounded-full focus:outline-none focus:ring-2 focus:ring-tertiary-fixed/50">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="pt-24 pb-32 px-md md:px-lg max-w-container-max mx-auto">
+<!-- Header & Search -->
+<div class="mb-md">
+<div class="flex items-center justify-between mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Your Digital Vault</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-xs bg-surface-container-high px-3 py-1 rounded-full border border-white/5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-pulse"></span>
+                    AI Synced
+                </span>
+</div>
+<!-- Glassmorphic Search -->
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60 group-focus-within:text-tertiary-fixed transition-colors pointer-events-none">search</span>
+<input class="w-full bg-surface-container-low/50 border border-white/10 rounded-xl py-3.5 pl-12 pr-4 text-on-surface placeholder:text-on-surface-variant/50 focus:border-tertiary-fixed/50 focus:ring-1 focus:ring-tertiary-fixed/30 focus:bg-surface-container/80 outline-none backdrop-blur-xl transition-all font-body-md text-body-md shadow-inner" placeholder="Search by 'Cotton', 'Blue', or 'Casual'..." type="text">
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-sm overflow-x-auto no-scrollbar pb-md mb-xs -mx-md px-md md:mx-0 md:px-0">
+<button class="bg-on-surface text-surface px-5 py-2 rounded-full font-label-md text-label-md whitespace-nowrap shadow-sm active:scale-95 transition-transform shrink-0">All Items</button>
+<button class="bg-surface-container/50 border border-white/5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface px-5 py-2 rounded-full font-label-md text-label-md whitespace-nowrap backdrop-blur-sm transition-all active:scale-95 shrink-0">Outerwear</button>
+<button class="bg-surface-container/50 border border-white/5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface px-5 py-2 rounded-full font-label-md text-label-md whitespace-nowrap backdrop-blur-sm transition-all active:scale-95 shrink-0">Shirts</button>
+<button class="bg-surface-container/50 border border-white/5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface px-5 py-2 rounded-full font-label-md text-label-md whitespace-nowrap backdrop-blur-sm transition-all active:scale-95 shrink-0">Pants</button>
+<button class="bg-surface-container/50 border border-white/5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface px-5 py-2 rounded-full font-label-md text-label-md whitespace-nowrap backdrop-blur-sm transition-all active:scale-95 shrink-0">Shoes</button>
+<button class="bg-surface-container/50 border border-white/5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface px-5 py-2 rounded-full font-label-md text-label-md whitespace-nowrap backdrop-blur-sm transition-all active:scale-95 shrink-0">Accessories</button>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-md">
+<!-- Item Card 1 -->
+<div class="relative group rounded-2xl overflow-hidden aspect-[3/4] bg-surface-container-lowest border border-white/5 shadow-lg cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_4}}'">
+<img alt="White Dress Shirt" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A high-end studio fashion shot of a crisp white cotton dress shirt hung perfectly on a minimalist matte black wire hanger against a dark grey concrete wall. Soft, directional studio lighting accentuates the weave and texture of the premium fabric, casting subtle elegant shadows. The visual aesthetic is highly curated, clean, and perfectly suited for a luxury digital wardrobe application operating in a dark UI mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDpkiFMpPzWXdX05Fsn7bO6Sa5ywldeotL7NNG3DPxmKIVf_da7b0vQwJe5MI124OUl48mEhEK7U6f62JzadDinsU4P9kpgDbsSrwA3l7qR7e9Q8O5qAwXBfIEvZFNlYs7YV91PkCrnbEQcU_iwQCxDRbCHKksq6iFdQfWD8TYdJEkC7SEAhFpXyeOqmuo-aE1VorV4yimDU6NIetmzOPbTu5quuxEeq2Hg7hA-Reqn91Cak8WKdkL-uHw5844-nUKBSyLvBM5RsU">
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+<!-- AI Tag overlay (Top Right) -->
+<div class="absolute top-sm right-sm bg-surface-dim/40 backdrop-blur-md rounded-full p-1.5 border border-white/10 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">auto_awesome</span>
+</div>
+<!-- Content Overlay -->
+<div class="absolute bottom-0 w-full p-sm">
+<div class="backdrop-blur-xl bg-surface/30 border border-white/10 rounded-xl p-3 flex flex-col gap-2 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold truncate tracking-tight drop-shadow-md">Oxford Cotton Button-Down</h3>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-high/80 text-on-surface-variant px-2 py-0.5 rounded-md font-label-sm text-[10px] uppercase tracking-wider border border-white/5">Formal</span>
+<span class="bg-tertiary-fixed/10 text-tertiary-fixed-dim px-2 py-0.5 rounded-md font-label-sm text-[10px] uppercase tracking-wider border border-tertiary-fixed/20">Cotton</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="relative group rounded-2xl overflow-hidden aspect-[3/4] bg-surface-container-lowest border border-white/5 shadow-lg cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_4}}'">
+<img alt="Vintage Denim" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A moody, high-contrast lifestyle product shot of perfectly faded vintage blue denim jeans folded neatly on a textured dark slate surface. A single beam of cool, diffused light cuts across the fabric, highlighting the authentic grain and subtle distressing of the denim. The overall mood is grounded, premium, and seamlessly integrates with a sleek, minimalist dark-mode interface design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj5wkhmyiD3EO-n1jsLe-GNlht0g-4Gkmouvsii9nkIHX5P0y2PZHwJ_rxLstiwYB72FmocIC_lulaQJDhadNEw1zz5S2hhc3We3F-YSg6g00t1SFRM2u6bgM53zlyCtmsxVmKwp6ZkT6_-aq0XTtB1FI9M6fQSrK8x9Vb-Jz2Q_7xr56br-gIJ9vFDABJ-GvC7FYvvgf1aZL6AHsJ3iEsnNrX1Q736hudRCsCZhFESAFyNmOIcFUI-OsLpYo5PvttIfO1avJvoh0">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+<div class="absolute top-sm right-sm bg-surface-dim/40 backdrop-blur-md rounded-full p-1.5 border border-white/10 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">auto_awesome</span>
+</div>
+<div class="absolute bottom-0 w-full p-sm">
+<div class="backdrop-blur-xl bg-surface/30 border border-white/10 rounded-xl p-3 flex flex-col gap-2 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold truncate tracking-tight drop-shadow-md">Vintage Selvedge Denim</h3>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-high/80 text-on-surface-variant px-2 py-0.5 rounded-md font-label-sm text-[10px] uppercase tracking-wider border border-white/5">Casual</span>
+<span class="bg-tertiary-fixed/10 text-tertiary-fixed-dim px-2 py-0.5 rounded-md font-label-sm text-[10px] uppercase tracking-wider border border-tertiary-fixed/20">Blue</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Item Card 3 -->
+<div class="relative group rounded-2xl overflow-hidden aspect-[3/4] bg-surface-container-lowest border border-white/5 shadow-lg cursor-pointer md:col-span-2 lg:col-span-1" onclick="window.location.href='{{DATA:SCREEN:SCREEN_4}}'">
+<img alt="Charcoal Blazer" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A sleek, dramatic top-down studio shot of a tailored charcoal grey wool blazer resting on a dark velvet surface. The lighting is low-key with a soft rim light highlighting the lapel structure and the rich, matte texture of the wool blend. The composition is highly asymmetric and modern, conveying quiet luxury and intelligent curation typical of high-end fashion tech platforms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd5Ly-MGaWTjd5mLArwzCBxzRVCRbUDRIFmbzdeGbDk79wJJ4qXhRZluSqptZqbC1tclxmMBlMAWZLV8yXfYZVP7pCFmGcql42vcfLX3JplYZG_jnxoSZrKzAvNdLwR-pbcB3VYu9Udy64ehH0-bcvmzZqiUkLKTagL_61dBMdln3oFoWEub7gLqz23kSFbgjg_0pjwUQcBtdVFszXhjTn_Lsz1UsQR8J9qKyndJmYo3T8pBmXmyIizU-pawU1VJ1C4KBmS0Ats2Y">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+<div class="absolute top-sm right-sm bg-surface-dim/40 backdrop-blur-md rounded-full p-1.5 border border-white/10 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">auto_awesome</span>
+</div>
+<div class="absolute bottom-0 w-full p-sm">
+<div class="backdrop-blur-xl bg-surface/30 border border-white/10 rounded-xl p-3 flex flex-col gap-2 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold truncate tracking-tight drop-shadow-md">Structured Wool Blazer</h3>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-high/80 text-on-surface-variant px-2 py-0.5 rounded-md font-label-sm text-[10px] uppercase tracking-wider border border-white/5">Work</span>
+<span class="bg-tertiary-fixed/10 text-tertiary-fixed-dim px-2 py-0.5 rounded-md font-label-sm text-[10px] uppercase tracking-wider border border-tertiary-fixed/20">Wool</span>
+<span class="bg-surface-container-high/80 text-on-surface-variant px-2 py-0.5 rounded-md font-label-sm text-[10px] uppercase tracking-wider border border-white/5">Outerwear</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Item Card 4 -->
+<div class="relative group rounded-2xl overflow-hidden aspect-[3/4] bg-surface-container-lowest border border-white/5 shadow-lg cursor-pointer" onclick="window.location.href='{{DATA:SCREEN:SCREEN_4}}'">
+<img alt="White Sneakers" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="An artistic, macro-focused product shot of minimalist pristine white leather sneakers placed on a reflective black glass pedestal. The background is completely black, creating a stark, high-end contrast. Subtle ambient light leak in muted lavender reflects off the glossy surface, adding a touch of futuristic elegance fitting for an AI-driven lifestyle application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_h0ddOcqH1R_8Jp1GV3v-LmmUaKCGrb-CJT0m9NQbu8sKcknGZ5lVvu7ohZdBET8z48JsRcstuAobK-4Ze3fzI3-OenHWSl9Tf3IM5wxuNVvYmD-kUWqCp4RlkAzwHaWioPcXpk1uWokeZ_So_OvROLkDu8eo3T-FJDy3WEs1N-AIxiWISjRXOC8XVS5uGd-nCm3-r0F5BByP7d3GOGXwKGnEZLfGijTq3YChiU1OQTSSXIx-AMJJnB81MUpV5UpeMTwOisUMovU">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+<div class="absolute top-sm right-sm bg-surface-dim/40 backdrop-blur-md rounded-full p-1.5 border border-white/10 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">auto_awesome</span>
+</div>
+<div class="absolute bottom-0 w-full p-sm">
+<div class="backdrop-blur-xl bg-surface/30 border border-white/10 rounded-xl p-3 flex flex-col gap-2 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold truncate tracking-tight drop-shadow-md">Minimalist Leather Sneakers</h3>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container-high/80 text-on-surface-variant px-2 py-0.5 rounded-md font-label-sm text-[10px] uppercase tracking-wider border border-white/5">Daily</span>
+<span class="bg-tertiary-fixed/10 text-tertiary-fixed-dim px-2 py-0.5 rounded-md font-label-sm text-[10px] uppercase tracking-wider border border-tertiary-fixed/20">Leather</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.1)] bg-surface-container/40 backdrop-blur-2xl dark:bg-surface-container-low/40 flex justify-around items-center h-20 pb-safe px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300 gap-1 w-16" href="{{DATA:SCREEN:SCREEN_33}}">
+<span class="material-symbols-outlined text-[24px]">home_filled</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- ACTIVE NAVIGATION: Wardrobe -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:text-primary transition-colors active:scale-90 transition-transform duration-300 gap-1 w-16" href="{{DATA:SCREEN:SCREEN_46}}">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+<span class="font-label-sm text-label-sm">Wardrobe</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300 gap-1 w-16" href="{{DATA:SCREEN:SCREEN_40}}">
+<span class="material-symbols-outlined text-[24px]">add_circle</span>
+<span class="font-label-sm text-label-sm">Add</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300 gap-1 w-16" href="{{DATA:SCREEN:SCREEN_44}}">
+<span class="material-symbols-outlined text-[24px]">analytics</span>
+<span class="font-label-sm text-label-sm">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300 gap-1 w-16" href="{{DATA:SCREEN:SCREEN_37}}">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Safe area padding for mobile browsers -->
+<style>
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+    </style>
+
+
+</body></html>

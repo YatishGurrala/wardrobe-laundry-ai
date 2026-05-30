@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LifeStyle AI - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#5f5e5e",
+                    "surface-dim": "#111415",
+                    "surface-variant": "#333537",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-tertiary-container": "#7c7795",
+                    "outline": "#8e9192",
+                    "primary": "#c9c6c5",
+                    "secondary": "#cac6bf",
+                    "background": "#111415",
+                    "surface-container": "#1e2021",
+                    "surface-bright": "#37393b",
+                    "on-secondary": "#31302c",
+                    "primary-container": "#0d0d0d",
+                    "on-primary-container": "#7c7a7a",
+                    "inverse-surface": "#e2e2e4",
+                    "surface-container-high": "#282a2c",
+                    "surface": "#111415",
+                    "surface-container-highest": "#333537",
+                    "tertiary-fixed": "#e5deff",
+                    "tertiary-fixed-dim": "#c9c2e4",
+                    "secondary-fixed-dim": "#cac6bf",
+                    "on-tertiary": "#312d47",
+                    "inverse-on-surface": "#2f3132",
+                    "secondary-container": "#484742",
+                    "on-tertiary-fixed-variant": "#47435f",
+                    "primary-fixed": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#484742",
+                    "error": "#ffb4ab",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "surface-container-low": "#1a1c1d",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#1c1c17",
+                    "on-primary": "#313030",
+                    "outline-variant": "#444748",
+                    "on-surface": "#e2e2e4",
+                    "on-error": "#690005",
+                    "on-primary-fixed-variant": "#474646",
+                    "surface-tint": "#c9c6c5",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-lowest": "#0c0e10",
+                    "on-surface-variant": "#c4c7c7",
+                    "on-background": "#e2e2e4",
+                    "tertiary": "#c9c2e4",
+                    "tertiary-container": "#0d0922",
+                    "on-tertiary-fixed": "#1c1831",
+                    "on-secondary-container": "#b8b5ae",
+                    "secondary-fixed": "#e6e2db"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "sm": "12px",
+                    "xl": "64px",
+                    "base": "8px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "lg": "40px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #111415; /* Base Layer: Solid Matte Black (#0D0D0D) - close approximation based on config background */
+            color: #e2e2e4; /* on-background */
+        }
+        
+        /* Glassmorphism utility */
+        .glass-surface {
+            background-color: rgba(30, 32, 33, 0.4); /* surface-container with opacity */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background-color: rgba(30, 32, 33, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .ai-glow {
+            background: radial-gradient(circle at top right, rgba(201, 194, 228, 0.15) 0%, transparent 60%); /* Tertiary Lavender soft glow */
+        }
+
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        * {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row pb-24 md:pb-0 font-body-md text-body-md">
+<!-- Desktop SideNav / NavigationDrawer (Hidden on mobile) -->
+<aside class="hidden md:flex flex-col p-md gap-base bg-surface dark:bg-surface-dim h-full w-80 rounded-r-xl border-r border-outline-variant/20 shadow-2xl fixed left-0 top-0 bottom-0 z-40">
+<!-- Header Profile -->
+<div class="flex items-center gap-sm p-sm mb-lg">
+<img alt="User profile" class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a young woman with natural makeup and subtle lighting, suggesting a clean, modern aesthetic. The background is a soft, out-of-focus studio setting, aligning with a premium lifestyle application feel. Soft shadows and a high-key contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASzxFCDaAFlWS3aKx6tqlTWILPDwBMilbJmi-1CgSt0_c9QQZOVCEz1OFg1shvU6wfu4ddUTpn8yf7c409rfaPFIAxDHxCoabIWTW57uUk8CxTYkPHMFg8Pdds_UA01ivKZ2XHoI-WCD74KXfmK5MAOf4I1YV39dkR2gIW9CgCofSSwhTHaTMWH3Jw66bVbi4puowRG_7Kf7xStgHjMv_59On-QOFoj_GTpde1TOTv4QL2k-yh8RQkbYvz4F-QERME2UQ4ewRqv8g"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Alex Rivers</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">LifeStyle AI Gold</span>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-1">
+<!-- Simulated Nav Items based on Drawer JSON -->
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-all active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">magic_button</span>
+<span class="font-label-md text-label-md">Personal Stylist</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-all active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Smart Calendar</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-all active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">auto_graph</span>
+<span class="font-label-md text-label-md">Habit Tracker</span>
+</a>
+<div class="mt-auto">
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-all active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-80 relative min-h-screen">
+<!-- TopAppBar (Mobile only for this layout variant, simulating app header) -->
+<header class="md:hidden flex justify-between items-center px-gutter h-16 w-full bg-surface/60 backdrop-blur-xl dark:bg-surface/60 fixed top-0 z-50 border-b border-white/10 shadow-sm transition-transform duration-200">
+<button class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-headline-lg-mobile text-headline-lg-mobile tracking-tighter text-on-surface dark:text-on-surface-variant">LifeStyle AI</h1>
+<button class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Canvas -->
+<div class="pt-24 md:pt-16 px-gutter md:px-lg max-w-container-max mx-auto space-y-md pb-xl">
+<!-- Greeting & Quick Status -->
+<div class="flex flex-col gap-xs mb-lg">
+<h2 class="font-headline-lg text-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-surface">Good Morning, Alex</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Your lifestyle score is looking excellent today.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md auto-rows-[minmax(180px,auto)]">
+<!-- Lifestyle Score Ring (Spans 4 cols on desktop) -->
+<div class="md:col-span-4 glass-card rounded-xl p-md flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-full h-full ai-glow pointer-events-none"></div>
+<div class="relative w-32 h-32 flex items-center justify-center mb-sm">
+<!-- SVG Ring Progress -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background track -->
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="8"></circle>
+<!-- Active track (85%) -->
+<circle class="text-primary-fixed drop-shadow-[0_0_8px_rgba(229,226,225,0.3)] transition-all duration-1000 ease-out" cx="50" cy="50" fill="transparent" r="40" stroke="#e5e2e1" stroke-dasharray="251.2" stroke-dashoffset="37.68" stroke-width="8"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="font-display-lg text-display-lg text-on-surface">85</span>
+</div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mt-2">Overall Score</h3>
+</div>
+<!-- Today's Outfit & Weather (Spans 8 cols on desktop) -->
+<div class="md:col-span-8 glass-card rounded-xl p-0 flex flex-col md:flex-row overflow-hidden group">
+<div class="p-md flex flex-col flex-1 relative z-10 ai-glow">
+<div class="flex justify-between items-start mb-auto">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm px-3 py-1 rounded-full bg-secondary-container/30 text-on-surface w-fit border border-white/5">Weather-Aware Recommendation</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-2">Today's Outfit</h3>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud</span>
+<span class="font-body-md text-body-md">68°F</span>
+</div>
+</div>
+<div class="mt-xl">
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm">Light layers recommended for afternoon breeze. A minimalist trench over breathable cotton.</p>
+<button class="bg-primary-fixed text-on-primary-fixed font-label-md text-label-md px-md py-2 rounded-lg hover:opacity-90 transition-opacity active:scale-95">
+                                View Wardrobe
+                            </button>
+</div>
+</div>
+<div class="h-48 md:h-auto md:w-1/2 relative overflow-hidden">
+<img alt="Outfit recommendation" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A flat lay photography style image showing a minimalist outfit arrangement on a dark textured surface. The clothing includes a sleek black trench coat, a crisp white organic cotton t-shirt, and tailored grey trousers. The lighting is soft and cinematic, highlighting the textures of the premium fabrics against a deep, moody background, reflecting a sophisticated, minimalist fashion sense." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA95T2fc1WYy56QTeZmoWMKAPAmRl3IOe33l9AUuqVej1GxjQRUDmkOM8duL49jDxui6hSRZGCr8ooz-LX8nODlHBeIBCTFrL4HoIO7kxsfYqzmS8zn0VemdWsoF62aqV659Qi1u8t5b_frC2Ai8mi9VkOFcIrw1TpJMjyuHkp7mkKXB-Ce94foC97TM-fjSHW4BYlEJGWRY3yxbS5uF2UghLJ7_ldG5tu1Mx8bgTYdYbglKNWN3gKV71V_pS_wmC0PM8kg-hL0XDA"/>
+</div>
+</div>
+<!-- Daily Insights Feed (Spans 12 cols) -->
+<div class="md:col-span-12 flex flex-col gap-md mt-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface px-xs">AI Insights</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Insight Card 1 -->
+<div class="glass-card rounded-xl p-md flex flex-col gap-sm hover:bg-surface-container/60 transition-colors cursor-pointer group">
+<div class="flex items-center gap-sm text-tertiary-fixed-dim">
+<span class="material-symbols-outlined">directions_run</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Health</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary-fixed transition-colors">You usually feel an afternoon slump on Tuesdays. Consider a 15-minute walk at 2 PM.</p>
+</div>
+<!-- Insight Card 2 -->
+<div class="glass-card rounded-xl p-md flex flex-col gap-sm hover:bg-surface-container/60 transition-colors cursor-pointer group">
+<div class="flex items-center gap-sm text-secondary-fixed-dim">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Work</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary-fixed transition-colors">3 uninterrupted focus blocks scheduled. This aligns well with your productivity peaks.</p>
+</div>
+<!-- Insight Card 3 -->
+<div class="glass-card rounded-xl p-md flex flex-col gap-sm hover:bg-surface-container/60 transition-colors cursor-pointer group">
+<div class="flex items-center gap-sm text-primary-fixed">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Nutrition</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary-fixed transition-colors">Dinner reservation at 'Bistro 44'. Try their seasonal salad to meet your weekly greens goal.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden flex justify-around items-center h-20 pb-safe w-full px-xs bg-surface-container/40 backdrop-blur-2xl dark:bg-surface-container-low/40 fixed bottom-0 z-50 rounded-t-xl border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.1)]">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home_app_fill" style="font-variation-settings: 'FILL' 1;">home_filled</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="checkroom">checkroom</span>
+<span class="font-label-sm text-label-sm mt-1">Wardrobe</span>
+</a>
+<!-- FAB / Add Action -->
+<a class="flex flex-col items-center justify-center -mt-6 active:scale-90 transition-transform duration-300" href="#">
+<div class="bg-primary-fixed text-primary-container rounded-full p-2 shadow-lg flex items-center justify-center border-4 border-surface-dim">
+<span class="material-symbols-outlined text-[32px]" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add</span>
+</div>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-sm text-label-sm mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple entrance animation for cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * (index + 1));
+            });
+        });
+    </script>
+</body></html>
