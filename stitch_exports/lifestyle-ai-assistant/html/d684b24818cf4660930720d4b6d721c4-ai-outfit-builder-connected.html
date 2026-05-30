@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Outfit Builder - LifeStyle AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e5deff",
+                        "tertiary-container": "#0d0922",
+                        "secondary-container": "#484742",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#484742",
+                        "on-tertiary-container": "#7c7795",
+                        "tertiary": "#c9c2e4",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-dim": "#111415",
+                        "surface": "#111415",
+                        "inverse-surface": "#e2e2e4",
+                        "secondary-fixed": "#e6e2db",
+                        "surface-container-lowest": "#0c0e10",
+                        "surface-bright": "#37393b",
+                        "on-tertiary-fixed": "#1c1831",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-primary-container": "#7c7a7a",
+                        "on-secondary": "#31302c",
+                        "surface-container-low": "#1a1c1d",
+                        "on-tertiary-fixed-variant": "#47435f",
+                        "surface-variant": "#333537",
+                        "secondary": "#cac6bf",
+                        "surface-tint": "#c9c6c5",
+                        "on-background": "#e2e2e4",
+                        "primary": "#c9c6c5",
+                        "outline": "#8e9192",
+                        "on-primary": "#313030",
+                        "outline-variant": "#444748",
+                        "on-secondary-container": "#b8b5ae",
+                        "surface-container-high": "#282a2c",
+                        "primary-container": "#0d0d0d",
+                        "on-secondary-fixed": "#1c1c17",
+                        "surface-container-highest": "#333537",
+                        "on-surface-variant": "#c4c7c7",
+                        "inverse-on-surface": "#2f3132",
+                        "surface-container": "#1e2021",
+                        "primary-fixed": "#e5e2e1",
+                        "inverse-primary": "#5f5e5e",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-surface": "#e2e2e4",
+                        "on-tertiary": "#312d47",
+                        "tertiary-fixed-dim": "#c9c2e4",
+                        "secondary-fixed-dim": "#cac6bf",
+                        "error-container": "#93000a",
+                        "background": "#111415"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "64px",
+                        "lg": "40px",
+                        "container-max": "1200px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background-color: rgba(30, 32, 33, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col relative pb-32">
+<!-- TopAppBar -->
+<header class="fixed docked full-width top-0 z-50 backdrop-blur-xl bg-background/30 border-b border-white/10 flat no shadows flex justify-between items-center w-full px-gutter h-16">
+<button class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity flex items-center justify-center p-2 rounded-full focus:outline-none">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-semibold tracking-tight text-on-background dark:text-on-background">LifeStyle AI</h1>
+<button class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity flex items-center justify-center p-2 rounded-full focus:outline-none relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</header>
+<main class="flex-grow pt-24 px-gutter max-w-container-max mx-auto w-full md:px-lg flex flex-col gap-md">
+<!-- Weather Banner -->
+<section class="glass-panel rounded-xl p-md flex items-center justify-between relative overflow-hidden group hover:bg-surface-container/80 transition-colors duration-300">
+<div class="absolute inset-0 bg-gradient-to-r from-tertiary/10 to-transparent opacity-50"></div>
+<div class="relative z-10 flex flex-col gap-xs">
+<p class="text-label-md font-label-md text-tertiary">Current Context</p>
+<h2 class="text-body-lg font-body-lg text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="rainy" style="font-variation-settings: 'FILL' 1;">rainy</span>
+                    Business Casual for a Rainy 65°F
+                </h2>
+</div>
+<button class="relative z-10 p-2 rounded-full bg-surface-container-high/50 hover:bg-surface-container-high transition-colors text-primary border border-white/5">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md md:gap-lg items-start">
+<!-- Canvas Area (Left/Main) -->
+<section class="md:col-span-8 flex flex-col gap-md relative">
+<!-- Floating Actions -->
+<div class="absolute right-0 top-0 bottom-0 w-16 flex flex-col items-center justify-center gap-sm z-20 translate-x-1/2 md:translate-x-full md:pl-md">
+<button class="w-12 h-12 rounded-full bg-surface-container-high/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-primary hover:text-tertiary transition-colors shadow-lg hover:scale-105 transform duration-200">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-high/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-primary hover:text-tertiary transition-colors shadow-lg hover:scale-105 transform duration-200">
+<span class="material-symbols-outlined" data-icon="ios_share">ios_share</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-high/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-primary hover:text-tertiary transition-colors shadow-lg hover:scale-105 transform duration-200">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</button>
+</div>
+<!-- Outfit Slots -->
+<div class="flex flex-col gap-sm pr-8 md:pr-0">
+<!-- Top Slot -->
+<div class="glass-panel rounded-xl h-48 relative overflow-hidden group cursor-pointer border border-tertiary/20">
+<img alt="High-fidelity rendering of a tailored charcoal grey blazer, hovering against a dark minimalist studio background. The fabric texture is crisp and premium, illuminated by soft cinematic lighting that highlights its structured silhouette. The overall aesthetic is sophisticated, dark mode luxury." class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500 scale-100 group-hover:scale-105" data-alt="High-fidelity rendering of a tailored charcoal grey blazer, hovering against a dark minimalist studio background. The fabric texture is crisp and premium, illuminated by soft cinematic lighting that highlights its structured silhouette. The overall aesthetic is sophisticated, dark mode luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf0umRfl6ex0vw2DHu1uJlMIQH5BQedzjVGD0FaOCgk3TxGeIcEHLCxg2uZQnOfWTDaFIeLDJ63Q3sunLyqCKbdgfkB_iABL-HPT9pKFhz10i4SFaXM4ucetkfNlsuvAdiEOP51IIz4cCKTDAHc30znxVKtQ9_UjvjWDceb2jiwwBkCr3Fh7UhbihwfHo2TbilxqSP-19xY5mnhKrdXsa7y15nosGf1k0m10pHuVEm2iWgJ7jZhWFcQiJ030fHn5xrmdODj76ey1o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div>
+<p class="text-label-sm font-label-sm text-tertiary mb-1">Top</p>
+<p class="text-body-md font-body-md text-on-background font-medium">Tailored Wool Blazer</p>
+</div>
+<span class="material-symbols-outlined text-primary bg-surface-container/50 p-2 rounded-full backdrop-blur-sm" data-icon="swap_horiz">swap_horiz</span>
+</div>
+</div>
+<!-- Bottom Slot -->
+<div class="glass-panel rounded-xl h-48 relative overflow-hidden group cursor-pointer">
+<img alt="Crisp, high-end rendering of slim-fit dark navy trousers, floating elegantly in a dark, moody environment. The subtle weave of the fabric catches a soft rim light. The setting implies a premium digital fitting room with a minimalist, high-contrast dark mode aesthetic." class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500 scale-100 group-hover:scale-105" data-alt="Crisp, high-end rendering of slim-fit dark navy trousers, floating elegantly in a dark, moody environment. The subtle weave of the fabric catches a soft rim light. The setting implies a premium digital fitting room with a minimalist, high-contrast dark mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsmZHfXFxplqInSnvM_NgVmxRHhmAsPrI7mp1JhfbFGzrT3P-OWVPM16ZmtIHXlBxP2eeHzhqFe5o9zpJInKMOSmb_pU_XCJDdSG3WXmh9bSVLAYLZnbBWhNWrDYSoW-8HV0-UzYMjqriXAWeorDKGwJPnC6Lfyh0wne-R55sQ47mQ1GuU4MG88TwCckPHr8mdPssG125Sogo73uKpXqbsbpLrwZdtXWPxKLGczVx2DavlOpmPoCN5t3uvQag7XPdIhIlm43ov73I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Bottom</p>
+<p class="text-body-md font-body-md text-on-background font-medium">Slim Chinos</p>
+</div>
+<span class="material-symbols-outlined text-primary bg-surface-container/50 p-2 rounded-full backdrop-blur-sm" data-icon="swap_horiz">swap_horiz</span>
+</div>
+</div>
+<!-- Shoes Slot -->
+<div class="glass-panel rounded-xl h-32 relative overflow-hidden group cursor-pointer opacity-70">
+<div class="absolute inset-0 flex items-center justify-center border-2 border-dashed border-white/10 rounded-xl m-2">
+<div class="text-center flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]" data-icon="add_circle">add_circle</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Tap to add shoes</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Generate Action -->
+<div class="pt-sm pr-8 md:pr-0">
+<a class="w-full bg-on-background text-primary-container font-label-md text-label-md py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-tertiary transition-colors shadow-[0_0_15px_rgba(183,177,210,0.2)]" href="{{DATA:SCREEN:SCREEN_34}}">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome">auto_awesome</span>
+                        Generate New Outfit
+                    </a>
+</div>
+</section>
+<!-- Side/Bottom Sections (AI Combos & Carousels) -->
+<section class="md:col-span-4 flex flex-col gap-lg">
+<!-- AI Combos -->
+<div>
+<div class="flex items-center justify-between mb-sm">
+<h3 class="text-label-md font-label-md text-on-background">AI Magic Combos</h3>
+<span class="text-label-sm font-label-sm text-tertiary cursor-pointer hover:underline">View All</span>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<div class="glass-panel rounded-lg p-sm cursor-pointer hover:border-tertiary/30 transition-colors group relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-tertiary/10 rounded-full blur-xl group-hover:bg-tertiary/20 transition-colors"></div>
+<p class="text-label-sm font-label-sm text-tertiary mb-1">Vibe</p>
+<p class="text-body-md font-body-md text-on-background">Monochrome Elite</p>
+</div>
+<div class="glass-panel rounded-lg p-sm cursor-pointer hover:border-tertiary/30 transition-colors group relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-16 h-16 bg-secondary/10 rounded-full blur-xl group-hover:bg-secondary/20 transition-colors"></div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-1">Vibe</p>
+<p class="text-body-md font-body-md text-on-background">Tech Noir</p>
+</div>
+</div>
+</div>
+<!-- Selected Tops Carousel -->
+<div>
+<h3 class="text-label-md font-label-md text-on-background mb-sm">Swap Tops</h3>
+<div class="flex gap-sm overflow-x-auto hide-scrollbar pb-2 snap-x">
+<div class="min-w-[100px] h-[100px] glass-panel rounded-lg flex-shrink-0 snap-start border border-tertiary/40 overflow-hidden relative">
+<img alt="Small thumbnail crop of a charcoal blazer on a dark background." class="w-full h-full object-cover" data-alt="Small thumbnail crop of a charcoal blazer on a dark background. The image is a focused detail shot of the fabric, suitable for a UI element in a dark mode luxury application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE4voBEgzMvL9UJ4o-znG6QHlEVV1zZT6BXbgakpO2rUClDM5fJeOxvIaRm4pdL7z4_TS-b2WAmE1TxAsWaNYVitHnm-q51Tk_AJW7dGBC2B0v5PST_wNFBqkUGL2sWR9VbACe9oU3GT54qHlkI5wmXMJ_cz7fA6sZNHxYyePs3TGew8aoop15xa-P-vj_RwKxpoDNHCfcipxe_vCH8hgpK9x3QzDoa8X6UFE-B9ke72EydklbEPFyNNgv6lkL8Q8zJqIlaeG1Eb4"/>
+<div class="absolute top-1 right-1 bg-background/80 rounded-full w-4 h-4 flex items-center justify-center">
+<div class="w-2 h-2 bg-tertiary rounded-full"></div>
+</div>
+</div>
+<div class="min-w-[100px] h-[100px] glass-panel rounded-lg flex-shrink-0 snap-start overflow-hidden relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<img alt="Small thumbnail crop of a crisp white dress shirt on a dark background." class="w-full h-full object-cover mix-blend-luminosity" data-alt="Small thumbnail crop of a crisp white dress shirt on a dark background. The lighting is subtle, creating a sleek, minimalist aesthetic fitting for a premium dark mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfFjRaXcab3LeQ2aszs3Hky3HaiycE-7y6WRiv0WLlyXIbALkRIXigI1-09W5gEe99_mZ5uUgAqL1sphzcQs5w1kfJCXEQHKk4EhjRCCE0ET0Ht5sKJjZ2jW3YiBdNhVm0jf1z9Wh8aIMWMmDaucaRwgUCH6WAMxzwrVWc7TzKLCs9S-FZSvO0dsSL1QEWoG2QTpJPmCTVJynIFMEXw-CoaWcNTeL3tKw8J-CVc5MUld1yX9Ta9J9hDgsA1_HhrYWzCL3kiD7oBI8"/>
+</div>
+<div class="min-w-[100px] h-[100px] glass-panel rounded-lg flex-shrink-0 snap-start overflow-hidden relative opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<img alt="Small thumbnail crop of a dark grey knit sweater." class="w-full h-full object-cover mix-blend-luminosity" data-alt="Small thumbnail crop of a dark grey knit sweater. The texture is visible against a pure black background, reflecting a quiet, intelligent luxury style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA856uuC9XpRB_F4PZLbmKL7jxbpP7gsdZtv_N9R3gAIQLWOQE8wbnMUP7l8ULYUDi2G9ccDOo-KRAfmPjdQDVXboQd36q9cSEYww29yHnghKcmzb9Lpf8TFUZ7NkIyPTv7_XRQ6jTRJAzrr0PX9GU37hIHXtWQtkte8yug9cLon2ggs2Da9Q_Bb0A8i2Tj9nvXHL1eLFa4CxKdxUZqn_FCTJEtCNDbLTaStHr1S7QjVfb7Uig4CbFZ79XxMyQDkGEJ6y3EzrZQ9ZE"/>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-md z-50 flex justify-around items-center py-4 px-6 bg-surface-container/60 backdrop-blur-2xl border border-white/10 shadow-xl shadow-tertiary/5 rounded-full md:hidden">
+<a class="flex items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all duration-300" href="{{DATA:SCREEN:SCREEN_33}}">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</a>
+<a class="flex items-center justify-center text-primary dark:text-primary scale-110 relative after:content-[''] after:absolute after:-bottom-2 after:w-1 after:h-1 after:bg-primary after:rounded-full hover:text-primary transition-all duration-300 transform scale-90 duration-200" href="{{DATA:SCREEN:SCREEN_46}}">
+<span class="material-symbols-outlined" data-icon="checkroom" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all duration-300" href="{{DATA:SCREEN:SCREEN_40}}">
+<span class="material-symbols-outlined text-[28px]" data-icon="add_circle">add_circle</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all duration-300" href="{{DATA:SCREEN:SCREEN_44}}">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-all duration-300" href="{{DATA:SCREEN:SCREEN_55}}">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</a>
+</nav>
+<!-- Desktop Side Nav Spacer (implied by layout but physically absent as per design system mobile-first focus, kept clean for Canvas priority) -->
+</body></html>

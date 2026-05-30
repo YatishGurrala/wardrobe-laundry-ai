@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laundry Intelligence | WARDROBE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111415; /* surface */
+            color: #e2e2e4; /* on-surface */
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .premium-blur {
+            backdrop-filter: blur(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-accent {
+            box-shadow: 0 0 20px rgba(183, 177, 210, 0.1);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#c9c2e4",
+                    "inverse-surface": "#e2e2e4",
+                    "outline": "#8e9192",
+                    "on-tertiary-fixed": "#1c1831",
+                    "surface-container-lowest": "#0c0e10",
+                    "surface-dim": "#111415",
+                    "secondary-container": "#484742",
+                    "primary": "#c9c6c5",
+                    "inverse-primary": "#5f5e5e",
+                    "surface-variant": "#333537",
+                    "surface": "#111415",
+                    "on-background": "#e2e2e4",
+                    "on-tertiary-fixed-variant": "#47435f",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "background": "#111415",
+                    "secondary": "#cac6bf",
+                    "on-secondary-fixed": "#1c1c17",
+                    "outline-variant": "#444748",
+                    "primary-container": "#0d0d0d",
+                    "on-tertiary": "#312d47",
+                    "tertiary-fixed-dim": "#c9c2e4",
+                    "on-secondary-container": "#b8b5ae",
+                    "tertiary-container": "#0d0922",
+                    "surface-container-highest": "#333537",
+                    "on-surface": "#e2e2e4",
+                    "surface-tint": "#c9c6c5",
+                    "primary-fixed": "#e5e2e1",
+                    "tertiary-fixed": "#e5deff",
+                    "on-secondary-fixed-variant": "#484742",
+                    "inverse-on-surface": "#2f3132",
+                    "secondary-fixed": "#e6e2db",
+                    "on-surface-variant": "#c4c7c7",
+                    "on-primary-fixed-variant": "#474646",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#7c7795",
+                    "surface-container-low": "#1a1c1d",
+                    "surface-container": "#1e2021",
+                    "on-primary-fixed": "#1c1b1b",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "on-secondary": "#31302c",
+                    "on-error": "#690005",
+                    "on-primary": "#313030",
+                    "surface-container-high": "#282a2c",
+                    "on-primary-container": "#7c7a7a",
+                    "surface-bright": "#37393b",
+                    "secondary-fixed-dim": "#cac6bf"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "64px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "lg": "40px",
+                    "container-max": "1200px",
+                    "sm": "12px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface hover:opacity-80 transition-opacity cursor-pointer">menu</span>
+<h1 class="text-headline-md font-headline-md text-on-surface tracking-widest">WARDROBE</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-white/10">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a young professional man with a minimalist, clean-cut aesthetic. He is wearing a high-quality grey knit sweater against a soft, out-of-focus studio background. The lighting is bright and even, reinforcing a premium, high-end concierge brand feel. The overall mood is calm, clear, and sophisticated, matching a modern luxury lifestyle app's visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxUA0ReNQjyxq2e-8y_UHeFmsRKJ4tADvq7U5ZNUey55uJCOylDejcVL-ZhHKkK6f1KSuuw1oUzk05MpzME7txEKOrtnZUFHKZP-SXv8BEeTI4q3Jpra9ZuwjR7hR9duZKJ1Tyv1nRTK9-tEa3nq1jO-aRGg0pZylLFCvtBc_HlFrmSXuPCdcUrZwzgbUeRGdt4dQdhvBmJNpPt4C1ZoEvjEEDK8inzi01jsN61HG2Ir3ejQdkTmcnNpB280ZZ2Z4AKto--lyqwkM"/>
+</div>
+</header>
+<main class="pt-24 px-gutter max-w-container-max mx-auto space-y-md">
+<!-- Summary Cards: Bento Style -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Clean Count -->
+<div class="glass-card rounded-xl p-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-lg opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-6xl">checkroom</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Inventory Status</p>
+<div class="mt-xs flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">42</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Ready to Wear</span>
+</div>
+<div class="mt-md flex gap-sm">
+<span class="px-sm py-1 rounded-full bg-white/5 border border-white/10 font-label-sm text-label-sm">85% Freshness</span>
+<span class="px-sm py-1 rounded-full bg-white/5 border border-white/10 font-label-sm text-label-sm">Optimized</span>
+</div>
+</div>
+<!-- Worn Count -->
+<div class="glass-card rounded-xl p-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-lg opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-6xl">dry_cleaning</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Pending Maintenance</p>
+<div class="mt-xs flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-tertiary">12</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Requires Action</span>
+</div>
+<div class="mt-md flex gap-sm">
+<span class="px-sm py-1 rounded-full bg-tertiary/10 border border-tertiary/20 font-label-sm text-label-sm text-tertiary">3 Critical</span>
+<span class="px-sm py-1 rounded-full bg-white/5 border border-white/10 font-label-sm text-label-sm">Batching Suggested</span>
+</div>
+</div>
+</section>
+<!-- AI Perspective Banner -->
+<section class="glass-card rounded-xl p-md border-l-4 border-tertiary relative overflow-hidden">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-tertiary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">AI Perspective</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Based on your upcoming schedule, I recommend washing your <span class="text-tertiary">Merino Wool Suit</span> today to ensure it’s pristine for Thursday’s gala.</p>
+</div>
+</div>
+<button class="bg-on-surface text-surface px-md py-sm rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">VIEW CARE GUIDE</button>
+</div>
+<!-- Ambient Glow -->
+<div class="absolute -right-16 -top-16 w-32 h-32 bg-tertiary/10 blur-[60px]"></div>
+</section>
+<!-- Currently in Cycle -->
+<section class="space-y-sm">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Currently in Cycle</h2>
+<div class="glass-card rounded-xl p-md flex flex-col md:flex-row items-center gap-md">
+<div class="w-full md:w-1/3 space-y-xs">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface">Batch #421 (Gentle Cycle)</span>
+<span class="text-tertiary">75%</span>
+</div>
+<div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-3/4 animate-pulse"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Estimated completion: 14 mins</p>
+</div>
+<div class="flex-1 flex gap-sm overflow-x-auto pb-2 no-scrollbar">
+<!-- Progress Item -->
+<div class="flex-shrink-0 flex items-center gap-sm bg-white/5 px-sm py-2 rounded-lg border border-white/5">
+<img class="w-10 h-10 rounded object-cover" data-alt="A minimalist studio shot of a perfectly folded black premium cotton t-shirt. The fabric texture is visible, suggesting high quality. The lighting is soft and directional, creating subtle shadows. The overall aesthetic is clean, professional, and high-end, aligned with a luxury wardrobe management app's visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdgoeJ7OmsZUyPX8oJ8Jydh2jVHdIfv-9rJj2-rocmZAb8VUhlWv87bgfqj0CNaIbYf0MxSK-EJLWXznN1j_wfB6Tdk_vyCZ1l5Asb6BFqw8x0p5FDhCZ6rPDDVO2xtOyvxJRkgTxnnZ3_sM5FQVg2F2Bth18LCZCnAsWygQu4hL6lgiXwNPj-TrPp3USsok0iKBIa3-1UKLVpTX9IwauXOafY5qabNAud328FemW49u6XB1iOEFhLNmeJogpRH-3qSuxy6WPwn4c"/>
+<span class="font-label-md text-label-md">Black Tee</span>
+</div>
+<div class="flex-shrink-0 flex items-center gap-sm bg-white/5 px-sm py-2 rounded-lg border border-white/5">
+<img class="w-10 h-10 rounded object-cover" data-alt="A close-up of a crisp white linen button-down shirt, meticulously pressed and presented on a flat matte grey surface. The lighting is high-key and airy, emphasizing the natural texture of the linen. The mood is serene and orderly, reflecting a premium concierge-level care experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRUHHQERcftyV24CycO6VZgP1TmRNbohvRQkNbl9M9B5gxPkTqQUs25GQ-tyh95gHaGiKgk8Q38aswCRyFSjBXf_2xML4B6108xxdPRnJ1xYtGm9clPTiLt_y-HjVsX_sfBqcfOteB-OIG2jDEqZ2yJp83BD_JgZFIentfFn81i6tOZs_ZGvRIVXxRcFas1VA3Di86KBafT1KIuLTVl7RQyhMWv0QlNAEzYV1mNOkQSMh8fMGHJqWs5iZX0w3hXVy1_TumQPXmaXQ"/>
+<span class="font-label-md text-label-md">Linen Shirt</span>
+</div>
+</div>
+</div>
+</section>
+<!-- To Be Cleaned Grid -->
+<section class="space-y-sm">
+<div class="flex justify-between items-center">
+<h2 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">To Be Cleaned</h2>
+<button class="text-tertiary font-label-md text-label-md flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                    Sort by Wear Count
+                </button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-md">
+<!-- Item Card 1: Critical -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden glass-card border border-white/5 group-hover:border-white/20 transition-all duration-300">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pair of high-quality indigo selvedge denim jeans laid flat on a dark wood surface. The lighting is dramatic and moody, highlighting the deep texture and stitching of the denim. The setting is upscale and curated, maintaining the minimalist luxury brand aesthetic of the app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr-MwFq2K_hID5UsfSkalwa7xZ7pXHp6pbKMlRZLLrY6IKpGLWkCglwhtS3aX2XHUcJQM5qgMS4USFS-CF8hGD8jLTE93swB97CYhVEKRr6F8CVUlS-J4uDQWlzrCdIKoF2y11PoOwzSGgVISpxrLYkr5cP_5VzPVFyh8By1UAEQ0lllWGlNGPa-j9evD-FV8rdDZ3WyS8D_82saOCUihKRM1njz2LVmvDNtElwLiBUfmxZ4ZG16TJT3wNB6tuzYDJTKfELVN8bbM"/>
+<div class="absolute top-2 right-2">
+<span class="bg-error-container text-on-error-container text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-tighter">Critical Wash</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-sm w-full">
+<p class="font-label-md text-label-md text-white truncate">Selvedge Denim</p>
+<p class="font-label-sm text-label-sm text-tertiary">7th Wear</p>
+</div>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden glass-card border border-white/5 group-hover:border-white/20 transition-all duration-300">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist grey cashmere sweater displayed against a dark matte background. The soft, luxurious texture of the fabric is highlighted by a gentle side light. The image feels calm and premium, reflecting the high-end physical planner aesthetic of the application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIbgpOK6O78ebUp-jiWpB4vYlSxVTdKvwFb1bH8RLDStV6FAuppORmbIZn84rtMlnSB_uRi7TPkJrEXQFutElfhOKzg8RIi1PGMss38at_BWO82c89uizamoLUS8Piu31qt4iG32cQkCeO9IPoHly6zsHhJSRJGBXrs8RjhOdhYGR6Gj4WPvKJcxAsYQfX_DAaiCzdwMuo5zlfBaUABuQ1bPTw0JM_1T8ppJeqkk7G3Q7M3Zs98XpSb0GQqUGYRy1ZfD_zaBtM8Ck"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-sm w-full">
+<p class="font-label-md text-label-md text-white truncate">Cashmere Knit</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">4th Wear</p>
+</div>
+</div>
+</div>
+<!-- Item Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden glass-card border border-white/5 group-hover:border-white/20 transition-all duration-300">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-end charcoal grey suit jacket hanging on a designer wooden hanger against a clean gallery wall. The lighting is sophisticated, focusing on the quality of the wool fabric. The aesthetic is extremely clean and organized, conveying the 'Quiet Intelligence' design philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvgL3_RPKmCvZH1gum1Bo0swWhbqRUd8jZ0IypUw_xp5j36Gf-LX-loBixTx9YvMfnpfPuNfpNcS25O_1WxchTIXQjZfs7dhNaj6avNN0l3CSpU9S0BUeJ9Xw39A06BSD7Jp9Sfc6zPl50b3SVbEC-CJ6-a2skNdbA9Y20arf__e9FvKn6DvZ0NEtSX38ampfhxzWX2I78cO8fIY7_w3bnSamcX4z56-6M5IGHOcmXrloeLNo-Rp3sXn_KQGe_Ff1ERIe24BicGiY"/>
+<div class="absolute bottom-0 left-0 p-sm w-full z-10">
+<p class="font-label-md text-label-md text-white truncate">Charcoal Suit</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">2nd Wear</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+</div>
+</div>
+<!-- Item Card 4 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden glass-card border border-white/5 group-hover:border-white/20 transition-all duration-300">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek black trench coat displayed in a high-fashion, minimalist style. The lighting is moody with soft highlights on the fabric's slight sheen. The image embodies a sophisticated, concierge-like feel, prioritizing content and visual clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwTGnTpOgcyNYfIt6V4uqHSXOXKyT0I55GQ9Yh5SdBqDl4T0OH8YzjjQkJszWEqaYU0JP5LBBm38uQYKBtAyr5aArNkhX8a0MBEqp_bLnC3ce1Qr_22V-Hg9Y8V1gCdw7wWsM4CLZCw3VsGrkraiCC7tuge4cfJ5jr4Uvt6S-aOJslKfpXklbbkgRVF0V-zY-IQIJGzbTgdOD3cJdDoJbzHVG6B8tVSpr6gTvolWJHXFSCVWKvkadyN76auHS-GA6NtUCZ1jno_Cc"/>
+<div class="absolute bottom-0 left-0 p-sm w-full z-10">
+<p class="font-label-md text-label-md text-white truncate">Tech Trench</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">5th Wear</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+</div>
+</div>
+<!-- Item Card 5 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden glass-card border border-white/5 group-hover:border-white/20 transition-all duration-300">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed shot of a luxury blue oxford shirt with subtle patterns. The focus is on the intricate weave and the high-quality buttons. The color palette is composed of elegant blues and whites, creating a serene and premium mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1LmGdRfBpywJPw3ad7SUNWXfjb59ug2SnQjJHXrC0zYLZiCBAGM6lIgaTjoG2_idzykEwyGiIAXevW9OrGX1RU5C3ik4T0VFObOq_INfWZvtoswCAfvIs12EtJZBaRc1zE4n_fjyjDui3Or9-MyMdcb601WV6mOHPr7H1bNiAolxOAjMb2Yztcb59BfMIC8RH1OFauv_rbKhMC5Bs2TOKX4GqXNdE5W1ZHQNPsuPOGls8pIlFgEp_eDTUSRkHUIaYpEKgiNCt5IE"/>
+<div class="absolute bottom-0 left-0 p-sm w-full z-10">
+<p class="font-label-md text-label-md text-white truncate">Oxford Blue</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">1st Wear</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+</div>
+</div>
+<!-- Add Placeholder -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl border-2 border-dashed border-white/10 flex flex-col items-center justify-center text-on-surface-variant hover:border-tertiary/50 hover:text-tertiary transition-all duration-300">
+<span class="material-symbols-outlined text-4xl mb-2">add_circle</span>
+<span class="font-label-sm text-label-sm">Log Wear</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Bottom Navigation Bar -->
+<nav class="fixed bottom-6 left-0 right-0 z-50 flex justify-center items-center px-4">
+<div class="bg-surface/40 backdrop-blur-2xl border border-white/10 rounded-full w-[90%] max-w-md shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] flex justify-around items-center px-4 py-3">
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:text-on-surface transition-colors active:scale-90 transition-transform duration-200" href="{{DATA:SCREEN:SCREEN_33}}">
+<span class="material-symbols-outlined">dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:text-on-surface transition-colors active:scale-90 transition-transform duration-200" href="{{DATA:SCREEN:SCREEN_46}}">
+<span class="material-symbols-outlined">checkroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:text-on-surface transition-colors active:scale-90 transition-transform duration-200" href="{{DATA:SCREEN:SCREEN_40}}">
+<span class="material-symbols-outlined text-3xl">add_circle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface bg-white/10 rounded-full w-12 h-12 hover:text-on-surface transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_laundry_service</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:text-on-surface transition-colors active:scale-90 transition-transform duration-200" href="{{DATA:SCREEN:SCREEN_44}}">
+<span class="material-symbols-outlined">analytics</span>
+</a><a class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:text-on-surface transition-colors active:scale-90 transition-transform duration-200" href="{{DATA:SCREEN:SCREEN_37}}">
+<span class="material-symbols-outlined">person</span>
+</a>
+</div>
+</nav>
+<script>
+        // Micro-interaction for scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('bg-surface/90');
+            } else {
+                header.classList.remove('bg-surface/90');
+            }
+        });
+
+        // Simple animation for batch progress (random simulation)
+        const progressBar = document.querySelector('.h-full.bg-tertiary');
+        let progress = 75;
+        setInterval(() => {
+            if (progress < 99) {
+                progress += 0.1;
+                progressBar.style.width = `${progress}%`;
+            }
+        }, 3000);
+    </script>
+</body></html>

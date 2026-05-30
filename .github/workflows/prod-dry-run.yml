@@ -1,0 +1,26 @@
+name: Production Merge Dry Run
+
+on:
+  pull_request:
+    branches:
+      - prod
+
+jobs:
+  dry-run-merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch base and head
+        run: |
+          git fetch origin "$GITHUB_BASE_REF" "$GITHUB_HEAD_REF"
+
+      - name: Dry-run merge head into prod
+        run: |
+          git checkout -B prod-check "origin/$GITHUB_BASE_REF"
+          git merge --no-commit --no-ff "origin/$GITHUB_HEAD_REF"
+          git merge --abort || true

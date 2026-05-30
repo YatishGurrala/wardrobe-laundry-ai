@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LifeStyle AI - Digital Wardrobe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#5f5e5e",
+                    "surface-dim": "#111415",
+                    "surface-variant": "#333537",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-tertiary-container": "#7c7795",
+                    "outline": "#8e9192",
+                    "primary": "#c9c6c5",
+                    "secondary": "#cac6bf",
+                    "background": "#111415",
+                    "surface-container": "#1e2021",
+                    "surface-bright": "#37393b",
+                    "on-secondary": "#31302c",
+                    "primary-container": "#0d0d0d",
+                    "on-primary-container": "#7c7a7a",
+                    "inverse-surface": "#e2e2e4",
+                    "surface-container-high": "#282a2c",
+                    "surface": "#111415",
+                    "surface-container-highest": "#333537",
+                    "tertiary-fixed": "#e5deff",
+                    "tertiary-fixed-dim": "#c9c2e4",
+                    "secondary-fixed-dim": "#cac6bf",
+                    "on-tertiary": "#312d47",
+                    "inverse-on-surface": "#2f3132",
+                    "secondary-container": "#484742",
+                    "on-tertiary-fixed-variant": "#47435f",
+                    "primary-fixed": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#484742",
+                    "error": "#ffb4ab",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "surface-container-low": "#1a1c1d",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#1c1c17",
+                    "on-primary": "#313030",
+                    "outline-variant": "#444748",
+                    "on-surface": "#e2e2e4",
+                    "on-error": "#690005",
+                    "on-primary-fixed-variant": "#474646",
+                    "surface-tint": "#c9c6c5",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-lowest": "#0c0e10",
+                    "on-surface-variant": "#c4c7c7",
+                    "on-background": "#e2e2e4",
+                    "tertiary": "#c9c2e4",
+                    "tertiary-container": "#0d0922",
+                    "on-tertiary-fixed": "#1c1831",
+                    "on-secondary-container": "#b8b5ae",
+                    "secondary-fixed": "#e6e2db"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "sm": "12px",
+                    "xl": "64px",
+                    "base": "8px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "lg": "40px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #111415;
+            color: #e2e2e4;
+        }
+        
+        .glass-surface {
+            background-color: rgba(30, 32, 33, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background-color: rgba(30, 32, 33, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .ai-glow {
+            background: radial-gradient(circle at top right, rgba(201, 194, 228, 0.15) 0%, transparent 60%);
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        * {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .hide-scroll-bar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .hide-scroll-bar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row pb-24 md:pb-0 font-body-md text-body-md">
+<aside class="hidden md:flex flex-col p-md gap-base bg-surface dark:bg-surface-dim h-full w-80 rounded-r-xl border-r border-outline-variant/20 shadow-2xl fixed left-0 top-0 bottom-0 z-40">
+<div class="flex items-center gap-sm p-sm mb-lg">
+<img alt="User profile" class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a young woman with natural makeup and subtle lighting, suggesting a clean, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACQhXKh4SkeeiEXChiGVMuXNgk-F5fXQcTmn1zWVJOfHxWDaZdQp-HayKRDhLzF4d39ViJnb9IwFwfY7Hv5NSBnlH3UREufkQJ0zCt4AZb1f47l-oBcDLnOraQ5m2VOwr1bsGzy8n8P-lzwlFQv0DBQKSXkzwUvQRxT8xnmMnggA5iWskTHzP1Hjd5jJM8kYNu-l98gS2_nK9_YhDDr4tXxo8qdk02mZggckunAjSKfDOhVttOfDip4NsB4O6Ug7Y6PP6TLhSs6AI"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Alex Rivers</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Style Plus Member</span>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface hover:bg-surface-container-highest transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">checkroom</span>
+<span class="font-label-md text-label-md">My Wardrobe</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">style</span>
+<span class="font-label-md text-label-md">Outfit Generator</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-md text-label-md">Capsule Shop</span>
+</a>
+<div class="mt-auto">
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<main class="flex-1 md:ml-80 relative min-h-screen">
+<header class="md:hidden flex justify-between items-center px-gutter h-16 w-full bg-surface/80 backdrop-blur-xl dark:bg-surface/80 fixed top-0 z-50 border-b border-white/5 shadow-sm transition-transform duration-200">
+<button class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-headline-lg-mobile text-headline-lg-mobile tracking-tighter text-on-surface dark:text-on-surface-variant">LifeStyle AI</h1>
+<button class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<div class="pt-24 md:pt-16 px-gutter md:px-lg max-w-container-max mx-auto space-y-md pb-xl">
+<div class="flex flex-col gap-xs mb-lg">
+<h2 class="font-headline-lg text-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-surface tracking-tight">Good Morning, Alex</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Your wardrobe is optimized for today's crisp weather.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md auto-rows-auto">
+<div class="md:col-span-12 glass-card rounded-2xl p-0 flex flex-col md:flex-row overflow-hidden group shadow-2xl border-white/10 relative">
+<div class="p-md flex flex-col flex-1 relative z-10 ai-glow md:w-1/2">
+<div class="flex justify-between items-start mb-auto">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm px-3 py-1 rounded-full bg-primary/20 text-primary w-fit border border-primary/20 backdrop-blur-md">Weather-Aware Selection</span>
+<h3 class="font-display-lg text-4xl text-on-surface mt-4 tracking-tight">Today's Look</h3>
+</div>
+<div class="flex items-center gap-2 text-on-surface bg-surface-container/50 px-3 py-1.5 rounded-full backdrop-blur-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">cloud</span>
+<span class="font-label-md text-label-md">68°F</span>
+</div>
+</div>
+<div class="mt-xl">
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-md">Light layers recommended for the afternoon breeze. A tailored charcoal trench over crisp organic cotton provides effortless versatility.</p>
+<div class="flex gap-sm">
+<button class="bg-primary-fixed text-on-primary-fixed font-label-md text-label-md px-lg py-3 rounded-full hover:opacity-90 transition-opacity active:scale-95 shadow-lg">
+                                Wear This
+                            </button>
+<button class="bg-surface-container-high text-on-surface font-label-md text-label-md px-lg py-3 rounded-full hover:bg-surface-container-highest transition-colors active:scale-95 border border-white/10">
+                                Shuffle
+                            </button>
+</div>
+</div>
+</div>
+<div class="h-80 md:h-auto md:w-1/2 relative overflow-hidden">
+<img alt="Outfit recommendation" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXqLBw9jfcrVc0UOg7VeM4V3b9SEzmTxV6xrCoXOez_MdQM1qMV2x1rwk0F6fo1RdD0BQDNI7TJeG_dvriVKvGSF1b1UW_NC26_HinxHjZDJ8MdrJdxazb_1VdA9ZDu_n65LOiwdGeXAtLKvrGqEQqmbMDWOHKGM79ONBKfdeUrWXABnXZjO9R_5L5SvlbFsnDzGKZCYnGmIwnlTiG3TzJvs7VS52uw16VAZRiN8M1OxQC14n9lSI0DivaxsN-5tTm8leSc5w44ak"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent md:bg-gradient-to-r md:from-surface/90 md:via-surface/40 md:to-transparent"></div>
+</div>
+</div>
+<div class="md:col-span-12 flex flex-col gap-sm mt-md">
+<div class="flex justify-between items-end px-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tight">AI Suggested Rotation</h3>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm md:gap-md">
+<div class="glass-card rounded-xl p-sm flex flex-col gap-sm hover:border-primary/30 transition-all cursor-pointer group">
+<div class="h-40 rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="Casual Friday" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxYTUXTIm_yYHPDl92l9NGVGaPAmkeVh4e5QXHIvoAEFYJ-A8cKWaThrxUCGjdaKVR_5ZHlBcc5PtqdCzXGLtG2uGTbXfjlcHQTp8inn-zwtMwsgQrOEsgfI2SZ1erXv6pDXcpDCNFQjI5mTmxM9wxZXqZsdmZjSA9wD5MG8Fndfg6NEDMNkWm3P1LluRyNLmyO8kM3cvjBNUKwj3dsLcjFNAyrlRUzcn74-ilwKAuu9lk2XTjbjAR-Q9pS6r4ZCTx0FYoAk28wzc"/>
+<div class="absolute bottom-2 left-2 bg-surface/80 backdrop-blur-md px-2 py-1 rounded text-[10px] uppercase tracking-wider text-on-surface">Casual Friday</div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-sm flex flex-col gap-sm hover:border-primary/30 transition-all cursor-pointer group">
+<div class="h-40 rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="Evening Dinner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-8NgLCdJ-l3zuqBxH5lMGp8R8svStrP4ML5xsAgvHhnwYpIAliT5ySRII6qZjZ6tzUoCnRFjAmSoxhrPoOWs1wNK87PfA_SCTiRsyh0n6rpP-o-G1TERQ-WtrgMWqfSYzfgT9xeavjQkXLx4o2H_kf4OuTQr7w4NCseDJ91JFVEwP8ryeh23F67lWsS5gsiq__0sfsOcAMWJQCe0BxDrYsYIIOeRwrDOpC_6S_iqcAC0_cfDrhc6ak9ZaMyuZFUlWkViuWVsl5ZM"/>
+<div class="absolute bottom-2 left-2 bg-surface/80 backdrop-blur-md px-2 py-1 rounded text-[10px] uppercase tracking-wider text-on-surface">Evening Dinner</div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-sm flex flex-col gap-sm hover:border-primary/30 transition-all cursor-pointer group">
+<div class="h-40 rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="Office Minimal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa3FObTuwzKVtUgutiHxo33lIjOyNPhVlEhk_gS_xJTC5_JHQXlNv4Yyrs9oP2UCJRwzSfSuaM-VVHmqAZ5UE3s9549ZJTU2ggNyf5c6wYFTwrXornqUu7mY9K2QXbjRcdhnN-xVxiHsQ8OR2f9vrymJa3I1z-fxpM1UntDlmCOsJnIkKdnQrXGo89jcwjntjidTXOkxlWcuC9XBZts_BL-DHVAG2VB_t6mfUN8CT1-2x-ao0_dZwKBQsnpz7c0nACDjoZSpjzgoo"/>
+<div class="absolute bottom-2 left-2 bg-surface/80 backdrop-blur-md px-2 py-1 rounded text-[10px] uppercase tracking-wider text-on-surface">Office Minimal</div>
+</div>
+</div>
+<div class="glass-card rounded-xl p-sm flex flex-col gap-sm hover:border-primary/30 transition-all cursor-pointer group">
+<div class="h-40 rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="Weekend Errands" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_VkIhn64Ca8WByLk1WX-_d7vO5aMnzxIwjb5mo9-4uYpAMx68Km93beZVq4sqTLkoUQzCsJl6xal6J2GmXhTyDkl1hI2mJC9LA1kNUIBPv_XcnHfUSqgsn7j1NJk8N48voiPi26I-vczSCVplmxxubOszALg2WjJfNOtocDTo8midVnNpd9Pv5-4NmvzwegR5Tygcy7ZnplaxE4YwEvTY_lQZb2LrDZvN1QM4reByBosARxaW4mqGec2hdMqMJKen8ZwAi7ecI8E"/>
+<div class="absolute bottom-2 left-2 bg-surface/80 backdrop-blur-md px-2 py-1 rounded text-[10px] uppercase tracking-wider text-on-surface">Weekend Errands</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-12 flex flex-col gap-sm mt-md">
+<h3 class="font-headline-md text-headline-md text-on-surface px-xs tracking-tight">Recently Worn</h3>
+<div class="flex overflow-x-auto hide-scroll-bar gap-sm pb-sm">
+<div class="flex-shrink-0 w-24 flex flex-col items-center gap-xs">
+<img alt="Item" class="w-20 h-20 rounded-full object-cover border-2 border-surface-container-highest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-_126fyKBTjEZM43JMMmxuHsjirSNfYtWAt23Ixx5McUrdedCJ70Lk4VHdNd0u3wS3JYJBYIL8Htidz8JSpoB3IkKMMjutx0xG4lrkHRHFBv12EVOVYdD0gTeElMpksF62RyMMQ1OPHoURXqjE_p1meSYFawfY-Q_mzgg1Bmgt-2i54w5h-H1iYeMS3IxrQ8Fa_H6vUIbyeqHZuPfMOOq-gWXdTH-52hOzMVewv-Kx9s6Z822UpwvPTbSr05OOro8gXzPk0XahFY"/>
+<span class="text-[11px] text-on-surface-variant truncate w-full text-center">White Tee</span>
+</div>
+<div class="flex-shrink-0 w-24 flex flex-col items-center gap-xs">
+<img alt="Item" class="w-20 h-20 rounded-full object-cover border-2 border-surface-container-highest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMtbi9k68IvZ3TF8tAokI_B4NrgMg_jwLLNlxjDgWwMTowxg5M4QkgYIEqEuHJMIR6w-vFNjXxduWJO664BE4mUrBK8b-9s-WVlyvGWzP0yurCoTvH8zxX9wkl37ZiuBdGY9dkBu4ne15nfi889M9y3k4sNUaqAj62b7xznPgQ1oqF8B-jgJ-w2XXptjjLgHm4J9iFE4LnSMBGssUjPYwmv7l9l4tTqP8SdMZy8sNmTSrgvzZ2_H8-lhgR7I6N5EjENrgvC-GXBwU"/>
+<span class="text-[11px] text-on-surface-variant truncate w-full text-center">Denim Jacket</span>
+</div>
+<div class="flex-shrink-0 w-24 flex flex-col items-center gap-xs">
+<img alt="Item" class="w-20 h-20 rounded-full object-cover border-2 border-surface-container-highest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFyAKiJbD0QSSW-YxUGxlfeVYKr8jmHk0UPZ347JJ5pyVJ_RBswQ7z0G4FVkKG5wIvRo3mWWxVjIqa0-lH-v6mJ0FaQgV2-HgLhJeWd-DpFTq58LDSan18P9-8a5ayDO7AQaLQ42n2iForf1b2XjkeSRtkSzu4N1u9M36jiBuoIlcUoTVyUFve_dqUcWTsOkBZQoBCy-e_Fucc1modAL4GbJ97H8MSkllP0Z9B17t0zr-jChkNS62UC6v4S-_5gnOc6WcQE1kzFxc"/>
+<span class="text-[11px] text-on-surface-variant truncate w-full text-center">Blue Jeans</span>
+</div>
+<div class="flex-shrink-0 w-24 flex flex-col items-center gap-xs">
+<img alt="Item" class="w-20 h-20 rounded-full object-cover border-2 border-surface-container-highest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB-PWJsI2nOLe2JCU0giWXRpg4xzEUGdduLWUJiBkLQvymUIT2zG3ZftdvG78nTcREZ2eZbKCPupxEzpGwlhCfaNWLUXkSeBdQ9dGXun0U-fE0437GWDJeEFoTPvSEz2FLx32y1qcilf1rh0GUr0h9eGT-7oqsSaXwJKvbHgZ4MOWBpRigIv8OeHHFfvTSKrgyk8mITCrVFWnJ60x9_jcCBEK3DsbvFlraI2aCrQKqDEBON4t8pUuGGpnVreV47iRJ2LOYENxFFJI"/>
+<span class="text-[11px] text-on-surface-variant truncate w-full text-center">Sneakers</span>
+</div>
+<div class="flex-shrink-0 w-24 flex flex-col items-center gap-xs">
+<img alt="Item" class="w-20 h-20 rounded-full object-cover border-2 border-surface-container-highest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMtqPtfJxBqxMuzdKoaiKFNw4JaoOWpq62fcqG6stoDZMoMRJEYpeQCRt1bUJ3fsYMykrfo2TYf1KVJS_vz3UnbgMF1cHWhQORHriHh8CE7K3iaVJ-zi_YLvcCNJq3GKxnF52fVK0Gt8tHZEed1k9PVDB6Yifth5q9kCDd1zV50bWbL1EarKQBtKTyj0LdACXdgMFjZrfJqiCdk3QhaGLfiJHKc8MR4unryaoupRYDeheX_9jXA9MLnB4JPziBjo3322cfFwRRsWA"/>
+<span class="text-[11px] text-on-surface-variant truncate w-full text-center">Black Blazer</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 glass-card rounded-2xl p-md flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-lg text-on-surface tracking-tight">Unused This Month</h3>
+<span class="material-symbols-outlined text-outline">inventory_2</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2">3 items haven't been worn in over 30 days. Consider rotating or donating.</p>
+<div class="flex gap-2">
+<img alt="Sweater" class="w-12 h-12 rounded-lg object-cover opacity-60 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpuSoR43ZfcXzXUZjimvmL2Q_dDrdYONvmna9Hyv77Rkxk6suZRV1Tjqu9BeGyUFRho2a9m_nQHtR4rmP-kKzo0NH-lCTbISp19prjOX5Ju64n8lAINSm8wWyTR0rewFSx96tPuORZQpQflSxjHaLmSepmbjwEikO1irHfCJXrEWXg6RdfgqiWyJnpYBQVbFGWpR82_EcMAHlHPKxqtehWdl8FzU9Jj_xDchAw9BnFv11Re98MwOnZlSjK6lp9ZsBuCV4E51dgQLQ"/>
+<img alt="Pants" class="w-12 h-12 rounded-lg object-cover opacity-60 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTQct17jcctZ7eGGcD2bexbfk9e_B09Q-KZOOCyA-2AmPaNnpYv4aOVHAvSMbSVfgMBnZi6w6VumM8R1OvcoMxVrbnfFNbfv3QSmkeX-D2qGWact7l_5CmvNsu9M9j2_TakfuQpnTfKXDQ6-7adT-qghvntoqWPDCBhOuNz6SZn9eGzrZO7wEa7vOLrX4trN4nyl7DQ3r7uUDjUB_F7vIdxbWBd64-xeag3e9hm67qTFkXEp39UYFK9DdOZLsVZBCBKGZKMZNMSes"/>
+<img alt="Shoes" class="w-12 h-12 rounded-lg object-cover opacity-60 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT_lHHip91MbhWbiwi5QTqj8Rk2iQcSXgaBSNthZU39m8NOH0Ejt6lcyrf8xxR0eJxxdq6ClsWEY84vOohvO_rVZREr-bOB1oGz6sfsNhtKmPEwRPAySC8dHm3wdZCEc2oJqBWApbdCchcVrqJUEfFUg3hwGlsLVQXabN7i8ilYkPN9ade_Jv9pY_q9f3CxTAxd5IOdi769So97EpTmeuAmI8nwoCL_N6o-Om3Pt9EOC1aDXbI1XAuaREvorfZrVCSvr1SOrfDNag"/>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-xs text-on-surface-variant">+2</div>
+</div>
+<button class="mt-auto pt-4 text-sm text-primary hover:text-primary-fixed transition-colors text-left w-fit">Review Items →</button>
+</div>
+<div class="md:col-span-4 glass-card rounded-2xl p-md flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-lg text-on-surface tracking-tight">Trending Palette</h3>
+<span class="material-symbols-outlined text-outline">palette</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2">Your current aesthetic leans heavily into earthy neutrals and deep charcoals.</p>
+<div class="flex h-12 rounded-lg overflow-hidden w-full mt-2">
+<div class="bg-[#2a2a2a] w-[40%] h-full"></div>
+<div class="bg-[#dcd7cb] w-[30%] h-full"></div>
+<div class="bg-[#5c6057] w-[20%] h-full"></div>
+<div class="bg-[#8b7355] w-[10%] h-full"></div>
+</div>
+<div class="flex justify-between text-[10px] text-outline mt-1 uppercase tracking-widest">
+<span>Charcoal</span>
+<span>Cream</span>
+<span>Olive</span>
+<span>Camel</span>
+</div>
+</div>
+<div class="md:col-span-4 glass-card rounded-2xl p-md flex flex-col gap-sm relative overflow-hidden group">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80')] bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface/80 to-surface/40"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-headline-md text-lg text-on-surface tracking-tight">Capsule Additions</h3>
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">Based on your gaps, a structured tote would elevate 12 of your existing outfits.</p>
+<button class="mt-auto bg-white/10 backdrop-blur-md border border-white/20 text-on-surface text-sm py-2 px-4 rounded-full hover:bg-white/20 transition-colors w-fit">Explore Suggestions</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<nav class="md:hidden flex justify-around items-center h-20 pb-safe w-full px-xs bg-surface-container/60 backdrop-blur-2xl dark:bg-surface-container-lowest/80 fixed bottom-0 z-50 border-t border-white/5">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home_app_fill" style="font-variation-settings: 'FILL' 1;">home_filled</span>
+<span class="font-label-sm text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="checkroom">checkroom</span>
+<span class="font-label-sm text-[10px] mt-1">Wardrobe</span>
+</a>
+<a class="flex flex-col items-center justify-center -mt-6 active:scale-90 transition-transform duration-300" href="#">
+<div class="bg-primary-fixed text-primary-container rounded-full p-3 shadow-lg flex items-center justify-center border-4 border-surface-dim">
+<span class="material-symbols-outlined text-[28px]" data-icon="add" style="font-variation-settings: 'FILL' 1;">add</span>
+</div>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="style">style</span>
+<span class="font-label-sm text-[10px] mt-1">Outfits</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * (index + 1));
+            });
+        });
+    </script>
+</body></html>

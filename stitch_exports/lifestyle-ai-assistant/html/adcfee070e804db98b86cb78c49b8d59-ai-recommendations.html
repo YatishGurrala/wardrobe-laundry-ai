@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LifeStyle AI - Outfit Recommendation</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#5f5e5e",
+                    "surface-dim": "#111415",
+                    "surface-variant": "#333537",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-tertiary-container": "#7c7795",
+                    "outline": "#8e9192",
+                    "primary": "#c9c6c5",
+                    "secondary": "#cac6bf",
+                    "background": "#111415",
+                    "surface-container": "#1e2021",
+                    "surface-bright": "#37393b",
+                    "on-secondary": "#31302c",
+                    "primary-container": "#0d0d0d",
+                    "on-primary-container": "#7c7a7a",
+                    "inverse-surface": "#e2e2e4",
+                    "surface-container-high": "#282a2c",
+                    "surface": "#111415",
+                    "surface-container-highest": "#333537",
+                    "tertiary-fixed": "#e5deff",
+                    "tertiary-fixed-dim": "#c9c2e4",
+                    "secondary-fixed-dim": "#cac6bf",
+                    "on-tertiary": "#312d47",
+                    "inverse-on-surface": "#2f3132",
+                    "secondary-container": "#484742",
+                    "on-tertiary-fixed-variant": "#47435f",
+                    "primary-fixed": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#484742",
+                    "error": "#ffb4ab",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "surface-container-low": "#1a1c1d",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#1c1c17",
+                    "on-primary": "#313030",
+                    "outline-variant": "#444748",
+                    "on-surface": "#e2e2e4",
+                    "on-error": "#690005",
+                    "on-primary-fixed-variant": "#474646",
+                    "surface-tint": "#c9c6c5",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-lowest": "#0c0e10",
+                    "on-surface-variant": "#c4c7c7",
+                    "on-background": "#e2e2e4",
+                    "tertiary": "#c9c2e4",
+                    "tertiary-container": "#0d0922",
+                    "on-tertiary-fixed": "#1c1831",
+                    "on-secondary-container": "#b8b5ae",
+                    "secondary-fixed": "#e6e2db"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "sm": "12px",
+                    "xl": "64px",
+                    "base": "8px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "lg": "40px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter", "sans-serif"],
+                    "headline-lg": ["Inter", "sans-serif"],
+                    "headline-lg-mobile": ["Inter", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"],
+                    "body-md": ["Inter", "sans-serif"],
+                    "label-md": ["Inter", "sans-serif"],
+                    "label-sm": ["Inter", "sans-serif"],
+                    "display-lg": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom scrollbar hiding for horizontal lists */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Card swipe animation setup */
+        .card-stack {
+            perspective: 1000px;
+        }
+        .card-item {
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+            transform-origin: bottom center;
+        }
+        
+        /* Simulating the stack visually */
+        .card-top { z-index: 30; transform: translateY(0) scale(1); opacity: 1; }
+        .card-mid { z-index: 20; transform: translateY(20px) scale(0.95); opacity: 0.6; filter: blur(2px); }
+        .card-bot { z-index: 10; transform: translateY(40px) scale(0.9); opacity: 0.3; filter: blur(4px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased overflow-hidden h-screen flex selection:bg-primary/30">
+<!-- Desktop Sidebar Navigation (Hidden on Mobile) -->
+<aside class="hidden md:flex flex-col p-md gap-base h-full w-80 rounded-r-xl border-r border-outline-variant/20 shadow-2xl bg-surface dark:bg-surface-dim z-50">
+<!-- Profile Header -->
+<div class="flex items-center gap-sm mb-lg px-xs">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant/30 bg-surface-container-high flex-shrink-0">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a young professional in a softly lit, modern setting. The lighting is moody and cinematic, highlighting features against a dark background, reflecting a sophisticated and minimal lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcattokWxIf9__Sj6zoTd7aIi2SiavNuDahRSGUuaGTc2PBfh22fZ_L6N4Kx7IJlNLXGAY4XyOsFcNMS17f0FyqlHq9XSLDu0ajQ9dR3Hi5waZJKiB5fqH-9tlCpkpd0lJPHPEI0wVBmLvWjoM9ZkZm5FDAbQJPDePCxIiszF5SxdC0pfiertfmyzbDzkIhJa_GYPIDTILiaP9SokwnQh6BPAncjhDtMZOhfN7xTTdGmYMXJwDoCGtBzf3RPK0olYNNhTRpa5cj_w"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Alex Rivers</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Premium Member</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-xs flex-1">
+<!-- Active Nav Item -->
+<a class="flex items-center gap-sm px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">magic_button</span>
+<span class="font-label-md text-label-md font-semibold">Personal Stylist</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Smart Calendar</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">auto_graph</span>
+<span class="font-label-md text-label-md">Habit Tracker</span>
+</a>
+<div class="mt-auto">
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col h-full relative overflow-hidden">
+<!-- Mobile TopAppBar (Hidden on Desktop) -->
+<header class="md:hidden fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl dark:bg-surface/60 border-b border-white/10 shadow-sm flex justify-between items-center px-gutter h-16">
+<button class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile tracking-tighter text-on-surface dark:text-on-surface-variant">LifeStyle AI</span>
+<button class="text-on-surface-variant dark:text-outline hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Dynamic Content Area -->
+<div class="flex-1 overflow-y-auto pt-20 pb-28 md:pt-lg md:pb-lg px-gutter relative flex flex-col items-center">
+<!-- Header Context: Occasion & Weather -->
+<div class="w-full max-w-md mx-auto flex flex-col gap-sm mb-md z-40 relative">
+<div class="flex justify-between items-center w-full">
+<h1 class="font-headline-md text-headline-md text-on-surface">Curated Looks</h1>
+<!-- Weather Pill -->
+<div class="flex items-center gap-xs px-3 py-1.5 rounded-full bg-surface-container border border-white/5 backdrop-blur-md">
+<span class="material-symbols-outlined text-primary text-[18px]">partly_cloudy_day</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">68°F</span>
+</div>
+</div>
+<!-- Occasion Selector (Horizontal Scroll) -->
+<div class="flex gap-sm overflow-x-auto no-scrollbar py-1 w-full mask-linear-fade">
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-primary/20 bg-primary text-on-primary font-label-md text-label-md shadow-[0_0_15px_rgba(201,198,197,0.15)] transition-all">
+                        Office
+                    </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant/30 bg-surface-container/50 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-all">
+                        Date Night
+                    </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant/30 bg-surface-container/50 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-all">
+                        Gym
+                    </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant/30 bg-surface-container/50 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-all">
+                        Casual
+                    </button>
+</div>
+</div>
+<!-- Swipeable Card Stack Area -->
+<div class="relative w-full max-w-sm flex-1 flex flex-col items-center justify-center card-stack mt-xs mb-xl">
+<!-- Bottom Card (Visual Depth) -->
+<div class="card-item card-bot absolute w-full aspect-[3/4] rounded-2xl bg-surface-container-high border border-white/5 shadow-2xl flex flex-col overflow-hidden">
+<div class="w-full h-full bg-surface-container-lowest/50 absolute inset-0"></div>
+</div>
+<!-- Middle Card (Visual Depth) -->
+<div class="card-item card-mid absolute w-full aspect-[3/4] rounded-2xl bg-surface-container border border-white/10 shadow-2xl flex flex-col overflow-hidden">
+<div class="w-full h-full bg-surface-container-low/50 absolute inset-0"></div>
+</div>
+<!-- Top Card (Active) -->
+<div class="card-item card-top absolute w-full aspect-[3/4] rounded-2xl bg-surface/80 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col overflow-hidden cursor-grab active:cursor-grabbing group">
+<!-- High-end glowing accent -->
+<div class="absolute -top-20 -right-20 w-40 h-40 bg-tertiary/20 rounded-full blur-[50px] pointer-events-none"></div>
+<!-- Outfit Image -->
+<div class="flex-1 w-full relative overflow-hidden bg-surface-container-lowest">
+<img alt="Outfit recommendation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A curated, flat-lay minimalist fashion arrangement featuring modern professional attire. A crisp white button-down shirt is layered with a tailored charcoal grey blazer, paired with dark, sleek trousers. The items are perfectly arranged on a matte, dark charcoal background, illuminated by soft, diffused studio lighting that emphasizes the high-quality textures of the fabric, creating a sophisticated, quiet intelligence aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQoW5A6nMDqTgMJ2BUn_AcltyQBX-kVHJR3lukNOLBhpi9B_LEuO2sr1N68KMS4X80cXA_aOJ9soVF_rbPrBsNQrRZ8HehoMqgOecJkDzWcKhoCo8dZLF1JnE0Wvac8LWQN5iCiWHE4HqbHDZCgjPXOyRZl7bagqb2i4tch6xT7xR2yKM9VeAp7jFzKLj9ZE3NEntLxML3_-XoZRfF5Vv9zWkzYfSsfgk_bul_Rv1x_FWwKSO7fYAl0Z3jcwOIwJLywiwzHBTty1g"/>
+<!-- Gradient Overlay for readability -->
+<div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-surface-container-highest/90 to-transparent"></div>
+</div>
+<!-- Card Content Footer -->
+<div class="p-md bg-surface-container-highest/80 backdrop-blur-xl border-t border-white/5 flex flex-col gap-xs relative">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Monochrome Elegance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Smart Casual • 3 Items</p>
+</div>
+<!-- Small quick action (like/dislike) -->
+<button class="w-10 h-10 rounded-full bg-surface-container border border-white/10 flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<!-- Mini tags -->
+<div class="flex gap-xs mt-sm">
+<span class="px-2 py-1 rounded border border-white/10 bg-white/5 font-label-sm text-label-sm text-on-surface-variant">Blazer</span>
+<span class="px-2 py-1 rounded border border-white/10 bg-white/5 font-label-sm text-label-sm text-on-surface-variant">Turtleneck</span>
+<span class="px-2 py-1 rounded border border-white/10 bg-white/5 font-label-sm text-label-sm text-on-surface-variant">Trousers</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Action: Save Outfit -->
+<div class="w-full max-w-sm mt-auto z-40 relative">
+<button class="w-full py-4 rounded-lg bg-primary text-primary-container font-label-md text-label-md font-bold flex items-center justify-center gap-sm shadow-[0_0_20px_rgba(201,198,197,0.2)] hover:bg-white active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+                    Save Outfit to Wardrobe
+                </button>
+</div>
+</div>
+<!-- Mobile BottomNavBar (Hidden on Desktop) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/40 backdrop-blur-2xl dark:bg-surface-container-low/40 border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.1)] flex justify-around items-center h-20 pb-safe px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-300 w-16" href="#">
+<span class="material-symbols-outlined">home_filled</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<!-- Active State -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:text-primary transition-colors active:scale-90 duration-300 w-16" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+<span class="font-label-sm text-label-sm mt-1">Wardrobe</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-300 w-16" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-sm text-label-sm mt-1">Add</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-300 w-16" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-300 w-16" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</main>
+</body></html>

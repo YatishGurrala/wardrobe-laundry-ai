@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Style DNA - LifeStyle AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#1e2021",
+                        "secondary-fixed": "#e6e2db",
+                        "on-primary-container": "#7c7a7a",
+                        "on-secondary-fixed-variant": "#484742",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-bright": "#37393b",
+                        "outline-variant": "#444748",
+                        "tertiary": "#c9c2e4",
+                        "surface": "#111415",
+                        "error-container": "#93000a",
+                        "outline": "#8e9192",
+                        "on-surface": "#e2e2e4",
+                        "on-secondary": "#31302c",
+                        "on-tertiary-fixed-variant": "#47435f",
+                        "primary": "#c9c6c5",
+                        "on-surface-variant": "#c4c7c7",
+                        "surface-tint": "#c9c6c5",
+                        "primary-container": "#0d0d0d",
+                        "surface-container-high": "#282a2c",
+                        "on-tertiary-fixed": "#1c1831",
+                        "on-tertiary": "#312d47",
+                        "inverse-on-surface": "#2f3132",
+                        "surface-container-highest": "#333537",
+                        "secondary-fixed-dim": "#cac6bf",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-error": "#690005",
+                        "secondary": "#cac6bf",
+                        "surface-variant": "#333537",
+                        "tertiary-fixed-dim": "#c9c2e4",
+                        "inverse-surface": "#e2e2e4",
+                        "tertiary-fixed": "#e5deff",
+                        "on-tertiary-container": "#7c7795",
+                        "on-secondary-container": "#b8b5ae",
+                        "secondary-container": "#484742",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-primary": "#313030",
+                        "inverse-primary": "#5f5e5e",
+                        "surface-dim": "#111415",
+                        "surface-container-lowest": "#0c0e10",
+                        "surface-container-low": "#1a1c1d",
+                        "error": "#ffb4ab",
+                        "on-background": "#e2e2e4",
+                        "background": "#111415",
+                        "tertiary-container": "#0d0922",
+                        "on-secondary-fixed": "#1c1c17",
+                        "on-primary-fixed-variant": "#474646"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "xs": "4px",
+                        "lg": "40px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px rgba(201, 194, 228, 0.05);
+        }
+        /* Hide scrollbar for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen selection:bg-tertiary-container selection:text-tertiary">
+<!-- TopAppBar (Desktop / Web) -->
+<header class="hidden md:flex justify-between items-center px-gutter h-16 w-full fixed top-0 z-50 bg-surface/60 backdrop-blur-xl dark:bg-surface/60 shadow-sm border-b border-white/10 text-on-surface-variant dark:text-outline transition-all duration-300">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high transition-colors text-primary dark:text-primary-fixed hover:opacity-80 active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-lg text-headline-lg tracking-tighter text-on-surface dark:text-on-surface-variant text-center absolute left-1/2 -translate-x-1/2">
+            LifeStyle AI
+        </div>
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high transition-colors text-primary dark:text-primary-fixed hover:opacity-80 active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="flex md:hidden justify-between items-center px-gutter h-16 w-full fixed top-0 z-50 bg-surface/60 backdrop-blur-xl shadow-sm border-b border-white/10">
+<button class="flex items-center justify-center p-2 rounded-full text-primary hover:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-lg-mobile text-headline-lg-mobile tracking-tighter text-on-surface text-center">
+            LifeStyle AI
+        </div>
+<button class="flex items-center justify-center p-2 rounded-full text-primary hover:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Main Layout Container -->
+<div class="flex h-screen overflow-hidden pt-16 pb-20 md:pb-0">
+<!-- NavigationDrawer (Web only) -->
+<aside class="hidden md:flex flex-col p-md gap-base h-full w-80 rounded-r-xl border-r border-outline-variant/20 shadow-2xl bg-surface dark:bg-surface-dim z-40 overflow-y-auto">
+<!-- Header -->
+<div class="flex items-center gap-sm p-sm mb-4">
+<img alt="User profile" class="w-12 h-12 rounded-full object-cover" data-alt="A close-up portrait of a sophisticated young professional with a minimalist aesthetic. The lighting is soft and natural, casting gentle shadows that highlight their features. They are styled in understated, high-quality basics, reflecting a quiet luxury vibe against a blurred, neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuBhK5AMivOI7RkDpRIZHrxbiZn59qizeEuuS4zvvuf3kAgaoGmrHOdCtk-Vmt-UziTHAQ-oOyIGO_9b3TjySAQC71iUz1lw0AsxfiI2QM7qUzGR5yq1OZ1RyPhkgsFjr1hBV3ZTapVlQRkX1gHnlZ-fCM9hqGtIBKn_ZE773mx8CUMClCrkPA_346FBqLoiwAAX30n74AuPrUJJ9OiR4uJ8dHjxUndws12sSBul_qz27zY6x-YDeang9EDac4kjsjC0gGr1tWZLk"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Alex Rivers</span>
+<span class="font-label-sm text-label-sm text-primary">Premium Member</span>
+<span class="text-[10px] text-on-surface-variant opacity-70">LifeStyle AI Gold</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-xs">
+<a class="flex items-center gap-sm px-sm py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">magic_button</span>
+<span class="font-body-md text-body-md">Personal Stylist</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-body-md text-body-md">Smart Calendar</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-all" href="#">
+<span class="material-symbols-outlined">auto_graph</span>
+<span class="font-body-md text-body-md">Habit Tracker</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-3 rounded-lg bg-secondary-container text-on-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md font-medium">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto w-full max-w-container-max mx-auto px-gutter md:px-lg py-lg">
+<!-- Hero: Style DNA -->
+<section class="mb-xl animate-fade-in-up">
+<div class="flex items-center justify-between mb-md">
+<h1 class="font-display-lg text-display-lg text-on-surface">Your Style DNA</h1>
+<button class="glass-panel px-4 py-2 rounded-full font-label-sm text-label-sm flex items-center gap-2 hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span> Share
+                    </button>
+</div>
+<div class="relative w-full h-[500px] md:h-[600px] rounded-[24px] overflow-hidden group">
+<!-- Background Image -->
+<img alt="Minimalist chic outfit" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A highly stylized, cinematic fashion editorial shot. The model is wearing a curated 'Minimalist Chic' outfit composed of a structured charcoal blazer, a crisp white architectural blouse, and deep navy tailored trousers. The lighting is moody and directional, creating striking contrast and emphasizing the premium textures of the fabrics. The background is a stark, textured concrete wall, adding an industrial yet luxurious undertone to the composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeQyoSFDMIxjgGIpA4mLQrDg6-WPcSXArWJ8zJFSc7k1-Tyuvp1RKSI9t7eiWI5SW3AGaIEz3LBj3Rt9RsXIiEJhzrfeCdlLmIlQqAowAIpWEChPQK8kjwfVTBYFKYn6Mlg-OQbYn9ApMQr5sH0U_UTNZaI3sWFPMeEft1nghQR8GKmLHKCQStHY_DtqLYgrVAn_huKIYy4nowI8_S8Tl5CgGF3EYyubFx_22LCqCl_xxsEUWObbLv3Vn5yWn_mMtl4z6Hu490BX0"/>
+<!-- Gradient Overlay for readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+<!-- Content Overlay -->
+<div class="absolute inset-x-0 bottom-0 p-lg flex flex-col items-start gap-4">
+<div class="px-3 py-1 rounded-full bg-surface/80 backdrop-blur-md border border-white/10 font-label-sm text-label-sm text-primary tracking-widest uppercase">
+                            Archetype
+                        </div>
+<h2 class="font-display-lg text-display-lg leading-tight">Minimalist Chic</h2>
+<div class="glass-panel p-md rounded-xl max-w-md mt-2 glow-effect">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                                "You lean toward silhouettes that command presence without raising a voice. Your wardrobe is a masterclass in quiet confidence, favoring structure over ornament."
+                            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Grid Layout for Stats & Breakdowns -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-md mb-xl">
+<!-- Color Identity -->
+<div class="glass-panel p-lg rounded-[24px] flex flex-col justify-between min-h-[300px]">
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Dominant Palette</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The core tones of your aesthetic.</p>
+</div>
+<div class="flex flex-col gap-4 mt-8">
+<!-- Color Bar 1 -->
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-[#2C2C2C] shadow-inner border border-white/5 flex-shrink-0"></div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="font-label-md text-label-md">Deep Charcoal</span>
+<span class="font-label-md text-label-md text-on-surface-variant">45%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed w-[45%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Color Bar 2 -->
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-[#F5F5DC] shadow-inner border border-black/10 flex-shrink-0"></div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="font-label-md text-label-md">Warm Cream</span>
+<span class="font-label-md text-label-md text-on-surface-variant">30%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed w-[30%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Color Bar 3 -->
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-[#1A2436] shadow-inner border border-white/5 flex-shrink-0"></div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="font-label-md text-label-md">Midnight Navy</span>
+<span class="font-label-md text-label-md text-on-surface-variant">25%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed w-[25%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Aesthetic Breakdown -->
+<div class="glass-panel p-lg rounded-[24px] flex flex-col relative overflow-hidden min-h-[300px]">
+<!-- Abstract background element -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md mb-2">Aesthetic Mix</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Your unique structural blend.</p>
+<div class="flex flex-col gap-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md tracking-wider uppercase text-primary">Minimalist</span>
+<span class="font-label-md text-label-md">65%</span>
+</div>
+<div class="h-px w-full bg-white/10 relative">
+<div class="absolute top-0 left-0 h-px bg-white w-[65%] shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md tracking-wider uppercase text-primary">Industrial</span>
+<span class="font-label-md text-label-md">20%</span>
+</div>
+<div class="h-px w-full bg-white/10 relative">
+<div class="absolute top-0 left-0 h-px bg-white/60 w-[20%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md tracking-wider uppercase text-primary">Classic</span>
+<span class="font-label-md text-label-md">15%</span>
+</div>
+<div class="h-px w-full bg-white/10 relative">
+<div class="absolute top-0 left-0 h-px bg-white/40 w-[15%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Favorite Combinations (Horizontal Scroll) -->
+<section class="mb-xl">
+<div class="flex items-end justify-between mb-md">
+<div>
+<h3 class="font-headline-lg text-headline-lg mb-1">Top Combinations</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Outfits you reached for the most this season.</p>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-md pb-8 no-scrollbar snap-x snap-mandatory">
+<!-- Card 1 -->
+<div class="flex-none w-[280px] md:w-[320px] snap-center group">
+<div class="relative h-[400px] rounded-[20px] overflow-hidden mb-4">
+<img alt="Outfit combination 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated flat lay style photograph of a modern professional outfit. The composition features a tailored charcoal wool blazer, a pristine white silk camisole, and sleek black leather loafers arranged aesthetically on a smooth, muted grey surface. The lighting is soft and even, simulating high-end e-commerce editorial photography, highlighting the premium textures and clean lines of the garments." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvtefkyzk1DUKxYpV_R1e5C_MItW22X1fzLw3VSA2CV2B25vwWyYy461cXOnLQa6DxakYEWoa4b6iKFkj-UR1N-nyzqq328cTzzTJKyAI4l8cbpdKkYpslBE0nrhAPEstZLtnIhLC7wfv47SkO1WsRO8Kxr0aCZbcUTTpC1NXsqptmJDL20LCymRK1-Ln3Q0b-pcp3-u2YLm7gTKGgGM9PKOKcLeXyXcEFxip0TuHhu2D3A62lH1pWZV2B-xkuHHhCDMS7NddH0vA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 glass-panel px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+<span class="font-label-sm text-label-sm">Worn 14 times</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-1">The Boardroom Edit</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Charcoal Blazer + Silk Camisole</p>
+</div>
+<!-- Card 2 -->
+<div class="flex-none w-[280px] md:w-[320px] snap-center group">
+<div class="relative h-[400px] rounded-[20px] overflow-hidden mb-4">
+<img alt="Outfit combination 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An editorial style shot focusing on details of a chic, relaxed outfit. The image highlights a pair of wide-leg cream trousers paired with a chunky, textured oatmeal knit sweater. The setting is minimal, with soft, natural light coming from a side window, casting gentle shadows that emphasize the knit's texture. The overall color palette is warm, monochromatic beige and cream, conveying cozy luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBTflfQGfS3bIeezy5kv-Myni58Ht7tzv2ojVS4uwpuzfxsFp4d-qjrMwY7yzNHihjp070o02tLjmBH3tFzoDXS7jUpKRGNhTglgv5G2rrxhcvGVyo3kHdHIWlwIyqfgg0LRRjsUmvt17o-dtuJ_noTzMnPF-Q9cTZHU0msJY3gsHTFYItUnWgCvg59mgH_eLORAHNOzgu0fqmK5NWxREjPtkRZNd7wj14XXzlyiLVySFtiwBQfQv2rEf8cRTfHdwal1QAiayAlkM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 glass-panel px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+<span class="font-label-sm text-label-sm">Worn 11 times</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-1">Sunday Architect</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Chunky Knit + Cream Trousers</p>
+</div>
+<!-- Card 3 -->
+<div class="flex-none w-[280px] md:w-[320px] snap-center group">
+<div class="relative h-[400px] rounded-[20px] overflow-hidden mb-4">
+<img alt="Outfit combination 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A moody, high-contrast fashion photograph featuring a sleek evening look. The outfit consists of a tailored midnight navy turtleneck paired with dark indigo raw denim. The lighting is cinematic, utilizing deep shadows and focused highlights to create a sense of mystery and sophistication. The background is a dark, out-of-focus urban setting, enhancing the contemporary, refined aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQrYwJnzmrecPmgQYpuDanhuurZlGwFDz3tAMHCW6kFtfP33JixJY9QA6FA0hJIjo00U9elwP0MmeOvkzsGkclyc4J1Jph_F4CxXNCy_om7MP8MYdD6YpISAmECw_AXJ-eUsl0ThAbWtRAxJdm-5t8WplxQq0BLcFey-irI_u-OJEbI92pl_iLtlb7I8MoueOPzIDzOpvRwt4MLrGjkFUYLt8p8_B0XctR5-sEwuU2iEj5qq1uGnTfrV2OgfIyED5EOmqreNZzUeQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 glass-panel px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+<span class="font-label-sm text-label-sm">Worn 8 times</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-1">Evening Noir</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Navy Turtleneck + Raw Denim</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="flex md:hidden justify-around items-center h-20 pb-safe w-full px-xs fixed bottom-0 z-50 bg-surface-container/40 backdrop-blur-2xl dark:bg-surface-container-low/40 border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.1)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined mb-1">home_filled</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined mb-1">checkroom</span>
+<span class="font-label-sm text-label-sm">Wardrobe</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined mb-1 text-[28px]">add_circle</span>
+<span class="font-label-sm text-label-sm">Add</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:text-primary transition-colors active:scale-90 duration-300 relative" href="#">
+<span class="material-symbols-outlined mb-1">analytics</span>
+<span class="font-label-sm text-label-sm">Analytics</span>
+<!-- Active indicator dot -->
+<div class="absolute -bottom-2 w-1 h-1 rounded-full bg-primary-fixed"></div>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 dark:text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple intersection observer for fade-in animations if needed later
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Elements to animate
+            const animatedElements = document.querySelectorAll('.animate-fade-in-up');
+            animatedElements.forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-4');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>

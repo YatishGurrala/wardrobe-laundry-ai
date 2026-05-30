@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#0c0e10",
+            "secondary-container": "#484742",
+            "primary": "#c9c6c5",
+            "on-tertiary-fixed-variant": "#47435f",
+            "on-secondary-container": "#b8b5ae",
+            "error": "#ffb4ab",
+            "tertiary-fixed-dim": "#c9c2e4",
+            "secondary-fixed-dim": "#cac6bf",
+            "inverse-primary": "#5f5e5e",
+            "on-error": "#690005",
+            "surface-container-high": "#282a2c",
+            "on-secondary": "#31302c",
+            "primary-container": "#0d0d0d",
+            "on-primary-fixed-variant": "#474646",
+            "tertiary-container": "#0d0922",
+            "surface-container": "#1e2021",
+            "outline": "#8e9192",
+            "surface-container-highest": "#333537",
+            "on-background": "#e2e2e4",
+            "surface-tint": "#c9c6c5",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#e5e2e1",
+            "tertiary-fixed": "#e5deff",
+            "secondary-fixed": "#e6e2db",
+            "on-tertiary-container": "#7c7795",
+            "primary-fixed-dim": "#c9c6c5",
+            "on-tertiary": "#312d47",
+            "tertiary": "#c9c2e4",
+            "on-secondary-fixed": "#1c1c17",
+            "inverse-on-surface": "#2f3132",
+            "error-container": "#93000a",
+            "on-tertiary-fixed": "#1c1831",
+            "on-surface-variant": "#c4c7c7",
+            "surface-dim": "#111415",
+            "surface-bright": "#37393b",
+            "secondary": "#cac6bf",
+            "surface-container-low": "#1a1c1d",
+            "outline-variant": "#444748",
+            "on-primary-container": "#7c7a7a",
+            "surface-variant": "#333537",
+            "surface": "#111415",
+            "inverse-surface": "#e2e2e4",
+            "on-surface": "#e2e2e4",
+            "on-primary": "#313030",
+            "background": "#111415",
+            "on-secondary-fixed-variant": "#484742",
+            "on-primary-fixed": "#1c1b1b"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "24px",
+            "lg": "40px",
+            "container-max": "1200px",
+            "base": "8px",
+            "xl": "64px",
+            "md": "24px",
+            "xs": "4px",
+            "sm": "12px"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .lavender-glow {
+      box-shadow: 0 0 40px -10px rgba(183, 177, 210, 0.15);
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .canvas-item-active {
+      transform: scale(1.05);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-primary-container text-on-surface font-body-md selection:bg-tertiary selection:text-on-tertiary overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full bg-surface/80 dark:bg-surface/80 backdrop-blur-xl text-primary dark:text-primary-fixed border-b border-white/10 z-50 flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity">menu</span>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md tracking-tight text-on-surface dark:text-on-surface font-extrabold">LifeStyle AI</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 items-center">
+<span class="font-label-md text-primary transition-opacity hover:opacity-80 cursor-pointer">Wardrobe</span>
+<span class="font-label-md text-on-surface-variant transition-opacity hover:opacity-80 cursor-pointer">Styles</span>
+<span class="font-label-md text-on-surface-variant transition-opacity hover:opacity-80 cursor-pointer">Settings</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-white/10 overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+<img alt="Profile" data-alt="A professional, high-fashion portrait of a young woman with a sharp, minimalist aesthetic. She is photographed against a dark charcoal studio background with subtle, soft lavender lighting highlights on her cheekbones. The image feels premium, editorial, and sophisticated, matching a high-end luxury app vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKMSAGnGPYNPl-_V3bRhmtLMTlCiTV3LQAW6oDLB2F9QgYCjSe_qyfwbJCRPiGsRl9RQMHhzqFeu_6NfL2DuEId3EnT3RBX4uQMGqfRHX0DZAOFpipYWRN6JhOEjr0KgCSkkUV_hB2ReKej4V6kCsKAJMj5Zli7T0l6tBs5XzjxHBPT7qPWijYf8r4et5n2WEH-NluH0_wIRdr8KtarrRlTOowNStWC4LaOVWFEz5l2aN3SjVZ91sj_Vajw2CjAJfQIfUo7jshEvU"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32 min-h-screen px-gutter max-w-screen-xl mx-auto flex flex-col gap-6">
+<!-- Minimal Calendar / Event Indicator -->
+<div class="flex justify-between items-center opacity-80">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Today: Business Casual</span>
+</div>
+<span class="font-label-md text-label-md opacity-60">Sept 24, 2024</span>
+</div>
+<!-- Weather-Aware Suggestion Banner -->
+<section class="glass-card rounded-xl p-4 flex items-center justify-between lavender-glow">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">cloud</span>
+</div>
+<div>
+<p class="font-body-md text-on-surface font-medium">65°F &amp; Overcast</p>
+<p class="text-sm text-on-surface-variant">A light layer recommended for your 2PM meeting.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-surface transition-colors">close</span>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-4">
+<!-- The Styling Canvas -->
+<section class="lg:col-span-8 flex flex-col items-center justify-center relative min-h-[600px] rounded-3xl overflow-hidden bg-gradient-to-b from-surface-container-low to-transparent">
+<!-- Background Ambience -->
+<div class="absolute top-1/4 -right-20 w-64 h-64 bg-tertiary/10 blur-[100px] rounded-full"></div>
+<div class="absolute bottom-1/4 -left-20 w-64 h-64 bg-secondary-container/20 blur-[100px] rounded-full"></div>
+<div class="flex flex-col items-center gap-4 z-10 w-full max-w-sm">
+<!-- Top Item -->
+<div class="group relative w-64 h-64 glass-card rounded-2xl flex items-center justify-center p-6 canvas-item-active cursor-pointer">
+<img alt="Tops" class="w-full h-full object-contain drop-shadow-2xl" data-alt="A premium, high-fidelity studio shot of a tailored charcoal grey wool blazer. The garment is presented against a neutral grey background with soft, directional lighting that highlights the texture of the fabric and the precision of the stitching. The overall look is professional, modern, and minimalist, perfect for a high-end fashion styling application." id="current-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNjDTVZwK128W9vTk13RlAaI8Q7lv-aPp3AmiSHMLW2Wzr28jwGDo3Eo38jJLJFe5Un-rOgl49FH7m8GdS7UrzU0JKJC5pEiktRKHCkAWYvvj3MD1OePwgBmvTgkgXDQfhbwgSEPk9-r_r728KZMng91Rn-bBo6dtBIG703johwoQTd-Ls2Y96fmXi_Yj24q7yKxeSVUYBBEESZHs9CNri74J2jwUYkztkuXfNY4d7vdRDhqFgzeSTOfw-_Yp1T8J82QkMuNXvaJc"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-2xl">
+<span class="material-symbols-outlined text-white">swap_horiz</span>
+</div>
+</div>
+<!-- Bottom Item -->
+<div class="group relative w-60 h-64 glass-card rounded-2xl flex items-center justify-center p-6 transition-all hover:scale-[1.02] cursor-pointer -mt-8">
+<img alt="Bottoms" class="w-full h-full object-contain drop-shadow-2xl" data-alt="A pair of slim-fit, black chinos made from premium cotton twill. The trousers are displayed in a clean, editorial studio setting with soft top-down lighting that emphasizes the sleek silhouette and deep matte black color. The composition is centered and balanced, radiating a sense of quiet luxury and professional style." id="current-bottom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQgIHqIidfOp0E929QdNxkOaGTw3gMYaYF2qcowh-__qMsLAptZicrfOu_ENG2DHBwhARe3VxMwg2v--D2H9JjCnbTyWv6fSLTp3ifLRMTKay20rJJ2LOPZCwvKcFhxxEBDyWzx-CLyuz1_JzeWD84tL7iIqgimjoKqpdeGf3EzKSaL8juLreonhdbRy4Cyh2OPPR6dGQO0ZjSQRFWZ12l47ppLYzKki_hBoU0EuasrrywarreGZV6lInskH6srbiGHYyt2xGZ7pw"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-2xl">
+<span class="material-symbols-outlined text-white">swap_horiz</span>
+</div>
+</div>
+<!-- Shoes Item -->
+<div class="group relative w-48 h-40 glass-card rounded-2xl flex items-center justify-center p-6 transition-all hover:scale-[1.02] cursor-pointer -mt-12">
+<img alt="Shoes" class="w-full h-full object-contain drop-shadow-2xl" data-alt="High-end, minimalist white leather sneakers with a clean, low-profile design. The shoes are set against a dark matte background, with soft lighting creating elegant highlights on the smooth leather surface. The image represents modern urban sophistication and athletic luxury, perfect for a curated lifestyle wardrobe builder app." id="current-shoes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh3TG7S7JMwF-ywrQgtYxHCF-ggLuqhwQT7uDdnUj5Xv7QBZRAo9alS8TnUjHBt2zpqVPTscM7jUhZcpEgZqEAzPMqwvyKgSqmYBX2VccddIYibwZJJ328wN3FqkiFPNEz97SS4HeiqluQnMWvbNscnIF53dpPDniC5NqtnnoSClubUa76udp1IpJE0m2aXLtU70ggsCsl3trQDhlYpe35FLcFj8f6mDossHLkqwoVHPv099PZduMjZS-VZMWF1_T7RHrLWEhjsGU"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-2xl">
+<span class="material-symbols-outlined text-white">swap_horiz</span>
+</div>
+</div>
+</div>
+<!-- Canvas Controls -->
+<div class="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-4">
+<button class="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">camera_enhance</span>
+</button>
+</div>
+</section>
+<!-- AI Suggested Combos & Details -->
+<aside class="lg:col-span-4 flex flex-col gap-6">
+<div class="glass-card rounded-3xl p-6 h-full flex flex-col gap-6">
+<div>
+<h3 class="font-headline-md text-on-surface mb-1">AI Magic Combos</h3>
+<p class="text-on-surface-variant text-sm">Suggested variations based on your style DNA.</p>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Combo 1 -->
+<div class="group flex gap-4 p-3 rounded-2xl bg-white/5 hover:bg-white/10 cursor-pointer transition-all border border-transparent hover:border-white/10 active:scale-95">
+<div class="grid grid-cols-2 gap-1 w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img alt="Combo Top" class="w-full h-full object-cover" data-alt="A close-up shot of a textured cream knit sweater. The lighting is soft and warm, highlighting the intricate cable knit pattern. The image is part of a fashion styling grid, designed to look like a high-end catalog thumbnail with neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc33cOeuZnOXXWS_TCk7118yqOknXqwbRYi7XWLG9urdsjNEmxH4KrGj3RrMY4DE9gV6VM2fAGtSKYWD-lSvD1bBloExmmxsWTd-3UOHid77KTkVaFrxOuasCxQ6h1E0g3qpOUFGZBiln9XsWqAi0B6QbVFpEOZ2XareHiN5hg2YeW0qCpcah1n8n7zY8QoVnoGvvBKcrC06zdRqWlvteXhJgP_81HrAs94SMcfJT1W04f5Y4qSHrFiV_4GkkbI2cGsBmPGc2sY2M"/>
+<img alt="Combo Bottom" class="w-full h-full object-cover" data-alt="Slim fit dark wash denim jeans displayed on a flat surface. The lighting is crisp and even, showing the detailed denim texture and stitching. A minimalist and clean aesthetic suitable for a wardrobe management application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcel8y4X_HD74s_N3SZVMJZxKDhbJBH0WipmyGZeVkre2GWedeZWX3rbVixWOASLZqjAAEx9lAq1UHkZ4xWcTLQRI1v9eD7lBSd44bhFtFYElafuhvS19xizaEkdjAv5Huuu1uRwY3ZDbVBJt5WQFJy8o2dCsmmkdlMOnPw22jGJKbIsz6nD_JlhPhdZ7SLtbpbrW7xWxsZG0sKXo9qa00wm8-l7UvFIWk8vJJdUzqmw_4DnI_5zU3381EOWgjEqbm79HkbOSFkko"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-label-md text-on-surface">The Creative Casual</p>
+<p class="text-xs text-on-surface-variant">Focus on comfort &amp; texture</p>
+</div>
+</div>
+<!-- Combo 2 -->
+<div class="group flex gap-4 p-3 rounded-2xl bg-white/5 hover:bg-white/10 cursor-pointer transition-all border border-transparent hover:border-white/10 active:scale-95">
+<div class="grid grid-cols-2 gap-1 w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img alt="Combo Top" class="w-full h-full object-cover" data-alt="A sharp, black high-neck cashmere sweater. The studio lighting creates deep shadows and elegant highlights on the fabric's soft texture, emphasizing a luxury and refined aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjIw9_9c4HZa03GD6CtVoq1B3OF9BBA4polg708EIfbNYJ6PxOF8HKloHl82ck--ev-t7BidQ8uo7SjiORpV2T9O02DspDb-fUEwEjqKLbvlO79CQ_5QaEBg0GQwexBo70Ra4_vHirP3pyw17TI_Ty977LCmzWyrf0QnH64Jcg9hBvzyGoawu_VwTS8ddqVrijyh6WbNOY-IT2daED95lxj_X3d1_s_Itet5LpBRtgAF1r3VJdbUJ796tqU2sXkmCnKa-TZ6KGzJY"/>
+<img alt="Combo Bottom" class="w-full h-full object-cover" data-alt="Tailored charcoal dress pants with a sharp crease. The image is clean and minimalist, set against a dark grey background to convey a sense of formal elegance and professional style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd5nxKwjDMmdhLtkrKe9C2RO7p9p_eD3xGUJtbHwxs9M0ffCdODYZpNWUuhOM1K4_v0knv_BZShEJ34mbNi2GZWMdXLj2xaypk7LF2jk2BajPRI408DF1nDw05Yof5x1QcZiJ8XYkxE-KTdWlGrcoSeVFGrKdE6gqKTWqzA7iXz6PXlmwTTNBzNirEh1077-fm83EuRLs4ZT3xarKWEa96-esA2R9JWnjoM63zux2Upv-JDMWAL-QLO56xjel2qGTAqPtHHFNRx3A"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-label-md text-on-surface">Monochrome Elite</p>
+<p class="text-xs text-on-surface-variant">Perfect for evening events</p>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-white/5">
+<button class="w-full py-4 bg-on-surface text-surface font-label-md rounded-full hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">auto_fix_high</span>
+              GENERATE NEW OUTFIT
+            </button>
+</div>
+</div>
+</aside>
+</div>
+<!-- Wardrobe Carousels -->
+<section class="mt-12 flex flex-col gap-8 pb-12">
+<!-- Tops -->
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Selected Tops</h3>
+<span class="text-xs text-tertiary cursor-pointer">View All</span>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar snap-x">
+<div class="snap-start glass-card min-w-[140px] aspect-square rounded-2xl p-4 flex items-center justify-center border-primary transition-all">
+<img alt="Selected Top" class="w-full h-full object-contain" data-alt="A detailed view of a grey blazer, highlighting its slim fit and quality material in a studio lighting setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_7m0ItfYJVhhGnGsuUOs2_g8Bc1aS8kk7ZF55mEKDRtvEa-6zwVDB9LbdtEN9KTtPXwPEkzFkiF6jmqy8Fr6U9WC7R5qWbU7Jx_pChff2OS_-JYJMD1qB8FZsJ3BYjIXQ6OKRoPGAXrlf0eYPm557Kw24IEYHxDrTbVEYy0pvsxcmc2akuu3J1ZhftcsM_QSI5MJaE_wjT6eT9KtzaDZESDpjElFKPDgukZ3TNsqNSVgO9k2uTqQQeGct5xOXB-A_7h2zV1C0Kq0"/>
+</div>
+<div class="snap-start glass-card min-w-[140px] aspect-square rounded-2xl p-4 flex items-center justify-center opacity-40 hover:opacity-100 transition-all cursor-pointer">
+<img alt="Selected Top" class="w-full h-full object-contain" data-alt="A crisp, white organic cotton t-shirt presented with minimalist lighting to show its clean lines and premium fabric texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvFsCEMWf9YyuubKHjvyRkJ_mCdaPWJf-NNqgrlbei-0sjslYyTwY35zSYTRtT6XlVvet2vmPd2DWAc6Esi5dJiW8Wxc1j9vydtjRvip4fs-f1Dvlngl3FvyAmQ6ewE2rQ507gUZEibiCXTm9q7SC8wTf-ZZF7T_KpIjz3QvramCLdTjyElIov9t5MWaoTOYWsThnKEFtCJoC9OhSd60PEYwrWhNaubE0p3cBvxbpmYwZY9A3AfrlIeVna9pj_z2RbpenTFs4BfgY"/>
+</div>
+<div class="snap-start glass-card min-w-[140px] aspect-square rounded-2xl p-4 flex items-center justify-center opacity-40 hover:opacity-100 transition-all cursor-pointer">
+<img alt="Selected Top" class="w-full h-full object-contain" data-alt="A button-down light blue dress shirt, showing the collar detail and high-quality weave under bright studio lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS4O79Wx6o8Yp0CKBd3qj_9ri-XouKIrnXoD0WX9Cuo39goyQp67YcwqdIhtpouZFDK47zjp49EnRHTd1e_PFpvWJAE3_CSSKZpwYDwuLu5a791qQrZ0ybDjFNDfVTmkNTLKOTD_8ySPD5u2p4MsmzmR96UIUjR8tGsdejGVoknMtHKg6UfDYwqHmu5FDzeViBgkwYY4hg8rUJnTZq7ynqYfVwFaHMB1t0_UhfFvtt_TG5ashliAN3LoLZMtAE3DYmpWdueJs7uaM"/>
+</div>
+<div class="snap-start glass-card min-w-[140px] aspect-square rounded-2xl p-4 flex items-center justify-center opacity-40 hover:opacity-100 transition-all cursor-pointer">
+<img alt="Selected Top" class="w-full h-full object-contain" data-alt="A minimalist black t-shirt, emphasizing its deep color and soft silhouette in a professional studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ_H7D2paJRQ-GvZqCvCaG4E2EMy4Noso7BxX9z1ogZJxDe2-KV0oLJqBBR4sBGYz77Kpaesc10QPB6bTidl7MzlXSctc5ZNjvj1S6EHGxkKnD756RT6hv0GIyrufwsOXYtv4F6_ywkrm1sZUGP0AgRwY-_d56-RvIjBjxf12kSxQrrJfOVbKyag7j5i-kPU8CJZomSiERIu5NXBfWCnar3zNvNNUPGCpE5qjKBgIZmDDOzxedtCX3BwjoBJPSFv8xu6wIBfS6JtU"/>
+</div>
+<div class="snap-start glass-card min-w-[140px] aspect-square rounded-2xl p-4 flex items-center justify-center opacity-40 hover:opacity-100 transition-all cursor-pointer">
+<img alt="Selected Top" class="w-full h-full object-contain" data-alt="A classic grey sweatshirt with ribbed cuffs and hem, styled for a relaxed, premium casual look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMRQYO4WLsZyTlwDefnSDtRQu9xhJ4JoxwchXZflf9XAcSrw90Vm3J2SOaGunhxkuauKlzWu-1DRF5Sl_dpT0HG8z6Dc7_g3t-zhoE7PNXQFEqKd9lt_v0nbWNQN0UwYsX2rCRIWp-3gZytRVlO7WlZjo5H5b9IiCbw5UP8VNJTWN5oJkkk9d0zzo6sBGio072Ci96gFLJJAjjv6Exf4zf9WsJr2ITNcNCnsgdCx3UE_woMcMqxSUj2HCjdrs-Ln_25oha07UnOyI"/>
+</div>
+</div>
+</div>
+<!-- Bottoms -->
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Selected Bottoms</h3>
+<span class="text-xs text-tertiary cursor-pointer">View All</span>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar snap-x">
+<div class="snap-start glass-card min-w-[140px] aspect-square rounded-2xl p-4 flex items-center justify-center border-primary transition-all">
+<img alt="Selected Bottom" class="w-full h-full object-contain" data-alt="Detailed studio shot of black chinos, highlighting the matte finish and modern slim-cut silhouette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzc2BjoDuO9NrRct7BpZrQrmorVJVE2uUKrkJ4zAwQoQpoLoHTgCbibR0lnQoGX2GZx5nvFWrI2hNKJjzfezA8bO6d04QBqHMmQjJzmfFuoFntKKJyOym0D884OsF_wgh1ETlXK2k90eX619BR5w-qfcJsAHj1EurlzQqKwdYF75X94zLC1YMlQPicA8XaDlHJ868b3LwZ-Zwgkjjgmqxb-IL4CCYyX42njlJo_lgCWuSBPAHmiWFaKVo3ahxTu7PYiri3puNrfvM"/>
+</div>
+<div class="snap-start glass-card min-w-[140px] aspect-square rounded-2xl p-4 flex items-center justify-center opacity-40 hover:opacity-100 transition-all cursor-pointer">
+<img alt="Selected Bottom" class="w-full h-full object-contain" data-alt="A pair of straight-leg blue jeans with a clean indigo wash, presented in an editorial fashion photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW7nwsSSXRt9XEjvz9z9svrhZXFCoLjVej5kzQ4_Jar0WKIZwuwedQO5JHxCgpc1bnA_3tTR3zxJ0zAvJ5Or5o2FL-CdT_S-RUIQ2ROkDY7izNOxwUOk5w1UENmoLXzCnDQbiM8FqXBo7eeHgAN7jomR-6QNq7kEal34JYm5XgV7sN4MThwghKoHOU-CbH-QgfiXveWI1bLkc_yoOwKdKXCXH57wF5wxsYqmssYxrTX8pzDM6Z60ZgeIVsiGy9HZElOZJKVt8yzJw"/>
+</div>
+<div class="snap-start glass-card min-w-[140px] aspect-square rounded-2xl p-4 flex items-center justify-center opacity-40 hover:opacity-100 transition-all cursor-pointer">
+<img alt="Selected Bottom" class="w-full h-full object-contain" data-alt="Premium charcoal grey tailored trousers, showcasing the sophisticated fabric and sharp pressed creases." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbpepc3pHs-Ij05EYlwSK9HuNKik6dltSS9TyqGIp0xM_gUWP8yhelzjxkMUeGFjd0XYrM0KTEX1yeRAmS7sPkv5GvH3iiKBD_92NZNuVl1u5cE1bqNep5mYWNGd5MTd6jC1vYEPH1sSako3cIOXod30xsWtQ7fVDErVneHDogLtFwG3-i0m8r1hkqY5rT6JHlrPvg-V3ajKRuDTpqrEYKHjW_qbXJdvmvX6WgWtRj8WE0i3U7TYWuZDqv-dPafMEtu-lqpWDMGG8"/>
+</div>
+<div class="snap-start glass-card min-w-[140px] aspect-square rounded-2xl p-4 flex items-center justify-center opacity-40 hover:opacity-100 transition-all cursor-pointer">
+<img alt="Selected Bottom" class="w-full h-full object-contain" data-alt="A pair of relaxed-fit linen pants in a warm beige color, perfect for a high-end minimalist summer wardrobe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOfe0UmBhpNS6X-V86LUjbITYpHaampNRPcowcH1v_deHfXPV5Zwex61C0Qx5KMg0Fkg7mQd7tauyf78sa-8bEjg4wF9j0HWa9QqKsP8_Pi81Z3Odvdnz21z6r1y74Ht5T5oHm_zfUwtqLmCYoGzHWwkkoXlgY9-dpDmAMDvYrSfbg1-0c-z_E4wSDHWMyVhUu3YxxZXvQ3mgiVvH7PpbUwedjsCvLj-aLpcouoqd8GqrLFdOYKCPtYV46poSbVRWUNyBYVqnFK6s"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-full bg-surface-container/60 dark:bg-surface-container/60 backdrop-blur-2xl border border-white/10 shadow-xl shadow-tertiary/5 z-50 flex justify-around items-center px-6 py-3 mx-auto">
+<a class="flex items-center justify-center text-on-surface-variant/70 dark:text-on-surface-variant/70 w-12 h-12 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="flex items-center justify-center bg-on-surface dark:bg-on-surface text-surface dark:text-surface rounded-full w-12 h-12 active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant/70 dark:text-on-surface-variant/70 w-12 h-12 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">genetics</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant/70 dark:text-on-surface-variant/70 w-12 h-12 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+</a>
+</nav>
+<script>
+    // Subtle interactions for the styling canvas items
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mousedown', () => {
+        card.style.transform = 'scale(0.98)';
+      });
+      card.addEventListener('mouseup', () => {
+        card.style.transform = 'scale(1)';
+      });
+    });
+
+    // Image swapping simulation (Visual only)
+    const items = document.querySelectorAll('.snap-start');
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const type = item.parentElement.previousElementSibling.innerText;
+        const img = item.querySelector('img').src;
+        if (type.includes('Tops')) {
+          document.getElementById('current-top').src = img;
+        } else if (type.includes('Bottoms')) {
+          document.getElementById('current-bottom').src = img;
+        }
+        
+        // Visual feedback
+        item.parentElement.querySelectorAll('.snap-start').forEach(i => {
+          i.classList.add('opacity-40');
+          i.classList.remove('border-primary');
+        });
+        item.classList.remove('opacity-40');
+        item.classList.add('border-primary');
+      });
+    });
+  </script>
+</body></html>
