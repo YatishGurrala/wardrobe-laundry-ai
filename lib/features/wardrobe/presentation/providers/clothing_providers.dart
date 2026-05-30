@@ -1,6 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/backend/buildstack_api_client.dart';
+import '../../../../core/backend/buildstack_config.dart';
 import '../../data/datasources/mock_clothing_data_source.dart';
+import '../../data/repositories/buildstack_clothing_repository.dart';
 import '../../data/repositories/mock_clothing_repository.dart';
 import '../../domain/entities/clothing_item.dart';
 import '../../domain/entities/laundry_status.dart';
@@ -10,13 +13,109 @@ import '../../domain/usecases/add_clothing_item_use_case.dart';
 import '../../domain/usecases/get_clothing_items_use_case.dart';
 import '../../domain/usecases/update_laundry_status_use_case.dart';
 
+enum BackendMode { mock, buildstack }
+
+class BackendDebugStatus {
+  const BackendDebugStatus({
+    required this.mode,
+    required this.isConfigured,
+    required this.isConnected,
+    required this.baseUrl,
+    required this.projectKey,
+    required this.ownerId,
+    this.errorMessage,
+  });
+
+  final BackendMode mode;
+  final bool isConfigured;
+  final bool isConnected;
+  final String baseUrl;
+  final String projectKey;
+  final String ownerId;
+  final String? errorMessage;
+}
+
 final mockClothingDataSourceProvider = Provider<MockClothingDataSource>(
   (ref) => MockClothingDataSource(),
 );
 
-final clothingRepositoryProvider = Provider<ClothingRepository>(
-  (ref) => MockClothingRepository(ref.watch(mockClothingDataSourceProvider)),
+final buildstackConfigProvider = Provider<BuildstackConfig>(
+  (ref) => const BuildstackConfig.fromEnvironment(),
 );
+
+final buildstackApiClientProvider = Provider<BuildstackApiClient?>((ref) {
+  final config = ref.watch(buildstackConfigProvider);
+  if (!config.isConfigured) {
+    return null;
+  }
+  return BuildstackApiClient(config);
+});
+
+final backendDebugStatusProvider = FutureProvider<BackendDebugStatus>((
+  ref,
+) async {
+  final config = ref.watch(buildstackConfigProvider);
+  final apiClient = ref.watch(buildstackApiClientProvider);
+
+  if (apiClient == null) {
+    return BackendDebugStatus(
+      mode: BackendMode.mock,
+      isConfigured: false,
+      isConnected: false,
+      baseUrl: config.baseUrl,
+      projectKey: config.projectKey,
+      ownerId: config.ownerId,
+      errorMessage: 'Buildstack keys are not configured. Running in mock mode.',
+    );
+  }
+
+  try {
+    await apiClient.listRecords(
+      collection: 'connectivity_checks',
+      ownerId: config.ownerId,
+    );
+
+    return BackendDebugStatus(
+      mode: BackendMode.buildstack,
+      isConfigured: true,
+      isConnected: true,
+      baseUrl: config.baseUrl,
+      projectKey: config.projectKey,
+      ownerId: config.ownerId,
+    );
+  } on BuildstackApiException catch (error) {
+    return BackendDebugStatus(
+      mode: BackendMode.buildstack,
+      isConfigured: true,
+      isConnected: false,
+      baseUrl: config.baseUrl,
+      projectKey: config.projectKey,
+      ownerId: config.ownerId,
+      errorMessage: error.message,
+    );
+  } catch (error) {
+    return BackendDebugStatus(
+      mode: BackendMode.buildstack,
+      isConfigured: true,
+      isConnected: false,
+      baseUrl: config.baseUrl,
+      projectKey: config.projectKey,
+      ownerId: config.ownerId,
+      errorMessage: error.toString(),
+    );
+  }
+});
+
+final clothingRepositoryProvider = Provider<ClothingRepository>((ref) {
+  final config = ref.watch(buildstackConfigProvider);
+  final apiClient = ref.watch(buildstackApiClientProvider);
+
+  if (apiClient != null) {
+    return BuildstackClothingRepository(apiClient, ownerId: config.ownerId);
+  }
+
+  return MockClothingRepository(ref.watch(mockClothingDataSourceProvider));
+});
 
 final getClothingItemsUseCaseProvider = Provider<GetClothingItemsUseCase>(
   (ref) => GetClothingItemsUseCase(ref.watch(clothingRepositoryProvider)),
