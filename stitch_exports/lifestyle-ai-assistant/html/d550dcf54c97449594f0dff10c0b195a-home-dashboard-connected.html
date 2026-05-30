@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d;
+            color: #e2e2e4;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .lavender-glow {
+            background: radial-gradient(circle at top right, rgba(183, 177, 210, 0.08), transparent 60%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#c9c2e4",
+                      "inverse-surface": "#e2e2e4",
+                      "outline": "#8e9192",
+                      "on-tertiary-fixed": "#1c1831",
+                      "surface-container-lowest": "#0c0e10",
+                      "surface-dim": "#111415",
+                      "secondary-container": "#484742",
+                      "primary": "#c9c6c5",
+                      "inverse-primary": "#5f5e5e",
+                      "surface-variant": "#333537",
+                      "surface": "#111415",
+                      "on-background": "#e2e2e4",
+                      "on-tertiary-fixed-variant": "#47435f",
+                      "error-container": "#93000a",
+                      "on-error-container": "#ffdad6",
+                      "background": "#111415",
+                      "secondary": "#cac6bf",
+                      "on-secondary-fixed": "#1c1c17",
+                      "outline-variant": "#444748",
+                      "primary-container": "#0d0d0d",
+                      "on-tertiary": "#312d47",
+                      "tertiary-fixed-dim": "#c9c2e4",
+                      "on-secondary-container": "#b8b5ae",
+                      "tertiary-container": "#0d0922",
+                      "surface-container-highest": "#333537",
+                      "on-surface": "#e2e2e4",
+                      "surface-tint": "#c9c6c5",
+                      "primary-fixed": "#e5e2e1",
+                      "tertiary-fixed": "#e5deff",
+                      "on-secondary-fixed-variant": "#484742",
+                      "inverse-on-surface": "#2f3132",
+                      "secondary-fixed": "#e6e2db",
+                      "on-surface-variant": "#c4c7c7",
+                      "on-primary-fixed-variant": "#474646",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#7c7795",
+                      "surface-container-low": "#1a1c1d",
+                      "surface-container": "#1e2021",
+                      "on-primary-fixed": "#1c1b1b",
+                      "primary-fixed-dim": "#c9c6c5",
+                      "on-secondary": "#31302c",
+                      "on-error": "#690005",
+                      "on-primary": "#313030",
+                      "surface-container-high": "#282a2c",
+                      "on-primary-container": "#7c7a7a",
+                      "surface-bright": "#37393b",
+                      "secondary-fixed-dim": "#cac6bf"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "64px",
+                      "base": "8px",
+                      "xs": "4px",
+                      "gutter": "24px",
+                      "lg": "40px",
+                      "container-max": "1200px",
+                      "sm": "12px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="text-headline-md font-headline-md text-on-surface tracking-widest">WARDROBE</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-white/10">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a young professional with a clean, minimalist aesthetic. The lighting is soft and directional, typical of a high-end fashion editorial. The background is a muted, solid grey that maintains the quiet intelligence and premium feel of the wardrobe dashboard. The overall mood is calm, confident, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZP7amgltpkucampH-b1BkZ-nzKJ7JWQcjmXdAL0lXOe6YLg-fIvg3QH0JxtsN3IvzwSOP-oIQhrwzR5Bcv4YsoCpk2xD6s9AJkmHyVLWnwSF62JZmlFfYF7WUU9g6O1wXFU-RFpKzn8FPkTeVTU1tWU8knvRqCrYIyQ0g3QTjAEb0sXPy9WVOfndGq51WHrBWHzeF23RpMbDmNClAgtriNOh17wXPotOKL8fzXVvK80ul21F_1FOs9SbSCojMgRUkoccB9IiPUfs"/>
+</div>
+</header>
+<main class="pt-20 px-gutter max-w-md mx-auto space-y-8 lavender-glow">
+<!-- Editorial Hero Card -->
+<section class="relative group">
+<div class="glass rounded-xl overflow-hidden aspect-[4/5] relative flex flex-col justify-end p-lg">
+<img alt="Today's Curation" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="An editorial fashion photograph of a high-end beige wool overcoat draped elegantly over a minimalist chair. The setting is a bright, airy architectural space with soft light-leaks and clean lines. The image captures a sense of quiet luxury and deliberate curation, perfectly aligned with a premium lifestyle concierge aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRG7bwcnChOOgD_7wWHTIeP2XCVnGAhjX4DUUe83wlDznOIWvXnjf0Usg-jrO-MTdUsZhupcKAh6SDmu0O6WrvECkJcFw6AN8fHyyAVSUefwTnEL-Jr83DlZZsz-ww9SIE8IdqeAOC4jgmhLXUsCfCScjoJiRzyI1Co5fotOnuQCsNlBdPJjVKc9NXzmuBvXREducRMrB31dGbBZwryNLRG99oMbrxVjQ_ouhhsl3bD84us8mryoKbkkLiRJ_-pPHDbBjfiltjU6Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="relative space-y-2">
+<span class="font-label-sm text-label-sm text-tertiary bg-white/10 px-3 py-1 rounded-full backdrop-blur-md inline-block">TODAY'S CURATION</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Monochrome Elegance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Perfectly balanced for your 2:00 PM presentation and evening networking event.</p>
+</div>
+</div>
+</section>
+<!-- Recently Worn Carousel -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md text-on-surface">Recently Worn</h3>
+<span class="font-label-md text-label-md text-tertiary">View All</span>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar py-2">
+<!-- Item 1 -->
+<a class="flex-none text-center space-y-2 block" href="{{DATA:SCREEN:SCREEN_53}}">
+<div class="w-20 h-20 rounded-full border-2 border-tertiary p-1">
+<img alt="Black Tee" class="w-full h-full rounded-full object-cover" data-alt="Close-up of a high-quality black cotton t-shirt with a premium texture. The lighting is dramatic but soft, highlighting the weave of the fabric against a dark, matte background. The image feels tactile and curated for a fashion-forward professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIZwcm2nfxX4WwvsSFA1oE4WgQTxvy40Jlk0-zEGzO0jZ5AJyi1rYn7YLaRlRV12t4WyLszYrsajcLAA-ka-tFOUYKluwO7H4sea8YPD4cdi9J5f-rY5i0BxcjjdmRmHUklvX-hgn4LDnXYQDq7yaEN8YGB0EVfuXlssaVPbHajD31AQODmQJ78Q0hVB61x6kwgwWCq3MmYSxecL2cH5TIDabIOPGgtnzMI7tnG5fcmOzlSN51ES71SG9wCCvAGS77V7m7ZzGXIhs"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Mon</p>
+</a>
+<!-- Item 2 -->
+<a class="flex-none text-center space-y-2 block" href="{{DATA:SCREEN:SCREEN_53}}">
+<div class="w-20 h-20 rounded-full border-2 border-transparent p-1">
+<img alt="Denim" class="w-full h-full rounded-full object-cover" data-alt="A pair of well-tailored denim jeans shown in a clean, minimalist studio setting. The lighting captures the rich indigo dye and subtle fading. The shot is tightly framed to emphasize the material quality and craftsmanship, fitting the brand's quiet intelligence philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwzB1wHH1Qnm4ph1baDj52m7YXUL99eyuy9P4FdmaQmmGD989T-OlX93DosAqrwtZFgXXvgDu6f8EnfkSJHGfmSQ7-XB5-Jm-FaEWnPYLYoxZVIMin8Qr0C333Y1ym8Ydq9701qYWB-3Az-KQBIUXuDVk5Xg_QLs2fBMrsMkaBm0r0b-dHuW_vsLgBroAR0DwIVlP9LUeqriP1596QmDb__n2B0X43vhhQS-cSz6rvx3qG-EsKhGIuaxWGcXdzrtpWYa_Dx-S3snQ"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Sun</p>
+</a>
+<!-- Item 3 -->
+<a class="flex-none text-center space-y-2 block" href="{{DATA:SCREEN:SCREEN_53}}">
+<div class="w-20 h-20 rounded-full border-2 border-transparent p-1">
+<img alt="Oxford" class="w-full h-full rounded-full object-cover" data-alt="A crisp, white button-down shirt made of high-grade poplin. The shirt is perfectly pressed, reflecting soft light that creates elegant shadows. It is presented in a way that suggests high-end dry cleaning and meticulous garment care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9WeQ_JtTkDfy5Wrq2SIlhflBItWROCTBihNKEhNRAvta0aF4i8-bmeZk7Mep5uJPwJ_fsFVMad4L3TCOQ0GZZZAiOGSSzh83F3dNitiyaXOsf4vsgY7xIpxBb3hVNbwiR7CWqVfmOdAANFZ2nuBK0v2prsTPEGN-S2d_poJ9phgsYcC7hEc8ioJJL53gZ6yGtNBX2W7XBe-YI4baDgeWMLufaf5OEBPsfT9UCFo3JZAjCCjcfeu_1rb_aePmiOk27V4y6mFGxa6Q"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Sat</p>
+</a>
+<!-- Item 4 -->
+<a class="flex-none text-center space-y-2 block" href="{{DATA:SCREEN:SCREEN_53}}">
+<div class="w-20 h-20 rounded-full border-2 border-transparent p-1">
+<img alt="Hoodie" class="w-full h-full rounded-full object-cover" data-alt="A minimalist grey hoodie made from premium heavyweight fleece. The soft, ambient lighting emphasizes its comfort and quality. The background is a clean matte black, maintaining the sophisticated aesthetic of the application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPGQyhUgVKUnCzqChPIhJCIGLesQrsW-KHedLFWyxNcnbV74SwGTqoDpPgM_fEqWWRJquFf-2KKO3C7kn-fM9OE6W599ctejfjBGofZKahxXvL9xfOPNh0Ny8EYX8QWGbXhihIFTB3__u2Gkfhx0kx5lHLlUSOeogxVSdLIgBmnNwKAaGqHEcFCUs04Buoqf-MsQOvvydxH0jaaVfEhaGVAs-wllCEkv0MYNCflkwewSjyG2bTPxTQ2EfU8Nqovgax7Vi1A9G-fuc"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Fri</p>
+</a>
+</div>
+</section>
+<!-- Laundry Intelligence Summary -->
+<section class="glass rounded-xl p-md flex items-center gap-6 relative overflow-hidden">
+<!-- Progress Ring -->
+<div class="relative w-24 h-24 flex-none">
+<svg class="w-full h-full transform -rotate-90">
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="6"></circle>
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="#c9c2e4" stroke-dasharray="251.2" stroke-dashoffset="70.3" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="font-headline-md text-on-surface">72%</span>
+<span class="text-[8px] font-label-sm text-on-surface-variant uppercase tracking-tighter">CLEAN</span>
+</div>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Laundry Pulse</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">8 items need attention. Estimated cycle time: 54 mins.</p>
+<a class="mt-2 inline-block bg-on-surface text-primary-container font-label-md px-4 py-1.5 rounded-lg active:scale-95 transition-transform" href="{{DATA:SCREEN:SCREEN_51}}">
+                    Start AI Cycle
+                </a>
+</div>
+</section>
+<!-- Needs Cleaning List -->
+<section class="space-y-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Needs Cleaning</h3>
+<div class="grid grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="glass rounded-xl p-4 space-y-3">
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img alt="Knitwear" class="w-full h-full object-cover grayscale opacity-60" data-alt="A designer knit sweater in a charcoal grey color, shown with a detailed texture close-up. The garment is neatly folded in a minimalist setting. The lighting is cool and clean, emphasizing a refined, organized lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJsMOwapw6Z5jVQeXJHC-ak_IGONpSiJjCoDW9vtK6ekUGlGN-B6S6qHCzry3c6s0RKEUR-aXIhsf8fjkVr-CXBkeBaWkPPdIL2TS3vRWDeEygcD_9bgM4kMC4FHup2zVKuHZDt5oY88yxJKN8U4DNRN9PbQKYCiu_zdjhKVxKyjSayp3QmRpTupjxtpmBUQuNZDPySld5fj4r1T1GLF2DRe0U8Txej22fwY_qK4CES4it8BjfTpDAG1MURskWeZy41_STeeqTN7o"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-on-surface">Knit Sweater</p>
+<p class="font-label-sm text-on-surface-variant">Gentle Cycle</p>
+</div>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">local_laundry_service</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass rounded-xl p-4 space-y-3">
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img alt="Chinos" class="w-full h-full object-cover grayscale opacity-60" data-alt="Elegant navy blue chinos displayed in a bright, modern closet. The fabric has a slight sheen indicating high-quality material. The overall composition is clean and premium, fitting into a high-end digital wardrobe assistant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtGQAG5FVW9jshF--3qPYxAuEA9SBp5v7qwUAfcsDyiJEk7uB6dQR4PtsLFmHmBJAfVpFNYnu4yPfWbdusjnMPc0DL35ZPOC7PYEO6sfxAApFJw2p877gk3FWJ6gH90xMdxUjI5OdunDpQHDMHdGvnB7OSILumlles7KgBsl-y9OF_NymY99Y_DaHH5PjbTLOl_DEkmbZNqi0M4Wi_JwVThc51rWTE4bmXrDhDYToA0L7wXCKxMqW4yjxst2Qu1vbdZRrGoX_OF_I"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-on-surface">Navy Chinos</p>
+<p class="font-label-sm text-on-surface-variant">Permanent Press</p>
+</div>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">local_laundry_service</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-full bg-surface/40 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] z-50 flex justify-around items-center px-4 py-3">
+<a class="flex flex-col items-center justify-center text-on-surface bg-white/10 rounded-full w-12 h-12 active:scale-90 transition-all" href="{{DATA:SCREEN:SCREEN_33}}">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:text-on-surface active:scale-90 transition-all" href="{{DATA:SCREEN:SCREEN_46}}">
+<span class="material-symbols-outlined">checkroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:text-on-surface active:scale-90 transition-all" href="{{DATA:SCREEN:SCREEN_40}}">
+<span class="material-symbols-outlined text-tertiary text-[40px]">add_circle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:text-on-surface active:scale-90 transition-all" href="{{DATA:SCREEN:SCREEN_44}}">
+<span class="material-symbols-outlined">analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:text-on-surface active:scale-90 transition-all" href="{{DATA:SCREEN:SCREEN_37}}">
+<span class="material-symbols-outlined">person</span>
+</a>
+</nav>
+<script>
+        // Simple touch interaction for carousel
+        const carousel = document.querySelector('.overflow-x-auto');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
+        carousel.addEventListener('mouseleave', () => isDown = false);
+        carousel.addEventListener('mouseup', () => isDown = false);
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2;
+            carousel.scrollLeft = scrollLeft - walk;
+        });
+
+        // Background parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.lavender-glow');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            glow.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(183, 177, 210, 0.12), transparent 60%)`;
+        });
+    </script>
+</body></html>

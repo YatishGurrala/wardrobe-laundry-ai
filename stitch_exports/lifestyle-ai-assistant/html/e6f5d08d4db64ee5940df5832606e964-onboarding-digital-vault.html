@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LifeStyle AI - Digital Vault Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#7c7795",
+                    "on-error": "#690005",
+                    "on-tertiary": "#312d47",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#c9c2e4",
+                    "primary-container": "#0d0d0d",
+                    "surface-container-high": "#282a2c",
+                    "secondary": "#cac6bf",
+                    "primary-fixed": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#47435f",
+                    "surface-container": "#1e2021",
+                    "surface-bright": "#37393b",
+                    "tertiary": "#c9c2e4",
+                    "on-secondary": "#31302c",
+                    "surface-variant": "#333537",
+                    "outline-variant": "#444748",
+                    "on-secondary-fixed": "#1c1c17",
+                    "on-primary-container": "#7c7a7a",
+                    "inverse-primary": "#5f5e5e",
+                    "surface-container-lowest": "#0c0e10",
+                    "secondary-container": "#484742",
+                    "secondary-fixed": "#e6e2db",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-surface": "#e2e2e4",
+                    "primary": "#c9c6c5",
+                    "surface-container-highest": "#333537",
+                    "on-background": "#e2e2e4",
+                    "on-secondary-container": "#b8b5ae",
+                    "tertiary-fixed": "#e5deff",
+                    "on-tertiary-fixed": "#1c1831",
+                    "surface": "#111415",
+                    "on-primary": "#313030",
+                    "on-surface-variant": "#c4c7c7",
+                    "inverse-on-surface": "#2f3132",
+                    "outline": "#8e9192",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#c9c6c5",
+                    "inverse-surface": "#e2e2e4",
+                    "tertiary-container": "#0d0922",
+                    "surface-container-low": "#1a1c1d",
+                    "surface-dim": "#111415",
+                    "secondary-fixed-dim": "#cac6bf",
+                    "on-secondary-fixed-variant": "#484742",
+                    "background": "#111415"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "md": "24px",
+                    "base": "8px",
+                    "container-max": "1200px",
+                    "xl": "64px",
+                    "lg": "40px",
+                    "gutter": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Ambient Background Glow */
+        .ambient-glow {
+            position: fixed;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle at 50% 30%, rgba(183, 177, 210, 0.03) 0%, rgba(13, 13, 13, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Fluid Image Reveal */
+        .image-reveal {
+            animation: revealImage 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            opacity: 0;
+            transform: scale(1.05);
+        }
+        @keyframes revealImage {
+            0% { opacity: 0; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Staggered Text Reveal */
+        .text-reveal-stagger > * {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .text-reveal-stagger > *:nth-child(1) { animation-delay: 0.4s; }
+        .text-reveal-stagger > *:nth-child(2) { animation-delay: 0.6s; }
+        .text-reveal-stagger > *:nth-child(3) { animation-delay: 0.8s; }
+        .text-reveal-stagger > *:nth-child(4) { animation-delay: 1.0s; }
+
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Glassmorphic Overlay */
+        .glass-overlay {
+            background: linear-gradient(to top, rgba(17, 20, 21, 1) 0%, rgba(17, 20, 21, 0.7) 40%, rgba(17, 20, 21, 0) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen overflow-hidden selection:bg-tertiary selection:text-on-tertiary-fixed">
+<div class="ambient-glow"></div>
+<main class="relative h-screen w-full flex flex-col justify-end pb-xl md:pb-[80px]">
+<!-- Hero Visual (Cinematic Close-up) -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-surface-container-highest image-reveal" data-alt="A cinematic, high-end close-up of a structured dark blazer hanging elegantly in a dimly lit, gallery-like setting. The lighting is soft and moody, creating a calm dark mode aesthetic with subtle light leaks. The texture of the premium fabric is highly detailed, emphasizing a minimalist and sophisticated atmosphere suitable for a luxury fashion intelligence app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBWEFJf9f_0699fDG7P6QkN42pDvVLnUp-ZBoWfbJ3RAkqfZy-IGgrqjAdrUmKnWAjH30D5_Xc7V0xUM4iUgMthj7RzBRlWPI3JlS_WzVJ2ZXUgC5xUBH7IJpDFKBDJZvg5ZVUGaxzXLvzWMcrz-CWHv9wFnVJptzhrNr7Kev1vzCuE3RCDhemxbxOb6l6WuESafYbJVhb17xwYuwMNOkMvp-T8SbgRhvGrVQ3c6j0wG2gDtD5UQ3cvLDGKvAHFpwx8j7A02EX3EnM'); background-size: cover; background-position: center;">
+</div>
+<!-- Gradient Overlay to merge with content -->
+<div class="absolute inset-0 glass-overlay"></div>
+</div>
+<!-- Content Container -->
+<div class="relative z-10 w-full max-w-container-max mx-auto px-gutter md:px-lg flex flex-col items-center md:items-start md:flex-row md:justify-between">
+<!-- Text Content (Bento-style Glass Card on Desktop, Free-floating on Mobile) -->
+<div class="text-reveal-stagger flex flex-col items-center text-center md:items-start md:text-left w-full md:w-1/2 md:bg-surface-container/40 md:backdrop-blur-[24px] md:border md:border-white/10 md:rounded-xl md:p-lg md:shadow-2xl">
+<!-- Pillar Chip -->
+<div class="inline-flex items-center px-sm py-xs bg-secondary-container/30 border border-white/5 rounded-full mb-md">
+<span class="material-symbols-outlined text-[16px] mr-base text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest">Digital Vault</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-sm md:hidden">Wardrobe Intelligence</h1>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-sm hidden md:block">Digital Wardrobe<br/>Intelligence.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mb-xl md:mb-lg">
+                    Your wardrobe, digitized. AI-powered organization for your personal collection.
+                </p>
+<!-- Actions -->
+<div class="w-full flex flex-col sm:flex-row items-center gap-md">
+<button class="w-full sm:w-auto bg-primary text-on-primary font-label-md text-label-md px-xl py-sm rounded-lg hover:opacity-90 transition-opacity active:scale-95 duration-200 shadow-sm flex justify-center items-center">
+                        Continue
+                        <span class="material-symbols-outlined ml-base text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Progress Indicators (Desktop only - floating right) -->
+<div class="hidden md:flex flex-col gap-base self-end pb-lg">
+<div class="w-1 h-8 bg-primary rounded-full transition-all duration-300"></div>
+<div class="w-1 h-2 bg-surface-variant rounded-full"></div>
+<div class="w-1 h-2 bg-surface-variant rounded-full"></div>
+</div>
+</div>
+<!-- Mobile Progress Indicators -->
+<div class="absolute bottom-md left-0 w-full flex justify-center gap-md md:hidden z-20">
+<div class="w-8 h-1 bg-primary rounded-full"></div>
+<div class="w-2 h-1 bg-surface-variant rounded-full"></div>
+<div class="w-2 h-1 bg-surface-variant rounded-full"></div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wardrobe Intelligence | LUXE AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#e5e2e1",
+                    "tertiary-container": "#0d0922",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-error": "#690005",
+                    "tertiary": "#c9c2e4",
+                    "error-container": "#93000a",
+                    "outline-variant": "#444748",
+                    "outline": "#8e9192",
+                    "tertiary-fixed-dim": "#c9c2e4",
+                    "on-tertiary-fixed-variant": "#47435f",
+                    "tertiary-fixed": "#e5deff",
+                    "secondary-fixed": "#e6e2db",
+                    "surface-bright": "#37393b",
+                    "surface-variant": "#333537",
+                    "on-tertiary-container": "#7c7795",
+                    "surface-container-high": "#282a2c",
+                    "primary": "#c9c6c5",
+                    "on-tertiary": "#312d47",
+                    "on-secondary-fixed": "#1c1c17",
+                    "inverse-on-surface": "#2f3132",
+                    "on-primary-container": "#7c7a7a",
+                    "surface-container-low": "#1a1c1d",
+                    "secondary-container": "#484742",
+                    "on-secondary": "#31302c",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e2e2e4",
+                    "primary-container": "#0d0d0d",
+                    "on-secondary-container": "#b8b5ae",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-secondary-fixed-variant": "#484742",
+                    "surface-tint": "#c9c6c5",
+                    "surface-dim": "#111415",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "inverse-surface": "#e2e2e4",
+                    "on-surface-variant": "#c4c7c7",
+                    "surface-container": "#1e2021",
+                    "background": "#111415",
+                    "surface": "#111415",
+                    "secondary-fixed-dim": "#cac6bf",
+                    "on-surface": "#e2e2e4",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#0c0e10",
+                    "secondary": "#cac6bf",
+                    "on-tertiary-fixed": "#1c1831",
+                    "inverse-primary": "#5f5e5e",
+                    "surface-container-highest": "#333537",
+                    "on-primary": "#313030"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "xl": "64px",
+                    "base": "8px",
+                    "container-max": "1200px",
+                    "md": "24px",
+                    "gutter": "24px",
+                    "sm": "12px",
+                    "lg": "40px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0d0d0d;
+            font-family: 'Inter', sans-serif;
+            color: #e2e2e4;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .light-leak {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(183, 177, 210, 0.08) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scroll-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-primary-container min-h-screen pb-xl">
+<!-- Decorative Atmosphere -->
+<div class="light-leak top-[-100px] left-[-100px]"></div>
+<div class="light-leak bottom-[-100px] right-[-100px]"></div>
+<!-- Top App Bar -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-gutter py-sm bg-transparent">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant flex items-center justify-center">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A high-end studio portrait of a young professional with soft cinematic lighting. The individual has a serene expression, reflecting a minimalist and calm aesthetic. The background is a deep matte charcoal, maintaining the luxury dark-mode theme of the application. The image is crisp, with natural skin textures and a sophisticated, fashionable look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVOk1Lnnx34HuPhD_KbvkyXulNz4MTEckJ1pe1SdG2yNcjs0rp58MLEAIsI1CcgUmrC3d3j-HH5eaqzqLV5I1OcnMGChhcd4IpVlLD55lQtalXR_I6qCXm6GuYf0ZWei7caHPPpHIGcS6w34M0FUvRB0NGndQgaKom57HyFg7fgPW9oa_q8n3kMr5rS66RDPN_MhX9jshq-G1-XmKldO7eyop6oODRRCL6R8NAm7n3g2wQzVXjQnBjrlbQtywCusg9DIy3GHu1zEM"/>
+</div>
+<span class="font-headline-md text-headline-md tracking-tighter text-on-surface">LUXE AI</span>
+</div>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</nav>
+<!-- Content Canvas -->
+<main class="pt-xl px-gutter space-y-lg max-w-md mx-auto">
+<!-- Section: Page Header -->
+<header class="mt-md">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Wardrobe Intelligence</h1>
+<p class="font-body-md text-on-surface-variant">Your AI-curated style ecosystem.</p>
+</header>
+<!-- Section 1: Daily Outfit Suggestion -->
+<section>
+<div class="glass rounded-xl overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<img alt="Daily Suggestion" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A meticulously styled flat-lay of a high-end Scandinavian outfit featuring a charcoal wool trench coat, a cream cashmere turtleneck sweater, and tailored dark trousers. The lighting is soft and natural, coming from the side to create gentle shadows and highlight the luxurious textures of the fabrics. The color palette is strictly neutral, conveying a sense of quiet intelligence and modern elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_RJylyUFEPbw6CYOzAW3hIM12OBThO_EqJsPvAaevs9V0eZrBogsvX8JXr0jzalJf9FXMPH3sLRW5zKM341Hskryomx2Id2ISWpJVCeeDhJ3h1-o-WvIaJrw2Trrm-SfYq2UPDO8_xJqHKQYcdsz8DfF-NTtS4TK_ZvaI9kJYrzxzxzk17TQ4U3CuXnX3zdGGpn2VmcsfAcak5T4vVMuw2jq_b7YTOPdNKL-CGB1VLJcU4cY_D-IyxuvexHTaEjPZLEMwjlHc4tg"/>
+<div class="absolute bottom-0 left-0 p-md z-20 w-full">
+<span class="font-label-sm text-label-sm bg-tertiary/10 text-tertiary px-sm py-xs rounded-full backdrop-blur-md mb-sm inline-block border border-tertiary/20">TODAY'S CURATION</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Scandinavian Neutral</h2>
+<p class="font-body-md text-on-surface-variant opacity-90">A charcoal trench and cashmere knit for the morning chill.</p>
+</div>
+</div>
+</section>
+<!-- Section 2: Recently Worn (Horizontal Carousel) -->
+<section class="space-y-sm">
+<div class="flex justify-between items-end">
+<h3 class="font-label-md text-label-md text-on-surface tracking-wider uppercase">Recently Worn</h3>
+<span class="font-label-sm text-label-sm text-tertiary">View History</span>
+</div>
+<div class="flex overflow-x-auto gap-md py-sm scroll-hide">
+<!-- Item 1 -->
+<div class="flex-shrink-0 flex flex-col items-center gap-xs">
+<div class="w-16 h-16 rounded-full glass p-xs ring-2 ring-tertiary/20 relative">
+<div class="absolute inset-0 rounded-full bg-tertiary/5 blur-md"></div>
+<img class="w-full h-full object-cover rounded-full" data-alt="A clean, isolated studio shot of a high-quality white cotton t-shirt. The fabric has a visible premium weight and texture. Lighting is bright and even, highlighting the crispness of the item. It is set against a soft, dark-mode friendly grey background with a subtle ambient lavender glow surrounding it." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG4HjNGaj90-RoiAytB1c0fCMEyHFS2xE3JMAkqfH6X6FCmMjV6dqke-kyQMHlxDeGC4Gs3pQTGXateKTuc-nN4QkcW7AqPHL0FxWypzjItSNWxoW45XgwLJg9VYLmxskbXZoEMapnrwR8feIIcQCPf8c2WTix0zksFGP_kY29RPVVtYe8DFA4CTpDYM6lFKPK2mdQrr1HU0hyGG_QUmDa3LA9xGEEWqd60Aj1LxPE-W3Pg1UchoQI0naQQoWMW8P9X_9mccDja6w"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">White Tee</span>
+</div>
+<!-- Item 2 -->
+<div class="flex-shrink-0 flex flex-col items-center gap-xs">
+<div class="w-16 h-16 rounded-full glass p-xs ring-2 ring-transparent">
+<img class="w-full h-full object-cover rounded-full" data-alt="A detailed close-up shot of a classic denim jacket in a deep indigo wash. The stitching and metal button details are sharp and clear. The lighting is cinematic, casting soft highlights on the denim grain. The aesthetic is rugged yet premium, fitting a luxury lifestyle management app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvmcKULLpdE8lyKgRQBSFS2EJO3T8tEaIfmx4fIBhpt3f4zv7TWTYkvGv3D8Ve23wmwCQ4hChd1xzrd_RKCl1MlcswSBqOAXgBfVjwNyL47KvC5Gcz9QwH1EDDq0jgjFexRBc2fBDlNNDq3Yc4kD1czQ-e6AY-3ot3-56nvIGtqGwYyJ2CkwsURfcZ_ZcRSZEy7076pwLiGGqu3Xtu4qxDU3OPQyQW-GGdgXEAm87Ofoeq51sbTn5md31lUU4GF07oeDqWIMHYqhs"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Denim</span>
+</div>
+<!-- Item 3 -->
+<div class="flex-shrink-0 flex flex-col items-center gap-xs">
+<div class="w-16 h-16 rounded-full glass p-xs ring-2 ring-transparent">
+<img class="w-full h-full object-cover rounded-full" data-alt="A professional product shot of classic blue denim jeans, folded neatly. The lighting emphasizes the texture and authentic indigo fade. The style is minimalist and high-end, intended for a sophisticated digital wardrobe interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuIXl6lWkHa0wzey53CQk3dFi20Jfb4QqxD4Zx9D8pTzSgSixnOPk3ow3KiF67EHQALkALU7I65AUzMI7x6WFwvPdwDiqFtymTuva6Gx3gHiS0AlhpFwy-_dF15ijM7rTBZKJsTWvQfVxZnZo0UXmk5NZvH7MaOzglrLVbeLaNGd5sVhorPhnFiXJyERuARHBrOqHw9jnabIwXnw3MC5dFODxR6TCuxyrHoCbeZE8I87Ekj2DC9xtGV8nsZxit4B3yBA8sKz8bPDg"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Blue Jeans</span>
+</div>
+<!-- Item 4 -->
+<div class="flex-shrink-0 flex flex-col items-center gap-xs">
+<div class="w-16 h-16 rounded-full glass p-xs ring-2 ring-transparent">
+<img class="w-full h-full object-cover rounded-full" data-alt="A studio photograph of a premium black cotton shirt with a subtle sheen. The garment is presented with elegant draping, lit by a soft top-light that defines its shape and high-quality construction. The background is dark and moody, reinforcing a sense of luxury and quiet intelligence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwoNyUIYcXjc6ccNFAEotvCTAGY2vKI9JlCu1l0P1w7_6h6KM6sjup7hqLiYS31fOKb359SAXAr3xF7UnHUszlE1tmq91DA0kqAiZqLayXmlkrm_-QpKbwRMK6-kItt8piZWEW4ArYybaN1K_arcW6cFuY4PRMEPFB1kO4rwbJALSWTjDiFaJWd8-6zEijpfIxj97daTdqpdWerVbAUB6OUVDAgTLBn4XnPNp9Ga--aUVLB8ZNCxE06oq99EVbdqBYuAtjYxhze0w"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Black Tee</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Laundry Status & Section 4: Items Needing Wash -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Laundry Intelligence Card -->
+<div class="glass rounded-xl p-md flex flex-col items-center justify-center text-center space-y-md border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary/5 rounded-full blur-3xl -mr-12 -mt-12"></div>
+<h3 class="font-label-md text-label-md text-on-surface tracking-wider uppercase self-start">Laundry Intelligence</h3>
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-white/5" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-tertiary transition-all duration-1000 ease-out" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="100" stroke-width="6"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">72%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Clean</span>
+</div>
+</div>
+<div class="w-full flex justify-between px-sm">
+<div class="text-left">
+<p class="font-headline-md text-headline-md text-on-surface">18</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Ready</p>
+</div>
+<div class="text-right">
+<p class="font-headline-md text-headline-md text-on-surface">7</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">In Wash</p>
+</div>
+</div>
+</div>
+<!-- Maintenance Grid -->
+<div class="space-y-sm">
+<h3 class="font-label-md text-label-md text-on-surface tracking-wider uppercase">Needs Cleaning</h3>
+<div class="grid grid-cols-2 gap-sm">
+<div class="glass rounded-lg p-sm flex flex-col gap-xs group">
+<div class="aspect-square rounded-md overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A high-end white linen shirt with delicate natural wrinkles, photographed in soft overcast lighting. The image emphasizes the organic texture of the fabric. The item is displayed as needing care, with a clean and professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZpkIKHxza8bCUi_iMMJGzQdOP2oUhQDB4Ucenku9kZF_fmxkV9_wNPmBiwm3Ijw_L68tgYmgjkH3FOs98Of4FHYJsnl8lbeyy3T74e4-zQ3FcUe-vTLZ-3xXFQ-YyOJMfy1f4aOL-d8eDLE3jxtnKLnhQIp6uxmZ6VD2dWREQxx35VvBIBs5OaVuDmn774WXV5Uo-fvoQ9ZNBPLoTkp9JcnQzqJPCmz0hIahRHrLUvqsPvcg6ut0EhvG4I5KsuLMwWOOVVQEjmMM"/>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface truncate">Linen Shirt</span>
+<span class="material-symbols-outlined text-xs text-error">water_drop</span>
+</div>
+</div>
+<div class="glass rounded-lg p-sm flex flex-col gap-xs">
+<div class="aspect-square rounded-md overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A premium red plaid flannel shirt folded against a dark minimalist background. The fabric's weave is sharply focused, with soft natural lighting bringing out the rich colors. The image is part of a digital wardrobe management interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKbqyIUpKDE_LrmS-znYcZfCesF-50evJ5iaAAq3AkJlMlZRBFKg34Cb4SMhPGHKVoRSF9aym65_7TBuXLdVUPQVqrYq4_WZnecpRmZ6EdZP2QsVsvlAh_9MYImB_748wpdWJGNsiyYGn1qU30GwZ6dwOXOE0k7_ZiNmj39nGe2ROxR7yGo04xX0EAtxMPMRxk7L95Q_0CO_g57mMithNQZev2bEaBpn8PIg8Z_Xq1vJnGXxTlcNhIMnnzevnSWwnOpPEIh1rlKKo"/>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface truncate">Flannel</span>
+<span class="material-symbols-outlined text-xs text-error">water_drop</span>
+</div>
+</div>
+</div>
+<button class="w-full py-sm glass rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">local_laundry_service</span>
+                    Request Cleaning
+                </button>
+</div>
+</section>
+<!-- Section 5: Wardrobe Statistics -->
+<section class="pb-md">
+<div class="glass rounded-xl p-md space-y-lg border-white/5">
+<h3 class="font-label-md text-label-md text-on-surface tracking-wider uppercase">Wardrobe Insights</h3>
+<div class="grid grid-cols-2 gap-lg">
+<div class="space-y-xs">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Wardrobe Value</p>
+<p class="font-headline-md text-headline-md text-on-surface">$4,850</p>
+</div>
+<div class="space-y-xs">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Utilization Rate</p>
+<div class="flex items-baseline gap-xs">
+<p class="font-headline-md text-headline-md text-on-surface">64%</p>
+<span class="text-tertiary material-symbols-outlined text-sm">trending_up</span>
+</div>
+</div>
+</div>
+<div class="space-y-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Color Dominance</p>
+<div class="flex h-4 w-full rounded-full overflow-hidden bg-surface-container">
+<div class="h-full bg-[#2A2A2A]" style="width: 45%" title="Charcoal 45%"></div>
+<div class="h-full bg-[#F5F5F0]" style="width: 32%" title="Cream 32%"></div>
+<div class="h-full bg-[#556B2F]" style="width: 23%" title="Olive 23%"></div>
+</div>
+<div class="flex flex-wrap gap-md justify-between">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-[#2A2A2A]"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Charcoal 45%</span>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-[#F5F5F0]"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cream 32%</span>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-[#556B2F]"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Olive 23%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-md left-0 right-0 mx-auto w-[calc(100%-48px)] max-w-md z-50 flex justify-around items-center py-base px-sm bg-surface-container/60 backdrop-blur-2xl border border-white/10 rounded-full shadow-lg shadow-tertiary/5">
+<!-- Dashboard (Active) -->
+<a class="flex items-center justify-center text-on-surface bg-white/10 rounded-full p-2 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</a>
+<!-- Inventory -->
+<a class="flex items-center justify-center text-on-surface-variant/60 p-2 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+</a>
+<!-- FAB Quick Add -->
+<button class="flex items-center justify-center bg-on-surface text-primary-container rounded-full p-4 -mt-12 shadow-2xl shadow-tertiary/20 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined font-bold" data-icon="add">add</span>
+</button>
+<!-- Layers -->
+<a class="flex items-center justify-center text-on-surface-variant/60 p-2 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center justify-center text-on-surface-variant/60 p-2 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions and effects
+        document.querySelectorAll('.glass').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simulating some dynamic behavior for the progress circle
+        window.addEventListener('load', () => {
+            const circle = document.querySelector('circle[stroke-dasharray]');
+            if (circle) {
+                // Initial state was 100 offset
+                setTimeout(() => {
+                    circle.style.strokeDashoffset = '100'; // Already set in HTML
+                }, 100);
+            }
+        });
+    </script>
+</body></html>

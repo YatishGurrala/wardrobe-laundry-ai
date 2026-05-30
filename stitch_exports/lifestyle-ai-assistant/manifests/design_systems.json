@@ -1,0 +1,145 @@
+{
+  "designSystems": [
+    {
+      "designSystem": {
+        "displayName": "Serene Intelligence",
+        "styleGuidelines": "## Brand & Style\n\nThe design system is anchored in a philosophy of \"Quiet Intelligence.\" It aims to reduce the cognitive load of lifestyle management by utilizing a **Minimalist** aesthetic infused with **Glassmorphism**. The target audience—young professionals and students—requires a tool that feels like a high-end physical planner crossed with a personal concierge.\n\nThe visual narrative is driven by generous whitespace (or \"dark space\"), soft light-leaks, and fluid transitions that mimic organic movement. By prioritizing Apple-level clean aesthetics, the UI recedes to let the user's content and AI insights take center stage. The emotional response should be one of calm, clarity, and premium curation, avoiding any jarring enterprise or high-energy gaming visuals.\n\n## Layout & Spacing\n\nThe layout follows a **fluid grid** model with a strict 8px base unit. This ensures a mathematical harmony across all components.\n\n- **Desktop:** A 12-column grid with wide 40px margins and 24px gutters to allow for \"Pinterest-style\" card arrays.\n- **Mobile:** A single-column layout with 24px safe-area margins.\n- **Spacing Philosophy:** We favor \"airy\" layouts. Padding within cards and containers should lean towards the `lg` (40px) range to reinforce the premium, unhurried brand feel. Elements are grouped using proximity, reducing the need for intrusive physical dividers.\n\n## Elevation & Depth\n\nHierarchy is established through **Glassmorphism and Tonal layering** rather than traditional heavy shadows.\n\n1.  **Base Layer:** Solid Matte Black (#0D0D0D).\n2.  **Surface Layer:** Semi-transparent containers with a `24px` backdrop blur and a `1px` inner border (stroke) at 10% white opacity.\n3.  **Raised Layer:** Used for active modals or hovering cards. These utilize a soft, ambient glow of the Tertiary Lavender (#B7B1D2) at 5% opacity to simulate light passing through glass.\n4.  **Floating Elements:** Primary Action Buttons use a high-contrast Soft White fill to appear physically \"above\" the glass layers.\n\n## Components\n\n### Buttons\nPrimary buttons are solid Soft White with Matte Black text, featuring a subtle `0.5rem` radius. Secondary buttons utilize the glassmorphic style: a semi-transparent background with a 1px border.\n\n### Cards\nCards are the primary vehicle for content. They must feature a backdrop blur of 20px and a 1px white stroke at 10% opacity. For \"LifeStyle AI\" insights, cards may include a very soft radial gradient of Muted Lavender in the top-right corner.\n\n### Input Fields\nInputs are minimal, featuring only a bottom border in Soft White (20% opacity). On focus, the border becomes the Elegant Blue accent with a very subtle outer glow.\n\n### Chips & Tags\nUsed for categorizing lifestyle pillars (e.g., Health, Work, Social). These are pill-shaped, using the Warm Beige at 10% opacity with centered text in Soft White.\n\n### Navigation Bar\nA floating bottom-tab bar or a glassmorphic side-rail. The active state is indicated by a small Blue dot or a change in icon weight, avoiding heavy backgrounds to keep the UI light.\n\n### Progress Indicators\nThin, elegant lines using the Accent Blue. For \"lifestyle goals,\" use circular progress rings with a Soft White track and Blue active segment.",
+        "theme": {
+          "bodyFont": "INTER",
+          "bodyFontFamily": "Inter",
+          "colorMode": "DARK",
+          "colorVariant": "FIDELITY",
+          "customColor": "#0d0d0d",
+          "designMd": "---\nname: Serene Intelligence\ncolors:\n  surface: '#111415'\n  surface-dim: '#111415'\n  surface-bright: '#37393b'\n  surface-container-lowest: '#0c0e10'\n  surface-container-low: '#1a1c1d'\n  surface-container: '#1e2021'\n  surface-container-high: '#282a2c'\n  surface-container-highest: '#333537'\n  on-surface: '#e2e2e4'\n  on-surface-variant: '#c4c7c7'\n  inverse-surface: '#e2e2e4'\n  inverse-on-surface: '#2f3132'\n  outline: '#8e9192'\n  outline-variant: '#444748'\n  surface-tint: '#c9c6c5'\n  primary: '#c9c6c5'\n  on-primary: '#313030'\n  primary-container: '#0d0d0d'\n  on-primary-container: '#7c7a7a'\n  inverse-primary: '#5f5e5e'\n  secondary: '#cac6bf'\n  on-secondary: '#31302c'\n  secondary-container: '#484742'\n  on-secondary-container: '#b8b5ae'\n  tertiary: '#c9c2e4'\n  on-tertiary: '#312d47'\n  tertiary-container: '#0d0922'\n  on-tertiary-container: '#7c7795'\n  error: '#ffb4ab'\n  on-error: '#690005'\n  error-container: '#93000a'\n  on-error-container: '#ffdad6'\n  primary-fixed: '#e5e2e1'\n  primary-fixed-dim: '#c9c6c5'\n  on-primary-fixed: '#1c1b1b'\n  on-primary-fixed-variant: '#474646'\n  secondary-fixed: '#e6e2db'\n  secondary-fixed-dim: '#cac6bf'\n  on-secondary-fixed: '#1c1c17'\n  on-secondary-fixed-variant: '#484742'\n  tertiary-fixed: '#e5deff'\n  tertiary-fixed-dim: '#c9c2e4'\n  on-tertiary-fixed: '#1c1831'\n  on-tertiary-fixed-variant: '#47435f'\n  background: '#111415'\n  on-background: '#e2e2e4'\n  surface-variant: '#333537'\ntypography:\n  display-lg:\n    fontFamily: Inter\n    fontSize: 48px\n    fontWeight: '600'\n    lineHeight: 56px\n    letterSpacing: -0.02em\n  headline-lg:\n    fontFamily: Inter\n    fontSize: 32px\n    fontWeight: '600'\n    lineHeight: 40px\n    letterSpacing: -0.01em\n  headline-lg-mobile:\n    fontFamily: Inter\n    fontSize: 28px\n    fontWeight: '600'\n    lineHeight: 36px\n    letterSpacing: -0.01em\n  headline-md:\n    fontFamily: Inter\n    fontSize: 24px\n    fontWeight: '500'\n    lineHeight: 32px\n  body-lg:\n    fontFamily: Inter\n    fontSize: 18px\n    fontWeight: '400'\n    lineHeight: 28px\n  body-md:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 24px\n  label-md:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '500'\n    lineHeight: 20px\n    letterSpacing: 0.01em\n  label-sm:\n    fontFamily: Inter\n    fontSize: 12px\n    fontWeight: '600'\n    lineHeight: 16px\n    letterSpacing: 0.05em\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  base: 8px\n  xs: 4px\n  sm: 12px\n  md: 24px\n  lg: 40px\n  xl: 64px\n  container-max: 1200px\n  gutter: 24px\n---\n\n## Brand & Style\n\nThe design system is anchored in a philosophy of \"Quiet Intelligence.\" It aims to reduce the cognitive load of lifestyle management by utilizing a **Minimalist** aesthetic infused with **Glassmorphism**. The target audience—young professionals and students—requires a tool that feels like a high-end physical planner crossed with a personal concierge.\n\nThe visual narrative is driven by generous whitespace (or \"dark space\"), soft light-leaks, and fluid transitions that mimic organic movement. By prioritizing Apple-level clean aesthetics, the UI recedes to let the user's content and AI insights take center stage. The emotional response should be one of calm, clarity, and premium curation, avoiding any jarring enterprise or high-energy gaming visuals.\n\n## Colors\n\nThis design system utilizes a **dark-mode default** palette to create a sophisticated, low-glare environment. The primary color is a deep, Matte Black (#0D0D0D), serving as the canvas for the entire experience. \n\n- **Primary Canvas:** Matte Black (#0D0D0D) creates depth and contrast.\n- **Secondary Accents:** Warm Beige (#E5E1DA) is used for high-level surfaces and cards to introduce an organic, lifestyle-focused warmth.\n- **Tertiary/Mood:** Muted Lavender (#B7B1D2) is applied sparingly for AI-driven suggestions or soft gradients to evoke a sense of calm intelligence.\n- **Typography & Details:** Soft White (#F5F5F7) ensures high legibility without the harshness of pure white.\n- **Functional Accent:** Elegant Blue (#4A90E2) is reserved for primary actions, progress indicators, and active states.\n\n## Typography\n\nThe typography in the design system relies exclusively on **Inter** for its systematic, modern, and neutral characteristics. The hierarchy is intentionally dramatic, using large Display sizes for AI-generated greetings or daily focuses, and tight, uppercase labels for categorization.\n\nFor mobile devices, Headline sizes are scaled down to ensure content remains the priority and horizontal overflow is avoided. We prioritize medium weights (500-600) for headers to maintain visibility against dark, glassmorphic backgrounds.\n\n## Layout & Spacing\n\nThe layout follows a **fluid grid** model with a strict 8px base unit. This ensures a mathematical harmony across all components.\n\n- **Desktop:** A 12-column grid with wide 40px margins and 24px gutters to allow for \"Pinterest-style\" card arrays.\n- **Mobile:** A single-column layout with 24px safe-area margins.\n- **Spacing Philosophy:** We favor \"airy\" layouts. Padding within cards and containers should lean towards the `lg` (40px) range to reinforce the premium, unhurried brand feel. Elements are grouped using proximity, reducing the need for intrusive physical dividers.\n\n## Elevation & Depth\n\nHierarchy is established through **Glassmorphism and Tonal layering** rather than traditional heavy shadows.\n\n1.  **Base Layer:** Solid Matte Black (#0D0D0D).\n2.  **Surface Layer:** Semi-transparent containers with a `24px` backdrop blur and a `1px` inner border (stroke) at 10% white opacity.\n3.  **Raised Layer:** Used for active modals or hovering cards. These utilize a soft, ambient glow of the Tertiary Lavender (#B7B1D2) at 5% opacity to simulate light passing through glass.\n4.  **Floating Elements:** Primary Action Buttons use a high-contrast Soft White fill to appear physically \"above\" the glass layers.\n\n## Shapes\n\nThe design system uses a **Rounded (Level 2)** shape language to maintain a balance between professional structure and organic softness.\n\n- **Standard Components:** Buttons, input fields, and small tags use a `0.5rem` (8px) radius.\n- **Main Containers:** Lifestyle cards and main content areas use `1rem` (16px) for `rounded-lg`.\n- **Feature Cards:** Hero elements or AI insight cards use `1.5rem` (24px) for `rounded-xl` to create a \"pocket-like\" feel that is friendly and tactile.\n\n## Components\n\n### Buttons\nPrimary buttons are solid Soft White with Matte Black text, featuring a subtle `0.5rem` radius. Secondary buttons utilize the glassmorphic style: a semi-transparent background with a 1px border.\n\n### Cards\nCards are the primary vehicle for content. They must feature a backdrop blur of 20px and a 1px white stroke at 10% opacity. For \"LifeStyle AI\" insights, cards may include a very soft radial gradient of Muted Lavender in the top-right corner.\n\n### Input Fields\nInputs are minimal, featuring only a bottom border in Soft White (20% opacity). On focus, the border becomes the Elegant Blue accent with a very subtle outer glow.\n\n### Chips & Tags\nUsed for categorizing lifestyle pillars (e.g., Health, Work, Social). These are pill-shaped, using the Warm Beige at 10% opacity with centered text in Soft White.\n\n### Navigation Bar\nA floating bottom-tab bar or a glassmorphic side-rail. The active state is indicated by a small Blue dot or a change in icon weight, avoiding heavy backgrounds to keep the UI light.\n\n### Progress Indicators\nThin, elegant lines using the Accent Blue. For \"lifestyle goals,\" use circular progress rings with a Soft White track and Blue active segment.",
+          "font": "INTER",
+          "headlineFont": "INTER",
+          "headlineFontFamily": "Inter",
+          "labelFont": "INTER",
+          "labelFontFamily": "Inter",
+          "namedColors": {
+            "background": "#111415",
+            "error": "#ffb4ab",
+            "error_container": "#93000a",
+            "inverse_on_surface": "#2f3132",
+            "inverse_primary": "#5f5e5e",
+            "inverse_surface": "#e2e2e4",
+            "on_background": "#e2e2e4",
+            "on_error": "#690005",
+            "on_error_container": "#ffdad6",
+            "on_primary": "#313030",
+            "on_primary_container": "#7c7a7a",
+            "on_primary_fixed": "#1c1b1b",
+            "on_primary_fixed_variant": "#474646",
+            "on_secondary": "#31302c",
+            "on_secondary_container": "#b8b5ae",
+            "on_secondary_fixed": "#1c1c17",
+            "on_secondary_fixed_variant": "#484742",
+            "on_surface": "#e2e2e4",
+            "on_surface_variant": "#c4c7c7",
+            "on_tertiary": "#312d47",
+            "on_tertiary_container": "#7c7795",
+            "on_tertiary_fixed": "#1c1831",
+            "on_tertiary_fixed_variant": "#47435f",
+            "outline": "#8e9192",
+            "outline_variant": "#444748",
+            "primary": "#c9c6c5",
+            "primary_container": "#0d0d0d",
+            "primary_fixed": "#e5e2e1",
+            "primary_fixed_dim": "#c9c6c5",
+            "secondary": "#cac6bf",
+            "secondary_container": "#484742",
+            "secondary_fixed": "#e6e2db",
+            "secondary_fixed_dim": "#cac6bf",
+            "surface": "#111415",
+            "surface_bright": "#37393b",
+            "surface_container": "#1e2021",
+            "surface_container_high": "#282a2c",
+            "surface_container_highest": "#333537",
+            "surface_container_low": "#1a1c1d",
+            "surface_container_lowest": "#0c0e10",
+            "surface_dim": "#111415",
+            "surface_tint": "#c9c6c5",
+            "surface_variant": "#333537",
+            "tertiary": "#c9c2e4",
+            "tertiary_container": "#0d0922",
+            "tertiary_fixed": "#e5deff",
+            "tertiary_fixed_dim": "#c9c2e4"
+          },
+          "overrideNeutralColor": "#f5f5f7",
+          "overridePrimaryColor": "#0d0d0d",
+          "overrideSecondaryColor": "#e5e1da",
+          "overrideTertiaryColor": "#b7b1d2",
+          "roundness": "ROUND_EIGHT",
+          "spacing": {
+            "base": "8px",
+            "container-max": "1200px",
+            "gutter": "24px",
+            "lg": "40px",
+            "md": "24px",
+            "sm": "12px",
+            "xl": "64px",
+            "xs": "4px"
+          },
+          "spacingScale": 2,
+          "typography": {
+            "body-lg": {
+              "fontFamily": "Inter",
+              "fontSize": "18px",
+              "fontWeight": "400",
+              "lineHeight": "28px"
+            },
+            "body-md": {
+              "fontFamily": "Inter",
+              "fontSize": "16px",
+              "fontWeight": "400",
+              "lineHeight": "24px"
+            },
+            "display-lg": {
+              "fontFamily": "Inter",
+              "fontSize": "48px",
+              "fontWeight": "600",
+              "letterSpacing": "-0.02em",
+              "lineHeight": "56px"
+            },
+            "headline-lg": {
+              "fontFamily": "Inter",
+              "fontSize": "32px",
+              "fontWeight": "600",
+              "letterSpacing": "-0.01em",
+              "lineHeight": "40px"
+            },
+            "headline-lg-mobile": {
+              "fontFamily": "Inter",
+              "fontSize": "28px",
+              "fontWeight": "600",
+              "letterSpacing": "-0.01em",
+              "lineHeight": "36px"
+            },
+            "headline-md": {
+              "fontFamily": "Inter",
+              "fontSize": "24px",
+              "fontWeight": "500",
+              "lineHeight": "32px"
+            },
+            "label-md": {
+              "fontFamily": "Inter",
+              "fontSize": "14px",
+              "fontWeight": "500",
+              "letterSpacing": "0.01em",
+              "lineHeight": "20px"
+            },
+            "label-sm": {
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": "600",
+              "letterSpacing": "0.05em",
+              "lineHeight": "16px"
+            }
+          }
+        }
+      },
+      "name": "assets/40f89e151b9d4554accf3ce9e3664431",
+      "version": "1"
+    }
+  ]
+}
